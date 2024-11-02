@@ -1,106 +1,198 @@
 <script setup lang="ts">
 import { ref } from "vue";
-import type { Node, Edge } from "@vue-flow/core";
-import { VueFlow } from "@vue-flow/core";
+import { VueFlow, useVueFlow } from "@vue-flow/core";
+import { Background } from "@vue-flow/background";
+import { ControlButton, Controls } from "@vue-flow/controls";
+import { MiniMap } from "@vue-flow/minimap";
+import { initialEdges, initialNodes } from "./data.js";
+import Icon from "./Icon.vue";
 
-// these components are only shown as examples of how to use a custom node or edge
-// you can find many examples of how to create these custom components in the examples page of the docs
-import SpecialNode from "./SpecialNode.vue";
-import SpecialEdge from "./SpecialEdge.vue";
+const { onInit, onNodeDragStop, onConnect, addEdges, setViewport, toObject } =
+  useVueFlow();
 
-// these are our nodes
-const nodes = ref<Node[]>([
-  // an input node, specified by using `type: 'input'`
-  {
-    id: "1",
-    type: "input",
-    position: { x: 250, y: 5 },
-    // all nodes can have a data object containing any data you want to pass to the node
-    // a label can property can be used for default nodes
-    data: { label: "Node 1" },
-  },
+const nodes = ref(initialNodes);
 
-  // default node, you can omit `type: 'default'` as it's the fallback type
-  {
-    id: "2",
-    position: { x: 100, y: 100 },
-    data: { label: "Node 2" },
-  },
+const edges = ref(initialEdges);
 
-  // An output node, specified by using `type: 'output'`
-  {
-    id: "3",
-    type: "output",
-    position: { x: 400, y: 200 },
-    data: { label: "Node 3" },
-  },
+// our dark mode toggle flag
+const dark = ref(false);
 
-  // this is a custom node
-  // we set it by using a custom type name we choose, in this example `special`
-  // the name can be freely chosen, there are no restrictions as long as it's a string
-  {
-    id: "4",
-    type: "special", // <-- this is the custom node type name
-    position: { x: 400, y: 200 },
-    data: {
-      label: "Node 4",
-      hello: "world",
-    },
-  },
-]);
+onInit((vueFlowInstance) => {
+  // instance is the same as the return of `useVueFlow`
+  vueFlowInstance.fitView();
+});
 
-// these are our edges
-const edges = ref<Edge[]>([
-  // default bezier edge
-  // consists of an edge id, source node id and target node id
-  {
-    id: "e1->2",
-    source: "1",
-    target: "2",
-  },
+onNodeDragStop(({ event, nodes, node }) => {
+  console.log("Node Drag Stop", { event, nodes, node });
+});
 
-  // set `animated: true` to create an animated edge path
-  {
-    id: "e2->3",
-    source: "2",
-    target: "3",
-    animated: true,
-  },
+onConnect((connection) => {
+  addEdges(connection);
+});
 
-  // a custom edge, specified by using a custom type name
-  // we choose `type: 'special'` for this example
-  {
-    id: "e3->4",
-    type: "special",
-    source: "3",
-    target: "4",
+function updatePos() {
+  nodes.value = nodes.value.map((node: any) => {
+    return {
+      ...node,
+      position: {
+        x: Math.random() * 400,
+        y: Math.random() * 400,
+      },
+    };
+  });
+}
 
-    // all edges can have a data object containing any data you want to pass to the edge
-    data: {
-      hello: "world",
-    },
-  },
-]);
+function logToObject() {
+  console.log(toObject());
+}
+
+function resetTransform() {
+  setViewport({ x: 0, y: 0, zoom: 1 });
+}
+
+function toggleDarkMode() {
+  dark.value = !dark.value;
+}
 </script>
 
 <template>
-  <VueFlow :nodes="nodes" :edges="edges">
-    <!-- bind your custom node type to a component by using slots, slot names are always `node-<type>` -->
-    <template #node-special="specialNodeProps">
-      <SpecialNode v-bind="specialNodeProps" />
-    </template>
+  <div class="w-[720px] h-[500px] animate-slide-up">
+    <VueFlow
+      :nodes="nodes"
+      :edges="edges"
+      :class="{ dark }"
+      class="basic-flow"
+      :default-viewport="{ zoom: 1.5 }"
+      :min-zoom="0.2"
+      :max-zoom="4"
+    >
+      <Background pattern-color="#aaa" :gap="16" />
 
-    <!-- bind your custom edge type to a component by using slots, slot names are always `edge-<type>` -->
-    <template #edge-special="specialEdgeProps">
-      <SpecialEdge v-bind="specialEdgeProps" />
-    </template>
-  </VueFlow>
+      <!-- <MiniMap /> -->
+
+      <Controls position="top-left">
+        <ControlButton title="Reset Transform" @click="resetTransform">
+          <Icon name="reset" />
+        </ControlButton>
+
+        <ControlButton title="Shuffle Node Positions" @click="updatePos">
+          <Icon name="update" />
+        </ControlButton>
+
+        <ControlButton title="Toggle Dark Mode" @click="toggleDarkMode">
+          <Icon v-if="dark" name="sun" />
+          <Icon v-else name="moon" />
+        </ControlButton>
+
+        <ControlButton title="Log `toObject`" @click="logToObject">
+          <Icon name="log" />
+        </ControlButton>
+      </Controls>
+    </VueFlow>
+  </div>
+  <div class="flex w-[720px] animate-slide-up flex-wrap gap-4 mt-4">
+    <img
+      src="https://img.shields.io/badge/php-%23777BB4.svg?style=flat&logo=php&logoColor=white"
+      alt="PHP"
+      class="cursor-pointer"
+    />
+    <img
+      src="https://img.shields.io/badge/python-3670A0?style=flat&logo=python&logoColor=ffdd54"
+      alt="Python"
+      class="cursor-pointer"
+    />
+    <img
+      src="https://img.shields.io/badge/typescript-%23007ACC.svg?style=flat&logo=typescript&logoColor=white"
+      alt="TypeScript"
+      class="cursor-pointer"
+    />
+    <img
+      src="https://img.shields.io/badge/dart-%230175C2.svg?style=flat&logo=dart&logoColor=white"
+      alt="Dart"
+    />
+    <img
+      src="https://img.shields.io/badge/javascript-%23323330.svg?style=flat&logo=javascript&logoColor=%23F7DF1E"
+      alt="JavaScript"
+    />
+    <img
+      src="https://img.shields.io/badge/GoogleCloud-%234285F4.svg?style=flat&logo=google-cloud&logoColor=white"
+      alt="Google Cloud"
+    />
+    <img
+      src="https://img.shields.io/badge/vercel-%23000000.svg?style=flat&logo=vercel&logoColor=white"
+      alt="Vercel"
+    />
+    <img
+      src="https://img.shields.io/badge/DigitalOcean-%230167ff.svg?style=flat&logo=digitalOcean&logoColor=white"
+      alt="DigitalOcean"
+    />
+    <img
+      src="https://img.shields.io/badge/AWS-%23FF9900.svg?style=flat&logo=amazon-aws&logoColor=white"
+      alt="AWS"
+    />
+    <img
+      src="https://img.shields.io/badge/azure-%230072C6.svg?style=flat&logo=microsoftazure&logoColor=white"
+      alt="Azure"
+    />
+    <img
+      src="https://img.shields.io/badge/firebase-%23039BE5.svg?style=flat&logo=firebase"
+      alt="Firebase"
+    />
+    <img
+      src="https://img.shields.io/badge/vue.js-%2335495e.svg?style=flat&logo=vuedotjs&logoColor=%234FC08D"
+      alt="Vue.js"
+    />
+    <img
+      src="https://img.shields.io/badge/django-%23092E20.svg?style=flat&logo=django&logoColor=white"
+      alt="Django"
+    />
+    <img
+      src="https://img.shields.io/badge/Flutter-%2302569B.svg?style=flat&logo=Flutter&logoColor=white"
+      alt="Flutter"
+    />
+    <img
+      src="https://img.shields.io/badge/laravel-%23FF2D20.svg?style=flat&logo=laravel&logoColor=white"
+      alt="Laravel"
+    />
+    <img
+      src="https://img.shields.io/badge/Next-black?style=flat&logo=next.js&logoColor=white"
+      alt="Next JS"
+    />
+    <img
+      src="https://img.shields.io/badge/react-%2320232a.svg?style=flat&logo=react&logoColor=%2361DAFB"
+      alt="React"
+    />
+    <img
+      src="https://img.shields.io/badge/apache-%23D42029.svg?style=flat&logo=apache&logoColor=white"
+      alt="Apache"
+    />
+    <img
+      src="https://img.shields.io/badge/nginx-%23009639.svg?style=flat&logo=nginx&logoColor=white"
+      alt="Nginx"
+    />
+    <img
+      src="https://img.shields.io/badge/gunicorn-%298729.svg?style=flat&logo=gunicorn&logoColor=white"
+      alt="Gunicorn"
+    />
+    <img
+      src="https://img.shields.io/badge/postgres-%23316192.svg?style=flat&logo=postgresql&logoColor=white"
+      alt="Postgres"
+    />
+    <img
+      src="https://img.shields.io/badge/redis-%23DD0031.svg?style=flat&logo=redis&logoColor=white"
+      alt="Redis"
+    />
+    <img
+      src="https://img.shields.io/badge/MongoDB-%234ea94b.svg?style=flat&logo=mongodb&logoColor=white"
+      alt="MongoDB"
+    />
+    <img
+      src="https://img.shields.io/badge/firebase-a08021?style=flat&logo=firebase&logoColor=ffcd34"
+      alt="Firebase"
+    />
+    <img
+      src="https://img.shields.io/badge/github-%23121011.svg?style=flat&logo=github&logoColor=white"
+      alt="GitHub"
+    />
+  </div>
 </template>
-
-<style>
-/* import the necessary styles for Vue Flow to work */
-@import "@vue-flow/core/dist/style.css";
-
-/* import the default theme, this is optional but generally recommended */
-@import "@vue-flow/core/dist/theme-default.css";
-</style>

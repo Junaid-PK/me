@@ -102,19 +102,11 @@ defineExpose({
       <div class="relative max-w-[720px] mx-auto px-4 py-32 shadow-sm">
         <HeroSection :is-visible="isVisible" />
 
-        <section id="skills" class="mb-32">
+        <section id="skills" class="mb-32 h-full m-0">
           <h2 class="text-3xl font-semibold mb-12 text-center">
             Technical Expertise
           </h2>
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <SkillCard
-              v-for="(skill, index) in skills"
-              :key="skill.name"
-              v-bind="skill"
-              :delay="index * 100"
-              :is-visible="isVisible"
-            />
-          </div>
+          <SkillCard />
         </section>
 
         <BlogSection :posts="blogPosts" :is-visible="isVisible" />
