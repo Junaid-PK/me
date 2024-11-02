@@ -6,6 +6,7 @@ import ProjectCard from "./components/ProjectCard.vue";
 import ContactSection from "./components/ContactSection.vue";
 import BlogSection from "./components/BlogSection.vue";
 import ThemeToggle from "./components/ThemeToggle.vue";
+import About from "./components/About.vue";
 
 const isVisible = ref(false);
 
@@ -101,7 +102,10 @@ defineExpose({
 
       <div class="relative max-w-[720px] mx-auto px-4 py-32 shadow-sm">
         <HeroSection :is-visible="isVisible" />
-
+        <section id="skills" class="mb-32 h-full m-0">
+          <h2 class="text-3xl font-semibold mb-12 text-center">About me</h2>
+          <About />
+        </section>
         <section id="skills" class="mb-32 h-full m-0">
           <h2 class="text-3xl font-semibold mb-12 text-center">
             Technical Expertise
