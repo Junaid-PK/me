@@ -3,9 +3,9 @@ import { ref } from "vue";
 import { VueFlow, useVueFlow } from "@vue-flow/core";
 import { Background } from "@vue-flow/background";
 import { ControlButton, Controls } from "@vue-flow/controls";
-import { MiniMap } from "@vue-flow/minimap";
-import { initialEdges, initialNodes } from "./data.js";
+import { initialEdges, initialNodes, skillImages } from "./data.js";
 import Icon from "./Icon.vue";
+import Skills from "./Skills.vue";
 
 const { onInit, onNodeDragStop, onConnect, addEdges, setViewport, toObject } =
   useVueFlow();
@@ -90,109 +90,14 @@ function toggleDarkMode() {
       </Controls>
     </VueFlow>
   </div>
-  <div class="flex w-[720px] animate-slide-up flex-wrap gap-4 mt-4">
-    <img
-      src="https://img.shields.io/badge/php-%23777BB4.svg?style=flat&logo=php&logoColor=white"
-      alt="PHP"
-      class="cursor-pointer"
-    />
-    <img
-      src="https://img.shields.io/badge/python-3670A0?style=flat&logo=python&logoColor=ffdd54"
-      alt="Python"
-      class="cursor-pointer"
-    />
-    <img
-      src="https://img.shields.io/badge/typescript-%23007ACC.svg?style=flat&logo=typescript&logoColor=white"
-      alt="TypeScript"
-      class="cursor-pointer"
-    />
-    <img
-      src="https://img.shields.io/badge/dart-%230175C2.svg?style=flat&logo=dart&logoColor=white"
-      alt="Dart"
-    />
-    <img
-      src="https://img.shields.io/badge/javascript-%23323330.svg?style=flat&logo=javascript&logoColor=%23F7DF1E"
-      alt="JavaScript"
-    />
-    <img
-      src="https://img.shields.io/badge/GoogleCloud-%234285F4.svg?style=flat&logo=google-cloud&logoColor=white"
-      alt="Google Cloud"
-    />
-    <img
-      src="https://img.shields.io/badge/vercel-%23000000.svg?style=flat&logo=vercel&logoColor=white"
-      alt="Vercel"
-    />
-    <img
-      src="https://img.shields.io/badge/DigitalOcean-%230167ff.svg?style=flat&logo=digitalOcean&logoColor=white"
-      alt="DigitalOcean"
-    />
-    <img
-      src="https://img.shields.io/badge/AWS-%23FF9900.svg?style=flat&logo=amazon-aws&logoColor=white"
-      alt="AWS"
-    />
-    <img
-      src="https://img.shields.io/badge/azure-%230072C6.svg?style=flat&logo=microsoftazure&logoColor=white"
-      alt="Azure"
-    />
-    <img
-      src="https://img.shields.io/badge/firebase-%23039BE5.svg?style=flat&logo=firebase"
-      alt="Firebase"
-    />
-    <img
-      src="https://img.shields.io/badge/vue.js-%2335495e.svg?style=flat&logo=vuedotjs&logoColor=%234FC08D"
-      alt="Vue.js"
-    />
-    <img
-      src="https://img.shields.io/badge/django-%23092E20.svg?style=flat&logo=django&logoColor=white"
-      alt="Django"
-    />
-    <img
-      src="https://img.shields.io/badge/Flutter-%2302569B.svg?style=flat&logo=Flutter&logoColor=white"
-      alt="Flutter"
-    />
-    <img
-      src="https://img.shields.io/badge/laravel-%23FF2D20.svg?style=flat&logo=laravel&logoColor=white"
-      alt="Laravel"
-    />
-    <img
-      src="https://img.shields.io/badge/Next-black?style=flat&logo=next.js&logoColor=white"
-      alt="Next JS"
-    />
-    <img
-      src="https://img.shields.io/badge/react-%2320232a.svg?style=flat&logo=react&logoColor=%2361DAFB"
-      alt="React"
-    />
-    <img
-      src="https://img.shields.io/badge/apache-%23D42029.svg?style=flat&logo=apache&logoColor=white"
-      alt="Apache"
-    />
-    <img
-      src="https://img.shields.io/badge/nginx-%23009639.svg?style=flat&logo=nginx&logoColor=white"
-      alt="Nginx"
-    />
-    <img
-      src="https://img.shields.io/badge/gunicorn-%298729.svg?style=flat&logo=gunicorn&logoColor=white"
-      alt="Gunicorn"
-    />
-    <img
-      src="https://img.shields.io/badge/postgres-%23316192.svg?style=flat&logo=postgresql&logoColor=white"
-      alt="Postgres"
-    />
-    <img
-      src="https://img.shields.io/badge/redis-%23DD0031.svg?style=flat&logo=redis&logoColor=white"
-      alt="Redis"
-    />
-    <img
-      src="https://img.shields.io/badge/MongoDB-%234ea94b.svg?style=flat&logo=mongodb&logoColor=white"
-      alt="MongoDB"
-    />
-    <img
-      src="https://img.shields.io/badge/firebase-a08021?style=flat&logo=firebase&logoColor=ffcd34"
-      alt="Firebase"
-    />
-    <img
-      src="https://img.shields.io/badge/github-%23121011.svg?style=flat&logo=github&logoColor=white"
-      alt="GitHub"
+  <div
+    class="flex w-[720px] animate-slide-up flex-wrap gap-4 mt-4 items-center justify-center"
+  >
+    <Skills
+      v-for="(image, index) in skillImages"
+      :key="index"
+      :src="image.src"
+      :alt="image.alt"
     />
   </div>
 </template>

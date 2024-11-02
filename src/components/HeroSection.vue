@@ -1,17 +1,31 @@
 <script setup lang="ts">
+import { ref, onMounted } from 'vue';
+import quotesData from './quotes.json';
 defineProps<{
   isVisible: boolean;
 }>();
+
+const quote = ref('');
+
+onMounted(() => {
+  try {
+    const randomIndex = Math.floor(Math.random() * quotesData.quotes.length);
+    const randomQuote = quotesData.quotes[randomIndex];
+    quote.value = `"${randomQuote.quote}" - ${randomQuote.source}`;
+  } catch (error) {
+    console.error('Error selecting quote:', error);
+    quote.value = 'Failed to load quote.';
+  }
+});
 </script>
 
 <template>
   <section
-    class="text-center mb-32 transition-all duration-1000 transform relative border border-dashed border-neutral-900 p-8 rounded-sm"
+    class="text-center transition-all duration-1000 transform relative border border-dashed border-neutral-900 p-8 rounded-sm"
     :class="
       isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
     "
   >
-    <!-- card -->
     <div class="flex-col">
       <div class="flex border">
         <img
@@ -53,5 +67,14 @@ defineProps<{
         </a>
       </div>
     </div>
+  </section>
+  <section class="mb-32">
+    <div class="text-center mt-8 text-muted-foreground text-sm italic">
+        <p>
+        <blockquote>
+          {{ quote }}
+        </blockquote>
+        </p>
+      </div>
   </section>
 </template>
