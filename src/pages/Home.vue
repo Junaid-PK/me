@@ -5,6 +5,7 @@ import ProjectCard from "../components/Home/ProjectCard.vue";
 import ContactSection from "../components/Home/ContactSection.vue";
 import About from "../components/Home/About.vue";
 import GithubStats from "../components/Home/GithubStats.vue";
+import FeaturedBlogs from "../components/Home/FeaturedBlogs.vue";
 </script>
 <template>
   <div class="relative max-w-[720px] mx-auto px-4 py-32 shadow-sm">
@@ -45,6 +46,16 @@ import GithubStats from "../components/Home/GithubStats.vue";
       </h2>
       <div class="space-y-8">
         <GithubStats />
+      </div>
+    </section>
+    <section id="featured-blogs" class="mb-32 scroll-mt-12">
+      <h2
+        class="text-3xl font-semibold mb-12 text-center capitalize tracking-tighter"
+      >
+        FEATURED BLOGS
+      </h2>
+      <div class="space-y-8">
+        <FeaturedBlogs />
       </div>
     </section>
     <ContactSection />
