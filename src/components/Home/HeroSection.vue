@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref, onMounted } from "vue";
-import quotesData from "./quotes.json";
+import quotesData from "../../data/quotes.json";
 defineProps<{
   isVisible: boolean;
 }>();
@@ -38,7 +38,7 @@ onMounted(() => {
           <h1
             class="text-3xl font-bold tracking-tighter bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent capitalize"
           >
-            Junaid Hussnain
+            JUNAID HUSSNAIN
           </h1>
           <div class="flex items-center gap-2">
             <a

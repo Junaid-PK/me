@@ -1,6 +1,6 @@
 <template>
-  <a :href="src">
-    <img :src="src" :alt="alt" class="" />
+  <a :href="props.src">
+    <img :src="props.src" :alt="props.alt" class="" />
   </a>
 </template>
 

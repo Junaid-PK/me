@@ -54,11 +54,11 @@ const projects = data;
 </script>
 
 <template>
-  <div class="flex flex-wrap gap-4 w-[720px]">
+  <div class="flex flex-wrap justify-between gap-4 w-[688px] animate-slide-up">
     <div
       v-for="project in projects"
       :key="project.id"
-      class="flex flex-col justify-between rounded-sm border border-dashed border-neutral-800 p-6 shadow-sm transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-lg max-w-[350px] text-start"
+      class="flex flex-col rounded-sm border border-dashed border-neutral-800 shadow-sm transition-all duration-300 p-6 ease-in-out hover:scale-105 hover:shadow-lg max-w-[336px] text-start"
     >
       <div class="flex items-center justify-between">
         <h3 class="text-xl font-semibold">{{ project.title }}</h3>
@@ -70,7 +70,7 @@ const projects = data;
         <span
           v-for="tech in project.stack"
           :key="tech"
-          class="px-2 border border-neutral-800 rounded-sm text-xs border-dashed"
+          class="px-2 border border-neutral-800 rounded-sm text-xs"
         >
           {{ tech }}
         </span>

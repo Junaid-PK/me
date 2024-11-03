@@ -8,7 +8,7 @@
 @tailwind utilities;
 @layer base {
   :root {
-    --background: 0 0% 100%;
+    --background: #ede8dc;
     --foreground: 240 10% 3.9%;
     --card: 0 0% 100%;
     --card-foreground: 240 10% 3.9%;
@@ -31,7 +31,7 @@
   }
 
   .dark {
-    --background: 240 10% 3.9%;
+    --background: #ede8dc;
     --foreground: 0 0% 98%;
     --card: 240 10% 3.9%;
     --card-foreground: 0 0% 98%;
@@ -58,14 +58,15 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground;
+    background: #ede8dc;
+    background-color: #ede8dc;
   }
 }
 
 :focus {
   outline: none;
-  border-color: pink;
-  border: 2px solid pink;
+  border-color: rgb(143, 9, 31);
+  border: 2px solid rgb(213, 7, 45);
 }
 
 html,
@@ -78,66 +79,11 @@ body,
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+  background: #ede8dc !important;
+  background-color: #ede8dc !important;
 }
 
 ::selection {
-  background-color: pink;
+  background-color: rgb(252, 212, 219);
   color: inherit; /* Optional: Keep the text color unchanged */
-}
-.vue-flow__minimap {
-  transform: scale(75%);
-  transform-origin: bottom right;
-}
-
-.basic-flow.dark {
-  background: #2d3748;
-  color: #fffffb;
-}
-
-.basic-flow.dark .vue-flow__node {
-  background: #4a5568;
-  color: #fffffb;
-}
-
-.basic-flow.dark .vue-flow__node.selected {
-  background: #333;
-  box-shadow: 0 0 0 2px #2563eb;
-}
-
-.basic-flow .vue-flow__controls {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-.basic-flow.dark .vue-flow__controls {
-  border: 1px solid #fffffb;
-}
-
-.basic-flow .vue-flow__controls .vue-flow__controls-button {
-  border: none;
-  border-right: 1px solid #eee;
-}
-
-.basic-flow .vue-flow__controls .vue-flow__controls-button svg {
-  height: 100%;
-  width: 100%;
-}
-
-.basic-flow.dark .vue-flow__controls .vue-flow__controls-button {
-  background: #333;
-  fill: #fffffb;
-  border: none;
-}
-
-.basic-flow.dark .vue-flow__controls .vue-flow__controls-button:hover {
-  background: #4d4d4d;
-}
-
-.basic-flow.dark .vue-flow__edge-textbg {
-  fill: #292524;
-}
-
-.basic-flow.dark .vue-flow__edge-text {
-  fill: #fffffb;
 }
