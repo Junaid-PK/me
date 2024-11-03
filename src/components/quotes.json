@@ -20,6 +20,306 @@
     },
     {
       "id": 4,
+      "quote": "Any fool can write code that a computer can understand. Good programmers write code that humans can understand.",
+      "source": "Martin Fowler",
+      "link": ""
+    },
+    {
+      "id": 5,
+      "quote": "First, solve the problem. Then, write the code.",
+      "source": "John Johnson",
+      "link": ""
+    },
+    {
+      "id": 6,
+      "quote": "The best error message is the one that never shows up.",
+      "source": "Thomas Fuchs",
+      "link": ""
+    },
+    {
+      "id": 7,
+      "quote": "Programming isn't about what you know; it's about what you can figure out.",
+      "source": "Chris Pine",
+      "link": ""
+    },
+    {
+      "id": 8,
+      "quote": "The only way to do great work is to love what you do.",
+      "source": "Steve Jobs",
+      "link": ""
+    },
+    {
+      "id": 9,
+      "quote": "Simplicity is the soul of efficiency.",
+      "source": "Austin Freeman",
+      "link": ""
+    },
+    {
+      "id": 10,
+      "quote": "Code is like humor. When you have to explain it, it's bad.",
+      "source": "Cory House",
+      "link": ""
+    },
+    {
+      "id": 11,
+      "quote": "Testing leads to failure, and failure leads to understanding.",
+      "source": "Burt Rutan",
+      "link": ""
+    },
+    {
+      "id": 12,
+      "quote": "The most disastrous thing that you can ever learn is your first programming language.",
+      "source": "Alan Kay",
+      "link": ""
+    },
+    {
+      "id": 13,
+      "quote": "Sometimes it pays to stay in bed on Monday, rather than spending the rest of the week debugging Monday's code.",
+      "source": "Dan Salomon",
+      "link": ""
+    },
+    {
+      "id": 14,
+      "quote": "Every great developer you know got there by solving problems they were unqualified to solve until they actually did it.",
+      "source": "Patrick McKenzie",
+      "link": ""
+    },
+    {
+      "id": 15,
+      "quote": "The best way to predict the future is to implement it.",
+      "source": "David Heinemeier Hansson",
+      "link": ""
+    },
+    {
+      "id": 16,
+      "quote": "Good code is its own best documentation.",
+      "source": "Steve McConnell",
+      "link": ""
+    },
+    {
+      "id": 17,
+      "quote": "The function of good software is to make the complex appear to be simple.",
+      "source": "Grady Booch",
+      "link": ""
+    },
+    {
+      "id": 18,
+      "quote": "Clean code always looks like it was written by someone who cares.",
+      "source": "Robert C. Martin",
+      "link": ""
+    },
+    {
+      "id": 19,
+      "quote": "It's not a bug – it's an undocumented feature.",
+      "source": "Anonymous",
+      "link": ""
+    },
+    {
+      "id": 20,
+      "quote": "Experience is the name everyone gives to their mistakes.",
+      "source": "Oscar Wilde",
+      "link": ""
+    },
+    {
+      "id": 21,
+      "quote": "Software and cathedrals are much the same – first we build them, then we pray.",
+      "source": "Sam Redwine",
+      "link": ""
+    },
+    {
+      "id": 22,
+      "quote": "The most important property of a program is whether it accomplishes the intention of its user.",
+      "source": "C.A.R. Hoare",
+      "link": ""
+    },
+    {
+      "id": 23,
+      "quote": "Walking on water and developing software from a specification are easy if both are frozen.",
+      "source": "Edward V. Berard",
+      "link": ""
+    },
+    {
+      "id": 24,
+      "quote": "Perfection is achieved not when there is nothing more to add, but rather when there is nothing more to take away.",
+      "source": "Antoine de Saint-Exupery",
+      "link": ""
+    },
+    {
+      "id": 25,
+      "quote": "The best programming language is the one that keeps you motivated to code.",
+      "source": "Anonymous",
+      "link": ""
+    },
+    {
+      "id": 26,
+      "quote": "The only thing worse than a bug is a bug that's not reproducible.",
+      "source": "Anonymous",
+      "link": ""
+    },
+    {
+      "id": 27,
+      "quote": "Software is like entropy: It is difficult to grasp, weighs nothing, and obeys the Second Law of Thermodynamics; i.e., it always increases.",
+      "source": "Norman Augustine",
+      "link": ""
+    },
+    {
+      "id": 28,
+      "quote": "Don't comment bad code - rewrite it.",
+      "source": "Brian Kernighan",
+      "link": ""
+    },
+    {
+      "id": 29,
+      "quote": "The best thing about a boolean is even if you are wrong, you are only off by a bit.",
+      "source": "Anonymous",
+      "link": ""
+    },
+    {
+      "id": 30,
+      "quote": "Learning to code is learning to create and innovate.",
+      "source": "Enda Kenny",
+      "link": ""
+    },
+    {
+      "id": 31,
+      "quote": "Software is a great combination of artistry and engineering.",
+      "source": "Bill Gates",
+      "link": ""
+    },
+    {
+      "id": 32,
+      "quote": "The art of debugging is figuring out what you really told your program to do rather than what you thought you told it to do.",
+      "source": "Andrew Singer",
+      "link": ""
+    },
+    {
+      "id": 33,
+      "quote": "If debugging is the process of removing bugs, then programming must be the process of putting them in.",
+      "source": "Edsger W. Dijkstra",
+      "link": ""
+    },
+    {
+      "id": 34,
+      "quote": "Before software can be reusable it first has to be usable.",
+      "source": "Ralph Johnson",
+      "link": ""
+    },
+    {
+      "id": 35,
+      "quote": "The computer was born to solve problems that did not exist before.",
+      "source": "Bill Gates",
+      "link": ""
+    },
+    {
+      "id": 36,
+      "quote": "Talk is cheap. Show me the code.",
+      "source": "Linus Torvalds",
+      "link": ""
+    },
+    {
+      "id": 37,
+      "quote": "A programming language is for thinking about programs, not for expressing programs you've already thought of.",
+      "source": "Paul Graham",
+      "link": ""
+    },
+    {
+      "id": 38,
+      "quote": "The best programmers are not marginally better than merely good ones. They are an order-of-magnitude better.",
+      "source": "Randall E. Stross",
+      "link": ""
+    },
+    {
+      "id": 39,
+      "quote": "Programming today is a race between software engineers striving to build bigger and better idiot-proof programs, and the universe trying to produce bigger and better idiots. So far, the universe is winning.",
+      "source": "Rick Cook",
+      "link": ""
+    },
+    {
+      "id": 40,
+      "quote": "Code never lies, comments sometimes do.",
+      "source": "Ron Jeffries",
+      "link": ""
+    },
+    {
+      "id": 41,
+      "quote": "The best code is no code at all.",
+      "source": "Jeff Atwood",
+      "link": ""
+    },
+    {
+      "id": 42,
+      "quote": "Make it work, make it right, make it fast.",
+      "source": "Kent Beck",
+      "link": ""
+    },
+    {
+      "id": 43,
+      "quote": "The sooner you start to code, the longer the program will take.",
+      "source": "Roy Carlson",
+      "link": ""
+    },
+    {
+      "id": 44,
+      "quote": "Measuring programming progress by lines of code is like measuring aircraft building progress by weight.",
+      "source": "Bill Gates",
+      "link": ""
+    },
+    {
+      "id": 45,
+      "quote": "The purpose of software engineering is to control complexity, not to create it.",
+      "source": "Pamela Zave",
+      "link": ""
+    },
+    {
+      "id": 46,
+      "quote": "Programming is not about typing, it's about thinking.",
+      "source": "Rich Hickey",
+      "link": ""
+    },
+    {
+      "id": 47,
+      "quote": "Software is eating the world.",
+      "source": "Marc Andreessen",
+      "link": ""
+    },
+    {
+      "id": 48,
+      "quote": "The most important single aspect of software development is to be clear about what you are trying to build.",
+      "source": "Bjarne Stroustrup",
+      "link": ""
+    },
+    {
+      "id": 49,
+      "quote": "Innovation is not about saying yes to everything. It's about saying NO to all but the most crucial features.",
+      "source": "Steve Jobs",
+      "link": ""
+    },
+    {
+      "id": 50,
+      "quote": "The greatest challenge to any tester is being able to think like a programmer.",
+      "source": "Anonymous",
+      "link": ""
+    },
+    {
+      "id": 51,
+      "quote": "The way to get started is to quit talking and begin doing.",
+      "source": "Walt Disney",
+      "link": ""
+    },
+    {
+      "id": 52,
+      "quote": "Developer: An organism that turns caffeine into code.",
+      "source": "Anonymous",
+      "link": ""
+    },
+    {
+      "id": 53,
+      "quote": "There are two ways to write error-free programs; only the third one works.",
+      "source": "Alan J. Perlis",
+      "link": ""
+    },
+    {
+      "id": 4,
       "quote": "No matter how bad you want a person, if your hearts are in two different places, you’ll have to pass and move on.",
       "source": "Alex Elle",
       "link": "http://www.alexelle.com/"
@@ -238,12 +538,6 @@
       "id": 40,
       "quote": "Success is the sum of small efforts, repeated day-in and day-out.",
       "source": "Robert Collier",
-      "link": ""
-    },
-    {
-      "id": 41,
-      "quote": "Some girls are full of heartache and poetry and those are the kind of girls who try to save wolves instead of running away from them.",
-      "source": "Nikita Gill",
       "link": ""
     },
     {

@@ -4,7 +4,6 @@ import HeroSection from "./components/HeroSection.vue";
 import SkillCard from "./components/SkillCard.vue";
 import ProjectCard from "./components/ProjectCard.vue";
 import ContactSection from "./components/ContactSection.vue";
-import BlogSection from "./components/BlogSection.vue";
 import ThemeToggle from "./components/ThemeToggle.vue";
 import About from "./components/About.vue";
 
@@ -73,7 +72,7 @@ defineExpose({
       class="fixed inset-0 bg-gradient-to-br from-blue-50 via-white to-pink-50 dark:from-gray-900 dark:via-gray-900 dark:to-gray-800"
     ></div>
 
-    <main class="relative min-h-screen bg-[#EDE8DC]">
+    <main class="relative min-h-screen">
       <nav
         class="fixed top-0 left-0 right-0 z-50 backdrop-blur-xl bg-white/20 dark:bg-gray-900/70 border-b border-border/5 supports-[backdrop-filter]:bg-white/10"
       >
@@ -91,11 +90,10 @@ defineExpose({
               v-for="link in ['About', 'Blog', 'Projects', 'Contact']"
               :key="link"
               :href="'#' + link.toLowerCase()"
-              class="text-sm font-medium text-muted-foreground hover:text-primary transition-colors border border-[#27005D] px-2 rounded"
+              class="text-sm font-medium text-muted-foreground hover:text-primary transition-colors border border-[#27005D] px-2 rounded capitalize"
             >
               {{ link }}
             </a>
-            <ThemeToggle :is-dark="isDark" @toggle="toggleTheme" />
           </div>
         </div>
       </nav>
@@ -103,35 +101,43 @@ defineExpose({
       <div class="relative max-w-[720px] mx-auto px-4 py-32 shadow-sm">
         <HeroSection :is-visible="isVisible" />
         <section id="skills" class="mb-32 h-full m-0">
-          <h2 class="text-3xl font-semibold mb-12 text-center">About me</h2>
+          <h2
+            class="text-3xl font-semibold mb-12 text-center capitalize tracking-tighter"
+          >
+            ABOUT ME
+          </h2>
           <About />
         </section>
         <section id="skills" class="mb-32 h-full m-0">
-          <h2 class="text-3xl font-semibold mb-12 text-center">
-            Technical Expertise
+          <h2
+            class="text-3xl font-semibold mb-12 text-center capitalize tracking-tighter"
+          >
+            TECHNICAL EXPERTISE
           </h2>
           <SkillCard />
         </section>
 
-        <BlogSection :posts="blogPosts" :is-visible="isVisible" />
-
         <section id="projects" class="mb-32">
-          <h2 class="text-3xl font-semibold mb-12 text-center">
-            Featured Projects
+          <h2
+            class="text-3xl font-semibold mb-12 text-center capitalize tracking-tighter"
+          >
+            FEATURED PROJECTS
           </h2>
           <div class="space-y-8">
-            <ProjectCard
-              v-for="(project, index) in projects"
-              :key="project.title"
-              v-bind="project"
-              :delay="index * 200"
-              :is-visible="isVisible"
-            />
+            <ProjectCard />
           </div>
         </section>
 
         <ContactSection />
       </div>
+      <footer class="py-6">
+        <div class="max-w-[720px] mx-auto px-4 text-center">
+          <p class="text-sm">
+            &copy; 2020 Junaid Hussnain. All rights reserved.
+            <span style="color: red; font-size: 1.5em">❤️</span>
+          </p>
+        </div>
+      </footer>
     </main>
   </div>
 </template>
