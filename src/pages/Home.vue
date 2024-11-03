@@ -4,6 +4,7 @@ import SkillCard from "../components/Home/SkillsCard";
 import ProjectCard from "../components/Home/ProjectCard.vue";
 import ContactSection from "../components/Home/ContactSection.vue";
 import About from "../components/Home/About.vue";
+import GithubStats from "../components/Home/GithubStats.vue";
 </script>
 <template>
   <div class="relative max-w-[720px] mx-auto px-4 py-32 shadow-sm">
@@ -36,6 +37,16 @@ import About from "../components/Home/About.vue";
       </div>
     </section>
 
+    <section id="github-stats" class="mb-32 scroll-mt-12">
+      <h2
+        class="text-3xl font-semibold mb-12 text-center capitalize tracking-tighter"
+      >
+        GITHUB STATS
+      </h2>
+      <div class="space-y-8">
+        <GithubStats />
+      </div>
+    </section>
     <ContactSection />
   </div>
 </template>
