@@ -57,34 +57,8 @@ function toggleDarkMode() {
 
 <template>
   <div class="max-w-[688px] h-[500px] animate-slide-up">
-    <VueFlow
-      :nodes="nodes"
-      :edges="edges"
-      :class="{ dark }"
-      class="basic-flow"
-      :default-viewport="{ zoom: 1.5 }"
-      :min-zoom="0.2"
-      :max-zoom="4"
-    >
+    <VueFlow :nodes="nodes" :edges="edges" :zoom-on-scroll="false">
       <Background pattern-color="#aaa" :gap="16" />
-      <Controls position="top-left">
-        <ControlButton title="Reset Transform" @click="resetTransform">
-          <Icon name="reset" />
-        </ControlButton>
-
-        <ControlButton title="Shuffle Node Positions" @click="updatePos">
-          <Icon name="update" />
-        </ControlButton>
-
-        <ControlButton title="Toggle Dark Mode" @click="toggleDarkMode">
-          <Icon v-if="dark" name="sun" />
-          <Icon v-else name="moon" />
-        </ControlButton>
-
-        <ControlButton title="Log `toObject`" @click="logToObject">
-          <Icon name="log" />
-        </ControlButton>
-      </Controls>
     </VueFlow>
   </div>
   <div
