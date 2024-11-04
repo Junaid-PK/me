@@ -2,12 +2,12 @@
 export default {
   darkMode: ["class"],
   content: [
-    './components/**/*.{vue,js,ts,jsx,tsx}',
-    './layouts/**/*.{vue,js,ts,jsx,tsx}',
-    './pages/**/*.{vue,js,ts,jsx,tsx}',
-    './plugins/**/*.{js,ts}',
-    './src/**/*.{vue,js,ts,jsx,tsx}',
-    './app.vue',
+    "./components/**/*.{vue,js,ts,jsx,tsx}",
+    "./layouts/**/*.{vue,js,ts,jsx,tsx}",
+    "./pages/**/*.{vue,js,ts,jsx,tsx}",
+    "./plugins/**/*.{js,ts}",
+    "./src/**/*.{vue,js,ts,jsx,tsx}",
+    "./app.vue",
   ],
   theme: {
     container: {
@@ -25,7 +25,7 @@ export default {
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         primary: {
-          DEFAULT: "hsl(var(--primary))",
+          DEFAULT: "var(--primary)",
           foreground: "hsl(var(--primary-foreground))",
         },
         secondary: {
@@ -61,4 +61,4 @@ export default {
     },
   },
   plugins: [require("tailwindcss-animate")],
-}
+};

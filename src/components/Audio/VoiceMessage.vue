@@ -10,7 +10,7 @@ const messageText = `With over 5+ years of experience in the tech industry, I've
     <div class="message-container">
       <AudioPlayer :message-text="messageText">
         <template #default="{ isPlaying, progress, onSeek, togglePlay }">
-          <button class="play-button" @click="togglePlay">
+          <button class="play-button bg-primary" @click="togglePlay">
             <span v-if="!isPlaying">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -73,7 +73,6 @@ const messageText = `With over 5+ years of experience in the tech industry, I've
 }
 
 .play-button {
-  background: #070808ff;
   border: none;
   width: 40px;
   height: 40px;
