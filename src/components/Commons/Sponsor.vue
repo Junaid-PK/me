@@ -1,9 +1,9 @@
 <template>
-  <div class="animate-fade-in">
+  <div class="animate-fade-in max-w-[720px] mx-auto px-4 py-32 shadow-sm">
     <div class="animate-slide-up">
       <div class="text-center py-8">
         <h2 class="text-2xl font-bold mb-4">Become a Sponsor</h2>
-        <p class="text-lg mb-6">
+        <p class="text-lg mb-6 text-balance">
           Support my journey as a engineer by becoming a sponsor. Your
           contribution will make a significant impact!
         </p>

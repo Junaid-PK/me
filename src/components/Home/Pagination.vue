@@ -101,4 +101,11 @@ const handlePageClick = (page: number) => {
   background: #eff1f4ff;
   color: rgb(5, 5, 5);
 }
+
+/* Add media query to hide page numbers on mobile screens */
+@media (max-width: 600px) {
+  .page-numbers {
+    display: none;
+  }
+}
 </style>

@@ -1,27 +1,37 @@
 <script setup lang="ts">
+import { defineProps } from "vue";
 import type { Blog } from "./blog";
 
-defineProps<{
-  blog: Blog;
-}>();
+const props = defineProps<{ blog: Blog }>();
 </script>
 
 <template>
-  <article
-    class="blog-card border border-dashed border-neutral-900 rounded-sm text-black text-start min-h-[450px]"
-  >
-    <img :src="blog.imageUrl" :alt="blog.title" class="blog-image" />
-    <div class="blog-content text-black">
-      <h3 class="text-2xl text-black font-bold mb-4 text-start">
-        {{ blog.title }}
-      </h3>
-      <p class="excerpt">{{ blog.excerpt }}</p>
-      <div class="meta">
-        <span class="author">{{ blog.author }}</span>
-        <span class="date">{{ new Date(blog.date).toLocaleDateString() }}</span>
+  <div>
+    <article
+      :key="props.blog.id"
+      class="blog-card border border-dashed border-neutral-900 rounded-sm text-black text-start min-h-[480px]"
+    >
+      <img
+        src="https://picsum.photos/400/200"
+        :alt="blog.title"
+        class="blog-image"
+      />
+      <div class="blog-content text-black">
+        <h3 class="text-2xl text-black font-bold mb-4 text-start">
+          {{ props.blog.title }}
+        </h3>
+        <p class="excerpt">
+          {{ props.blog.meta_description.substring(0, 70) }}...
+        </p>
+        <div class="meta">
+          <span class="date">{{ blog.category.name }}</span>
+          <span class="author border border-b-black cursor-pointer"
+            >READ MORE</span
+          >
+        </div>
       </div>
-    </div>
-  </article>
+    </article>
+  </div>
 </template>
 
 <style scoped>

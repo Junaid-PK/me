@@ -1,54 +1,10 @@
 <script setup lang="ts">
-import { ref, computed } from "vue";
+import { ref, computed, onMounted } from "vue";
 import BlogCard from "./BlogCard.vue";
 import Pagination from "./Pagination.vue";
 import type { Blog } from "./blog";
 
-// Mock data - in real app, this would come from an API
-const blogs = ref<Blog[]>([
-  {
-    id: 1,
-    title: "Getting Started with Vue 3 Composition API",
-    excerpt:
-      "Learn how to use Vue 3 Composition API to build scalable applications",
-    author: "Jane Doe",
-    date: "2024-03-15",
-    imageUrl: "https://picsum.photos/400/200",
-  },
-  {
-    id: 2,
-    title: "Mastering TypeScript with Vue",
-    excerpt: "Deep dive into using TypeScript effectively in Vue applications",
-    author: "John Smith",
-    date: "2024-03-14",
-    imageUrl: "https://picsum.photos/400/200",
-  },
-  {
-    id: 3,
-    title: "Building Responsive Layouts",
-    excerpt: "Learn modern CSS techniques for responsive web design",
-    author: "Alice Johnson",
-    date: "2024-03-13",
-    imageUrl: "https://picsum.photos/400/200",
-  },
-  {
-    id: 4,
-    title: "Vue Router Best Practices",
-    excerpt: "Implement efficient routing in your Vue applications",
-    author: "Bob Wilson",
-    date: "2024-03-12",
-    imageUrl: "https://picsum.photos/400/200",
-  },
-  {
-    id: 5,
-    title: "State Management with Pinia",
-    excerpt: "Modern state management solutions for Vue applications",
-    author: "Carol Brown",
-    date: "2024-03-11",
-    imageUrl: "https://picsum.photos/400/200",
-  },
-]);
-
+const blogs = ref<Blog[]>([]);
 const currentPage = ref(1);
 const itemsPerPage = 2;
 
@@ -63,6 +19,22 @@ const paginatedBlogs = computed(() => {
 const handlePageChange = (page: number) => {
   currentPage.value = page;
 };
+
+// Fetch data from JSON file
+onMounted(async () => {
+  console.log("Blogs Data");
+  try {
+    const response = await fetch("/src/data/blogs.json");
+    if (!response.ok) {
+      throw new Error("Network response was not ok");
+    }
+    const data = await response.json();
+    console.log("Blogs Data is" + data);
+    blogs.value = data;
+  } catch (error) {
+    console.error("Error fetching blogs dataa:", error);
+  }
+});
 </script>
 
 <template>
