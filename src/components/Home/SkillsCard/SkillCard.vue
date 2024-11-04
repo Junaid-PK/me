@@ -27,7 +27,13 @@ onConnect((connection) => {
 
 <template>
   <div class="max-w-[688px] h-[500px] animate-slide-up">
-    <VueFlow :nodes="nodes" :edges="edges" :zoom-on-scroll="false">
+    <VueFlow
+      :nodes="nodes"
+      :edges="edges"
+      :zoom-on-scroll="false"
+      :pan-on-scroll="false"
+      :pan-on-drag="false"
+    >
       <Background pattern-color="#aaa" :gap="16" />
     </VueFlow>
   </div>
