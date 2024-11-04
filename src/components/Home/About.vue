@@ -1,6 +1,6 @@
 <template>
   <section id="about" class="scroll-mt-32">
-    <div class="text-justify mt-8 text-muted-foreground text-sm italic">
+    <div class="text-justify mt-8 text-muted-foreground text-md italic">
       <VoiceMessage />
       <p class="mb-4">
         With over <span class="font-bold">5+ years</span> of experience in the

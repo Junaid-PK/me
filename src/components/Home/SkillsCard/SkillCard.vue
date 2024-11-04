@@ -2,20 +2,14 @@
 import { ref } from "vue";
 import { VueFlow, useVueFlow } from "@vue-flow/core";
 import { Background } from "@vue-flow/background";
-import { ControlButton, Controls } from "@vue-flow/controls";
 import { initialEdges, initialNodes, skillImages } from "../../../data";
-import Icon from "./Icon.vue";
 import Skills from "./Skills.vue";
 
-const { onInit, onNodeDragStop, onConnect, addEdges, setViewport, toObject } =
-  useVueFlow();
+const { onInit, onNodeDragStop, onConnect, addEdges } = useVueFlow();
 
 const nodes = ref(initialNodes);
 
 const edges = ref(initialEdges);
-
-// our dark mode toggle flag
-const dark = ref(false);
 
 onInit((vueFlowInstance) => {
   // instance is the same as the return of `useVueFlow`
@@ -29,30 +23,6 @@ onNodeDragStop(({ event, nodes, node }) => {
 onConnect((connection) => {
   addEdges(connection);
 });
-
-function updatePos() {
-  nodes.value = nodes.value.map((node: any) => {
-    return {
-      ...node,
-      position: {
-        x: Math.random() * 400,
-        y: Math.random() * 400,
-      },
-    };
-  });
-}
-
-function logToObject() {
-  console.log(toObject());
-}
-
-function resetTransform() {
-  setViewport({ x: 0, y: 0, zoom: 1 });
-}
-
-function toggleDarkMode() {
-  dark.value = !dark.value;
-}
 </script>
 
 <template>
