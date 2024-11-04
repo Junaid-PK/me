@@ -15,18 +15,11 @@
         and more.
       </p>
       <p class="mb-4">
-        At this point I feel comfortable calling myself a<span
-          class="font-bold"
-        >
-          "Jack of all trades, master of some".</span
-        >
-        While full mastery may be elusive due to the field's rapid rate of
-        change, I love the challenge of picking up new skills and finding
-        creative solutions to whatever problem is at hand. What truly drives me
-        is the opportunity to use technology to build innovative products and
-        services<span class="font-bold">
-          that help improve people's lives.</span
-        >
+        I see myself as someone who enjoys exploring a variety of skills, even
+        if complete mastery can be difficult in a fast-changing field. I find
+        fulfillment in learning new things and creatively tackling problems.
+        What truly inspires me is the chance to use technology to develop
+        products and services that can positively impact people’s lives.
       </p>
       <p class="mb-4">
         Outside of my regular work, I enjoy sharing my knowledge by writing
