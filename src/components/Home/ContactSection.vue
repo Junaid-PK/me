@@ -75,11 +75,3 @@ const contacts = [
     </div>
   </section>
 </template>
-<style scoped>
-input:focus,
-textarea:focus {
-  outline: none;
-  border-color: pink;
-  border: 2px solid pink;
-}
-</style>

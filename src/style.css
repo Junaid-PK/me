@@ -65,8 +65,8 @@
 
 :focus {
   outline: none;
-  border-color: rgb(143, 9, 31);
-  border: 2px solid rgb(213, 7, 45);
+  border-color: rgb(10, 10, 10);
+  border: 2px solid rgb(3, 2, 2);
 }
 
 html,

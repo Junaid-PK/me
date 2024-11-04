@@ -8,7 +8,7 @@ defineProps<{
 
 <template>
   <article
-    class="blog-card border border-dashed border-neutral-900 rounded-sm text-black text-start"
+    class="blog-card border border-dashed border-neutral-900 rounded-sm text-black text-start min-h-[450px]"
   >
     <img :src="blog.imageUrl" :alt="blog.title" class="blog-image" />
     <div class="blog-content text-black">
