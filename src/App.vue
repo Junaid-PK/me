@@ -3,6 +3,7 @@ import { ref, onMounted } from "vue";
 import Footer from "./components/Commons/Footer/Footer.vue";
 import Navbar from "./components/Commons/Header/Navbar.vue";
 import Sponsor from "./components/Commons/Sponsor.vue";
+import Newsletter from "./components/Commons/Newsletter.vue";
 
 const isVisible = ref(false);
 
@@ -23,6 +24,7 @@ defineExpose({
     <main class="relative min-h-screen bg-[#EDE8DC]">
       <Navbar />
       <RouterView />
+      <Newsletter />
       <Sponsor />
       <Footer />
     </main>
