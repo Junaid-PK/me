@@ -24,7 +24,7 @@ const handlePageChange = (page: number) => {
 onMounted(async () => {
   console.log("Blogs Data");
   try {
-    const response = await fetch("/src/data/blogs.json");
+    const response = await fetch("blogs.json");
     if (!response.ok) {
       throw new Error("Network response was not ok");
     }
