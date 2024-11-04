@@ -32,7 +32,7 @@ onConnect((connection) => {
     </VueFlow>
   </div>
   <div
-    class="flex max-w-[688px] animate-slide-up flex-wrap gap-4 mt-4 items-center justify-center text-balance"
+    class="flex max-w-[688px] animate-slide-up flex-wrap gap-2 mt-4 items-center justify-center text-balance"
   >
     <Skills
       v-for="(image, index) in skillImages"
