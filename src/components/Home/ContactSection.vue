@@ -28,20 +28,20 @@ const contacts = [
         <input
           type="text"
           placeholder="Your Name"
-          class="w-full p-3 border border-neutral-800 rounded-sm"
+          class="w-full p-3 border border-neutral-800 rounded-sm bg-transparent"
         />
       </div>
       <div class="mb-4">
         <input
           type="email"
           placeholder="Your Email"
-          class="w-full p-3 border border-neutral-800 rounded-sm"
+          class="w-full p-3 border border-neutral-800 rounded-sm bg-transparent"
         />
       </div>
       <div class="mb-4">
         <textarea
           placeholder="Your Message"
-          class="w-full p-3 border border-neutral-800 rounded-sm"
+          class="w-full p-3 border border-neutral-800 rounded-sm bg-transparent"
           rows="4"
         ></textarea>
       </div>

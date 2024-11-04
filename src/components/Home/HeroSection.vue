@@ -36,7 +36,7 @@ onMounted(() => {
 
         <div class="text-start px-2">
           <h1
-            class="text-3xl font-bold tracking-tighter bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent capitalize"
+            class="text-3xl font-bold tracking-tighter text-neutral-800 capitalize"
           >
             JUNAID HUSSNAIN
           </h1>

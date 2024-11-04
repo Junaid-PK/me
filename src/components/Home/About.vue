@@ -46,7 +46,7 @@
       <p class="mb-4">
         If any of the above resonates with you and your needs, I would love to
         discuss a potential collaboration. Please feel free to
-        <a href="#contact" class="font-bold underline"> reach out </a> - I'm
+        <a href="#contact" class="font-bold underline"> reach out</a> - I'm
         always eager to take on new challenges.
       </p>
     </div>
