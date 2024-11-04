@@ -56,7 +56,7 @@ function toggleDarkMode() {
 </script>
 
 <template>
-  <div class="w-[688px] h-[500px] animate-slide-up">
+  <div class="max-w-[688px] h-[500px] animate-slide-up">
     <VueFlow
       :nodes="nodes"
       :edges="edges"
@@ -88,7 +88,7 @@ function toggleDarkMode() {
     </VueFlow>
   </div>
   <div
-    class="flex w-[688px] animate-slide-up flex-wrap gap-4 mt-4 items-center justify-center"
+    class="flex max-w-[688px] animate-slide-up flex-wrap gap-4 mt-4 items-center justify-center text-balance"
   >
     <Skills
       v-for="(image, index) in skillImages"
