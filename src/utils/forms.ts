@@ -60,7 +60,7 @@ export const validateContactForm = (form: ContactForm): string | null => {
 }
 
 // Newsletter subscription
-export const subscribeToNewsletter = async (email: string): Promise<FormResponse> => {
+export const subscribeToNewsletter = async (_email: string): Promise<FormResponse> => {
   try {
     // For now, we'll simulate an API call
     // In a real application, you would send this to your backend
@@ -89,7 +89,7 @@ export const subscribeToNewsletter = async (email: string): Promise<FormResponse
 }
 
 // Contact form submission
-export const submitContactForm = async (form: ContactForm): Promise<FormResponse> => {
+export const submitContactForm = async (_form: ContactForm): Promise<FormResponse> => {
   try {
     // For now, we'll simulate an API call
     // In a real application, you would send this to your backend

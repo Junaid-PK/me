@@ -109,7 +109,7 @@ interface Emits {
   (e: 'close'): void
 }
 
-const props = defineProps<Props>()
+defineProps<Props>()
 const emit = defineEmits<Emits>()
 
 // Replace these with your actual crypto addresses
@@ -117,7 +117,6 @@ const arbAddress = '0x34bd374698e7dcb0351f5d0f0161deb3b753e32b'
 const bep20Address = '0x34bd374698e7dcb0351f5d0f0161deb3b753e32b'
 const erc20Address = '0x34bd374698e7dcb0351f5d0f0161deb3b753e32b'
 const trc20Address = 'TS76eD25Pk3dmmq5AkDf1Fcs1C4RCMECDX'
-const solanaAddress = 'FbzyPBFGb4GmZRVxeeh3zRGHBUBHVksFXxq13dVcWXNK'
 
 // Copy notification state
 const showCopyNotification = ref(false)
