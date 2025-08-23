@@ -6,9 +6,11 @@ import ContactSection from "../components/Home/ContactSection.vue";
 import About from "../components/Home/About.vue";
 import GithubStats from "../components/Home/GithubStats.vue";
 import BlogSection from "../components/Home/BlogSection.vue";
+import Newsletter from "../components/Commons/Newsletter.vue";
+import Sponsor from "../components/Commons/Sponsor.vue";
 </script>
 <template>
-  <div class="relative max-w-[720px] mx-auto px-4 py-32 shadow-sm">
+  <div class="relative max-w-[720px] mx-auto shadow-sm">
     <HeroSection :is-visible="true" />
     <section id="skills" class="mb-32 h-full m-0">
       <h2
@@ -50,5 +52,7 @@ import BlogSection from "../components/Home/BlogSection.vue";
     </section>
     <BlogSection :is-visible="true" />
     <ContactSection />
+    <Newsletter />
+      <Sponsor />
   </div>
 </template>

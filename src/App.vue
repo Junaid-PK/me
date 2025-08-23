@@ -2,9 +2,6 @@
 import { ref, onMounted } from "vue";
 import Footer from "./components/Commons/Footer/Footer.vue";
 import Navbar from "./components/Commons/Header/Navbar.vue";
-import Sponsor from "./components/Commons/Sponsor.vue";
-import Newsletter from "./components/Commons/Newsletter.vue";
-
 const isVisible = ref(false);
 
 onMounted(() => {
@@ -21,11 +18,10 @@ defineExpose({
       class="fixed inset-0 bg-gradient-to-br from-blue-50 via-white to-pink-50 dark:from-gray-900 dark:via-gray-900 dark:to-gray-800"
     ></div>
 
-    <main class="relative min-h-screen bg-[#EDE8DC]">
+    <main class="relative min-h-screen bg-[#EDE8DC] py-12">
       <Navbar />
       <RouterView />
-      <Newsletter />
-      <Sponsor />
+      
       <Footer />
     </main>
   </div>

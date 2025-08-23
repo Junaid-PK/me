@@ -1,5 +1,5 @@
 <template>
-  <section class="blogs">
+  <section class="blogs max-w-[720px] mx-auto">
     <div v-if="loading" class="loading">
       <div class="animate-spin rounded-full h-8 w-8 border-b-2 border-primary"></div>
       <p class="mt-4 text-muted-foreground">Loading blog posts...</p>
@@ -13,7 +13,7 @@
     <div v-else>
       <header class="blog-header">
         <h1 class="blog-title">Blog Posts</h1>
-        <p class="blog-subtitle">Thoughts, tutorials, and insights on web development</p>
+        <p class="blog-subtitle">Thoughts, tutorials, and insights on Engineering</p>
       </header>
 
       <!-- Category Filter -->
@@ -105,11 +105,6 @@ onMounted(() => {
 </script>
 
 <style scoped>
-.blogs {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 2rem 1rem;
-}
 
 .loading, .error {
   text-align: center;
@@ -176,7 +171,7 @@ onMounted(() => {
 
 .blog-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  grid-template-columns: 1fr;
   gap: 2rem;
   margin-bottom: 3rem;
 }
