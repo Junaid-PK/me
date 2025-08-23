@@ -241,26 +241,46 @@ onMounted(() => {
 
 .post-content :deep(code) {
   background: rgba(55, 65, 81, 0.1);
-  padding: 0.125rem 0.25rem;
-  border-radius: 0.125rem;
+  padding: 0.2rem 0.4rem;
+  border-radius: 0.25rem;
   font-size: 0.875em;
   font-family: "IBM Plex Mono", monospace;
-  border: 1px dashed #374151;
+  color: #374151;
+  word-break: break-word;
 }
 
 .post-content :deep(pre) {
-  background: rgba(55, 65, 81, 0.05);
-  padding: 1rem;
-  border-radius: 0.125rem;
+  background: #1e1e1e;
+  padding: 1.25rem;
+  padding-top: 2.5rem;
+  border-radius: 0.5rem;
   overflow-x: auto;
   margin: 1.5rem 0;
-  border: 1px dashed #374151;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  position: relative;
+}
+
+.post-content :deep(pre::before) {
+  content: '';
+  position: absolute;
+  top: 0.75rem;
+  left: 1rem;
+  height: 12px;
+  width: 12px;
+  background: #ff5f56;
+  border-radius: 50%;
+  box-shadow: 1.4em 0 0 #ffbd2e, 2.8em 0 0 #27c93f;
 }
 
 .post-content :deep(pre code) {
   background: none;
   padding: 0;
   border-radius: 0;
+  color: #e4e4e4;
+  font-size: 0.9em;
+  line-height: 1.7;
+  tab-size: 2;
+  -moz-tab-size: 2;
 }
 
 .post-content :deep(a) {
