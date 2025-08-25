@@ -10,7 +10,7 @@ import Newsletter from "../components/Commons/Newsletter.vue";
 import Sponsor from "../components/Commons/Sponsor.vue";
 </script>
 <template>
-  <div class="relative max-w-[720px] mx-auto shadow-sm">
+  <div class="relative max-w-[720px] mx-auto shadow-sm px-4">
     <HeroSection :is-visible="true" />
     <section id="skills" class="mb-32 h-full m-0">
       <h2

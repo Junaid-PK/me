@@ -3,7 +3,7 @@
     class="fixed top-0 left-0 right-0 z-50 backdrop-blur-xl bg-white/20 dark:bg-gray-900/70 border-b border-border/5 supports-[backdrop-filter]:bg-white/10"
   >
     <div
-      class="max-w-[720px] mx-auto flex items-center justify-between h-10"
+      class="max-w-[720px] mx-auto flex items-center justify-between h-10 px-4"
     >
       <RouterLink
         to="/"
