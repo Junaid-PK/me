@@ -1,6 +1,11 @@
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import 'vite-ssg'
+import { readdirSync } from 'node:fs'
+
+const blogRoutes = readdirSync(new URL('./src/content/blog/', import.meta.url))
+  .filter((filename) => filename.endsWith('.md'))
+  .map((filename) => `/blog/${filename.replace(/\.md$/, '')}`)
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -9,10 +14,7 @@ export default defineConfig({
     includedRoutes: () => [
       '/',
       '/blog',
-      '/blog/building-big-software-that-stays-small',
-      '/blog/blazingly-fast-tech-stack-for-million-dollar-project',
-      '/blog/when-leading-feels-lonely',
-      '/blog/leading-when-you-are-not-the-loudest-in-the-room',
+      ...blogRoutes,
     ],
   },
   define: {

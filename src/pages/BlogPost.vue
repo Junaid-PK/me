@@ -39,9 +39,12 @@ useHead(() => ({
     { property: "og:description", content: post.value?.excerpt || "An engineering note by Junaid Hussnain." },
     { property: "og:url", content: canonicalUrl.value },
     { property: "article:published_time", content: post.value?.date || "" },
+    { name: "twitter:card", content: "summary_large_image" },
+    { name: "twitter:title", content: post.value?.title || "Engineering Note — Junaid Hussnain" },
+    { name: "twitter:description", content: post.value?.excerpt || "An engineering note by Junaid Hussnain." },
   ],
   link: [{ rel: "canonical", href: canonicalUrl.value }],
-  script: post.value ? [{ type: "application/ld+json", textContent: JSON.stringify({ "@context": "https://schema.org", "@type": "BlogPosting", headline: post.value.title, description: post.value.excerpt, datePublished: post.value.date, author: { "@type": "Person", name: "Junaid Hussnain", url: "https://hijunaid.com/" }, mainEntityOfPage: canonicalUrl.value }) }] : [],
+  script: post.value ? [{ type: "application/ld+json", textContent: JSON.stringify({ "@context": "https://schema.org", "@type": "BlogPosting", headline: post.value.title, description: post.value.excerpt, image: "https://hijunaid.com/og-junaid.png", datePublished: post.value.date, dateModified: post.value.date, inLanguage: "en", author: { "@type": "Person", name: "Junaid Hussnain", url: "https://hijunaid.com/" }, publisher: { "@type": "Person", name: "Junaid Hussnain", url: "https://hijunaid.com/" }, mainEntityOfPage: canonicalUrl.value }) }] : [],
 }));
 </script>
 
