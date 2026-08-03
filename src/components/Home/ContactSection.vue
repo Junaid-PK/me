@@ -10,9 +10,9 @@
       </p>
       <a class="button button--light" href="mailto:junaidhussnain369@gmail.com">Email Junaid</a>
       <div class="contact-links" aria-label="Other ways to connect">
-        <a href="https://github.com/Junaid-PK" target="_blank" rel="noreferrer">GitHub ↗</a>
-        <a href="https://www.linkedin.com/in/junaid-hussnain-a951791bb/" target="_blank" rel="noreferrer">LinkedIn ↗</a>
-        <a href="https://www.freelancer.com.au/u/junaidhussnain36" target="_blank" rel="noreferrer">Freelancer ↗</a>
+        <a href="https://github.com/Junaid-PK" target="_blank" rel="me noreferrer">GitHub ↗</a>
+        <a href="https://www.linkedin.com/in/junaid-hussnain-a951791bb/" target="_blank" rel="me noreferrer">LinkedIn ↗</a>
+        <a href="https://www.freelancer.com.au/u/junaidhussnain36" target="_blank" rel="me noreferrer">Freelancer ↗</a>
       </div>
     </div>
   </section>

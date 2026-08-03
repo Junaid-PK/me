@@ -15,7 +15,12 @@ useHead({
         "Junaid Hussnain is a software engineer in Lahore with 5+ years of experience building backend products, operational tools, and reliable delivery systems.",
     },
   ],
-  link: [{ rel: "canonical", href: "https://hijunaid.com/" }],
+  link: [
+    { rel: "canonical", href: "https://hijunaid.com/" },
+    { rel: "me", href: "https://github.com/Junaid-PK" },
+    { rel: "me", href: "https://www.linkedin.com/in/junaid-hussnain-a951791bb/" },
+    { rel: "me", href: "https://www.freelancer.com.au/u/junaidhussnain36" },
+  ],
   script: [{
     type: "application/ld+json",
     textContent: JSON.stringify({
