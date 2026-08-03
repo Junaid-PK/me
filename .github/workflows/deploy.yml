@@ -74,21 +74,7 @@ jobs:
         env:
           INDEXNOW_KEY: ${{ secrets.INDEXNOW_KEY }}
         run: |
-          jq --null-input \
-            --arg key "$INDEXNOW_KEY" \
-            '{
-              host: "hijunaid.com",
-              key: $key,
-              keyLocation: ("https://hijunaid.com/" + $key + ".txt"),
-              urlList: [
-                "https://hijunaid.com/",
-                "https://hijunaid.com/blog",
-                "https://hijunaid.com/blog/building-big-software-that-stays-small",
-                "https://hijunaid.com/blog/blazingly-fast-tech-stack-for-million-dollar-project",
-                "https://hijunaid.com/blog/when-leading-feels-lonely",
-                "https://hijunaid.com/blog/leading-when-you-are-not-the-loudest-in-the-room"
-              ]
-            }' > "$RUNNER_TEMP/indexnow.json"
+          node scripts/create-indexnow-payload.mjs
           curl --fail-with-body --silent --show-error --retry 3 \
             --header 'Content-Type: application/json; charset=utf-8' \
             --data-binary "@$RUNNER_TEMP/indexnow.json" \
