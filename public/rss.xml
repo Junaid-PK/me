@@ -6,45 +6,52 @@
   <description>Practical notes on backend systems, open source, architecture, delivery, and engineering leadership.</description>
   <language>en</language>
   <item>
+    <title>Designing a Redacted Provenance Ledger for Laravel AI Agents</title>
+    <link>https://hijunaid.com/blog/designing-a-redacted-provenance-ledger-for-laravel-ai-agents</link>
+    <guid isPermaLink="true">https://hijunaid.com/blog/designing-a-redacted-provenance-ledger-for-laravel-ai-agents</guid>
+    <pubDate>Mon, 03 Aug 2026 21:30:00 GMT</pubDate>
+    <description>How to track which user, retrieval, tool, and application inputs entered an agent invocation without turning observability into a second store of sensitive content.</description>
+  </item>
+  <item>
     <title>Backporting Meilisearch Dynamic Search Rules Without Dropping PHP 7.4</title>
     <link>https://hijunaid.com/blog/backporting-meilisearch-dynamic-search-rules-to-php-74</link>
     <guid isPermaLink="true">https://hijunaid.com/blog/backporting-meilisearch-dynamic-search-rules-to-php-74</guid>
-    <pubDate>Tue, 04 Aug 2026 00:00:00 GMT</pubDate>
+    <pubDate>Mon, 03 Aug 2026 19:00:00 GMT</pubDate>
     <description>A field note on moving a modern Meilisearch PHP feature onto v1.x while preserving its public conventions, PHP 7.4 support, and a green integration suite.</description>
   </item>
   <item>
     <title>Designing CI-Safe Evaluation Baselines for Laravel AI Agents</title>
     <link>https://hijunaid.com/blog/designing-ci-safe-evaluation-baselines-for-laravel-ai-agents</link>
     <guid isPermaLink="true">https://hijunaid.com/blog/designing-ci-safe-evaluation-baselines-for-laravel-ai-agents</guid>
-    <pubDate>Tue, 04 Aug 2026 00:00:00 GMT</pubDate>
+    <pubDate>Mon, 03 Aug 2026 19:00:00 GMT</pubDate>
     <description>How to persist redacted security-evaluation baselines, preserve distinct failure categories, and emit safe GitHub Actions annotations from Laravel.</description>
   </item>
   <item>
     <title>Building Big Software That Stays Small (from a PHP engineer&apos;s desk)</title>
     <link>https://hijunaid.com/blog/building-big-software-that-stays-small</link>
     <guid isPermaLink="true">https://hijunaid.com/blog/building-big-software-that-stays-small</guid>
-    <pubDate>Mon, 15 Sep 2025 00:00:00 GMT</pubDate>
+    <pubDate>Sun, 14 Sep 2025 19:00:00 GMT</pubDate>
     <description>Learn how to design PHP systems that scale without complexity by using black-box modules, stable contracts, and careful interface design. Keep your large systems maintainable and team-friendly.</description>
   </item>
   <item>
     <title>The Blazingly Fast Tech Stack to Power Your Next Million-Dollar Project</title>
     <link>https://hijunaid.com/blog/blazingly-fast-tech-stack-for-million-dollar-project</link>
     <guid isPermaLink="true">https://hijunaid.com/blog/blazingly-fast-tech-stack-for-million-dollar-project</guid>
-    <pubDate>Sat, 09 Aug 2025 00:00:00 GMT</pubDate>
+    <pubDate>Fri, 08 Aug 2025 19:00:00 GMT</pubDate>
     <description>Choosing the right tech stack can make or break your million-dollar idea. Here’s the proven, blazingly fast stack I’d use to launch, scale, and win in today’s market.</description>
   </item>
   <item>
     <title>When Leading Feels Lonely</title>
     <link>https://hijunaid.com/blog/when-leading-feels-lonely</link>
     <guid isPermaLink="true">https://hijunaid.com/blog/when-leading-feels-lonely</guid>
-    <pubDate>Sat, 20 Jan 2024 00:00:00 GMT</pubDate>
+    <pubDate>Fri, 19 Jan 2024 19:00:00 GMT</pubDate>
     <description>Leadership can create a quiet kind of isolation. Here is how I learned to build support, boundaries, and honest peer connection on purpose.</description>
   </item>
   <item>
     <title>Leading When You’re Not the Loudest in the Room</title>
     <link>https://hijunaid.com/blog/leading-when-you-are-not-the-loudest-in-the-room</link>
     <guid isPermaLink="true">https://hijunaid.com/blog/leading-when-you-are-not-the-loudest-in-the-room</guid>
-    <pubDate>Mon, 15 Jan 2024 00:00:00 GMT</pubDate>
+    <pubDate>Sun, 14 Jan 2024 19:00:00 GMT</pubDate>
     <description>Leadership is not volume. A reflection on listening well, creating space, and building trust through steady, intentional presence.</description>
   </item>
 </channel>

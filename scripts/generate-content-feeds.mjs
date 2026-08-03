@@ -29,7 +29,7 @@ function parseFrontmatter(source, filename) {
     if (!metadata[key]) throw new Error(`${filename} is missing ${key}`);
   }
 
-  const date = new Date(`${metadata.date}T00:00:00Z`);
+  const date = new Date(metadata.date.includes("T") ? metadata.date : `${metadata.date}T00:00:00+05:00`);
   if (Number.isNaN(date.getTime())) throw new Error(`${filename} has an invalid date`);
 
   return {

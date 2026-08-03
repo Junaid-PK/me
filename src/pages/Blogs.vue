@@ -2,11 +2,12 @@
 import { useHead } from "@unhead/vue";
 import { computed, onMounted, onServerPrefetch, ref } from "vue";
 import { useBlog } from "../composables/useBlog";
+import { parseBlogDate } from "../utils/blog";
 
 const { posts, loading, error, loadPosts, categories } = useBlog();
 const selectedCategory = ref("all");
 const filteredPosts = computed(() => selectedCategory.value === "all" ? posts.value : posts.value.filter((post) => post.category === selectedCategory.value));
-const formatDate = (dateString: string) => new Date(dateString).toLocaleDateString("en-US", { year: "numeric", month: "short", day: "numeric" });
+const formatDate = (dateString: string) => parseBlogDate(dateString).toLocaleDateString("en-US", { year: "numeric", month: "short", day: "numeric", timeZone: "Asia/Karachi" });
 
 onMounted(loadPosts);
 onServerPrefetch(loadPosts);

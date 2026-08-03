@@ -3,13 +3,14 @@ import { useHead } from "@unhead/vue";
 import { computed, onMounted, onServerPrefetch, ref } from "vue";
 import { useRoute } from "vue-router";
 import { useBlog } from "../composables/useBlog";
+import { parseBlogDate } from "../utils/blog";
 
 const route = useRoute();
 const { posts, loading, error, loadPosts, getPostBySlug } = useBlog();
 const shareStatus = ref("");
 const post = computed(() => getPostBySlug(route.params.slug as string));
 const canonicalUrl = computed(() => `https://hijunaid.com/blog/${route.params.slug as string}`);
-const formatDate = (dateString: string) => new Date(dateString).toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" });
+const formatDate = (dateString: string) => parseBlogDate(dateString).toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric", timeZone: "Asia/Karachi" });
 
 const sharePost = async () => {
   if (!post.value) return;

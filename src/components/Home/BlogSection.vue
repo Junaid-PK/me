@@ -1,25 +1,16 @@
 <script setup lang="ts">
 import { computed, onMounted, onServerPrefetch } from "vue";
 import { useBlog } from "../../composables/useBlog";
+import { parseBlogDate } from "../../utils/blog";
 
 const { posts, loadPosts } = useBlog();
-const preferredSlugs = [
-  "building-big-software-that-stays-small",
-  "leading-when-you-are-not-the-loudest-in-the-room",
-  "when-leading-feels-lonely",
-];
-
-const selectedPosts = computed(() =>
-  preferredSlugs
-    .map((slug) => posts.value.find((post) => post.slug === slug))
-    .filter((post): post is NonNullable<typeof post> => Boolean(post)),
-);
+const selectedPosts = computed(() => posts.value.filter((post) => post.featured).slice(0, 3));
 
 const formatDate = (value: string) => {
-  const date = new Date(value.replace(/\s+/g, ""));
+  const date = parseBlogDate(value);
   return Number.isNaN(date.getTime())
     ? value
-    : date.toLocaleDateString("en-US", { year: "numeric", month: "short" });
+    : date.toLocaleDateString("en-US", { year: "numeric", month: "short", timeZone: "Asia/Karachi" });
 };
 
 onMounted(loadPosts);

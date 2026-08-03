@@ -90,9 +90,13 @@ export async function parseMarkdownFile(content: string, slug: string): Promise<
   }
 }
 
+export function parseBlogDate(value: string): Date {
+  return new Date(value.includes('T') ? value : `${value}T00:00:00+05:00`)
+}
+
 export function sortBlogPosts(posts: BlogPost[]): BlogPost[] {
   return posts.sort((a, b) => {
-    return new Date(b.date).getTime() - new Date(a.date).getTime()
+    return parseBlogDate(b.date).getTime() - parseBlogDate(a.date).getTime()
   })
 }
 
