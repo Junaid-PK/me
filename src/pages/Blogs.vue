@@ -8,15 +8,62 @@ const { posts, loading, error, loadPosts, categories } = useBlog();
 const selectedCategory = ref("all");
 const filteredPosts = computed(() => selectedCategory.value === "all" ? posts.value : posts.value.filter((post) => post.category === selectedCategory.value));
 const formatDate = (dateString: string) => parseBlogDate(dateString).toLocaleDateString("en-US", { year: "numeric", month: "short", day: "numeric", timeZone: "Asia/Karachi" });
+const blogUrl = "https://hijunaid.com/blog";
+const blogSchema = computed(() => ({
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "CollectionPage",
+      "@id": `${blogUrl}#collection-page`,
+      url: blogUrl,
+      name: "Engineering Notes — Junaid Hussnain",
+      description: "Practical notes from Junaid Hussnain on backend systems, software architecture, delivery, and engineering leadership.",
+      inLanguage: "en",
+      isPartOf: { "@id": "https://hijunaid.com/#website" },
+      author: { "@id": "https://hijunaid.com/#junaid-hussnain" },
+      mainEntity: { "@id": `${blogUrl}#notes` },
+    },
+    {
+      "@type": "ItemList",
+      "@id": `${blogUrl}#notes`,
+      name: "Junaid Hussnain's engineering notes",
+      numberOfItems: posts.value.length,
+      itemListElement: posts.value.map((post, index) => ({
+        "@type": "ListItem",
+        position: index + 1,
+        url: `${blogUrl}/${post.slug}`,
+        name: post.title,
+      })),
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": `${blogUrl}#breadcrumbs`,
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: "Home", item: "https://hijunaid.com/" },
+        { "@type": "ListItem", position: 2, name: "Engineering notes", item: blogUrl },
+      ],
+    },
+  ],
+}));
 
 onMounted(loadPosts);
 onServerPrefetch(loadPosts);
 
-useHead({
+useHead(() => ({
   title: "Engineering Notes — Junaid Hussnain",
-  meta: [{ name: "description", content: "Practical notes from Junaid Hussnain on backend systems, software architecture, delivery, and engineering leadership." }],
-  link: [{ rel: "canonical", href: "https://hijunaid.com/blog" }],
-});
+  meta: [
+    { name: "description", content: "Practical notes from Junaid Hussnain on backend systems, software architecture, delivery, and engineering leadership." },
+    { property: "og:type", content: "website" },
+    { property: "og:title", content: "Engineering Notes — Junaid Hussnain" },
+    { property: "og:description", content: "Practical field notes on backend systems, open source, architecture, delivery, and engineering leadership." },
+    { property: "og:url", content: blogUrl },
+    { name: "twitter:card", content: "summary_large_image" },
+    { name: "twitter:title", content: "Engineering Notes — Junaid Hussnain" },
+    { name: "twitter:description", content: "Practical field notes on backend systems, open source, architecture, delivery, and engineering leadership." },
+  ],
+  link: [{ rel: "canonical", href: blogUrl }],
+  script: [{ type: "application/ld+json", textContent: JSON.stringify(blogSchema.value) }],
+}));
 </script>
 
 <template>

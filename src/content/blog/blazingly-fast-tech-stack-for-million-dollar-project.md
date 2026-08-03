@@ -7,10 +7,6 @@ category: "Startups"
 author: "Junaid Hussnain"
 featured: true
 ---
-
-
-# The Blazingly Fast Tech Stack to Power Your Next Million - Dollar Project
-
 A few years ago, I worked with a startup that had **the right idea, the right funding, and the right team** yet they spent 8 months just trying to untangle performance issues from their tech stack.
 By the time they were ready to launch, their competitors had eaten their lunch.
 
