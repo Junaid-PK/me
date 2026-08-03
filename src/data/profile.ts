@@ -55,4 +55,19 @@ export const projects: Project[] = [
     source: "https://github.com/Junaid-PK/laravel-development-workflow",
     status: "Public utility · 2026",
   },
+  {
+    name: "Verdict Evaluation CLI",
+    label: "Open-source contribution",
+    summary: "An upstream Laravel package contribution adding safe evaluation baselines and CI-ready regression reporting.",
+    problem: "Security evaluation reports need repeatable baseline comparisons without copying unvalidated JSON, leaking model data, or hiding distinct failure categories.",
+    decisions: [
+      "Typed validation before baseline persistence",
+      "Explicit, atomic baseline replacement",
+      "Distinct findings and stable CI exit codes",
+      "Escaped, redacted GitHub Actions annotations",
+    ],
+    stack: ["PHP", "Laravel", "Pest", "PHPStan", "GitHub Actions"],
+    source: "https://github.com/fissible/verdict/pull/6",
+    status: "Upstream PR open · 2026",
+  },
 ];
