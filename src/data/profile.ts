@@ -56,6 +56,21 @@ export const projects: Project[] = [
     status: "Public utility · 2026",
   },
   {
+    name: "Meilisearch PHP: Dynamic Search Rules",
+    label: "Open-source contribution",
+    summary: "A v1.x backport for the official Meilisearch PHP client, adding Dynamic Search Rules without dropping PHP 7.4 support.",
+    problem: "Meilisearch v1.x users needed the newer Dynamic Search Rules API while the upstream implementation depended on contracts and language features only available on the main branch.",
+    decisions: [
+      "Typed contracts and client endpoint delegation",
+      "v1.x-compatible asynchronous task arrays",
+      "PHP 7.4-safe syntax across source and tests",
+      "Meilisearch 1.50 integration and CI compatibility",
+    ],
+    stack: ["PHP", "Meilisearch", "PHPUnit", "PHPStan", "GitHub Actions"],
+    source: "https://github.com/meilisearch/meilisearch-php/pull/942",
+    status: "Upstream PR open · 2026",
+  },
+  {
     name: "Verdict Evaluation CLI",
     label: "Open-source contribution",
     summary: "An upstream Laravel package contribution adding safe evaluation baselines and CI-ready regression reporting.",

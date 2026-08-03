@@ -35,7 +35,7 @@
         </div>
         <dl class="evidence-list">
           <div><dt>Experience</dt><dd>5+ years</dd></div>
-          <div><dt>Public repos</dt><dd>57</dd></div>
+          <div><dt>Public repos</dt><dd>58</dd></div>
           <div><dt>Primary lane</dt><dd>Backend & product</dd></div>
           <div><dt>Timezone</dt><dd>UTC+5</dd></div>
         </dl>
