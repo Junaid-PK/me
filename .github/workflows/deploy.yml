@@ -36,6 +36,13 @@ jobs:
       - name: Build production site
         run: npm run build
 
+      - name: Add IndexNow ownership key
+        env:
+          INDEXNOW_KEY: ${{ secrets.INDEXNOW_KEY }}
+        run: |
+          test -n "$INDEXNOW_KEY"
+          printf '%s' "$INDEXNOW_KEY" > "dist/${INDEXNOW_KEY}.txt"
+
       - name: Configure deployment access
         env:
           VPS_SSH_KEY: ${{ secrets.VPS_SSH_KEY }}
@@ -62,3 +69,27 @@ jobs:
           curl --fail --silent --show-error --retry 5 --retry-delay 2 \
             --resolve "hijunaid.com:443:$VPS_HOST" \
             https://hijunaid.com/ > /dev/null
+
+      - name: Notify IndexNow
+        env:
+          INDEXNOW_KEY: ${{ secrets.INDEXNOW_KEY }}
+        run: |
+          jq --null-input \
+            --arg key "$INDEXNOW_KEY" \
+            '{
+              host: "hijunaid.com",
+              key: $key,
+              keyLocation: ("https://hijunaid.com/" + $key + ".txt"),
+              urlList: [
+                "https://hijunaid.com/",
+                "https://hijunaid.com/blog",
+                "https://hijunaid.com/blog/building-big-software-that-stays-small",
+                "https://hijunaid.com/blog/blazingly-fast-tech-stack-for-million-dollar-project",
+                "https://hijunaid.com/blog/when-leading-feels-lonely",
+                "https://hijunaid.com/blog/leading-when-you-are-not-the-loudest-in-the-room"
+              ]
+            }' > "$RUNNER_TEMP/indexnow.json"
+          curl --fail-with-body --silent --show-error --retry 3 \
+            --header 'Content-Type: application/json; charset=utf-8' \
+            --data-binary "@$RUNNER_TEMP/indexnow.json" \
+            https://api.indexnow.org/indexnow
