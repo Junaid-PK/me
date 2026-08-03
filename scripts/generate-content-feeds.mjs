@@ -32,12 +32,19 @@ function parseFrontmatter(source, filename) {
   const date = new Date(metadata.date.includes("T") ? metadata.date : `${metadata.date}T00:00:00+05:00`);
   if (Number.isNaN(date.getTime())) throw new Error(`${filename} has an invalid date`);
 
+  if (metadata.updated) {
+    const updated = new Date(metadata.updated.includes("T") ? metadata.updated : `${metadata.updated}T00:00:00+05:00`);
+    if (Number.isNaN(updated.getTime())) throw new Error(`${filename} has an invalid updated date`);
+    if (updated < date) throw new Error(`${filename} has an updated date before its publication date`);
+  }
+
   return {
     slug: filename.replace(/\.md$/, ""),
     title: metadata.title,
     excerpt: metadata.excerpt,
     author: metadata.author,
     date: metadata.date,
+    updated: metadata.updated,
     publishedAt: date,
   };
 }
@@ -53,7 +60,7 @@ posts.sort((a, b) => b.publishedAt.getTime() - a.publishedAt.getTime());
 const sitemapEntries = posts.map((post) => [
   "  <url>",
   `    <loc>${siteUrl}/blog/${escapeXml(post.slug)}</loc>`,
-  `    <lastmod>${post.date}</lastmod>`,
+  `    <lastmod>${post.updated || post.date}</lastmod>`,
   "    <priority>0.7</priority>",
   "  </url>",
 ].join("\n"));

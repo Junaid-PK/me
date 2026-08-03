@@ -40,12 +40,13 @@ useHead(() => ({
     { property: "og:description", content: post.value?.excerpt || "An engineering note by Junaid Hussnain." },
     { property: "og:url", content: canonicalUrl.value },
     { property: "article:published_time", content: post.value?.date || "" },
+    { property: "article:modified_time", content: post.value?.updated || post.value?.date || "" },
     { name: "twitter:card", content: "summary_large_image" },
     { name: "twitter:title", content: post.value?.title || "Engineering Note — Junaid Hussnain" },
     { name: "twitter:description", content: post.value?.excerpt || "An engineering note by Junaid Hussnain." },
   ],
   link: [{ rel: "canonical", href: canonicalUrl.value }],
-  script: post.value ? [{ type: "application/ld+json", textContent: JSON.stringify({ "@context": "https://schema.org", "@type": "BlogPosting", "@id": `${canonicalUrl.value}#article`, headline: post.value.title, description: post.value.excerpt, image: "https://hijunaid.com/og-junaid.png", datePublished: post.value.date, dateModified: post.value.date, inLanguage: "en", author: { "@type": "Person", "@id": "https://hijunaid.com/#junaid-hussnain", name: "Junaid Hussnain", url: "https://hijunaid.com/" }, publisher: { "@type": "Person", "@id": "https://hijunaid.com/#junaid-hussnain", name: "Junaid Hussnain", url: "https://hijunaid.com/" }, isPartOf: { "@type": "WebSite", "@id": "https://hijunaid.com/#website", name: "Junaid Hussnain", url: "https://hijunaid.com/" }, mainEntityOfPage: { "@type": "WebPage", "@id": canonicalUrl.value } }) }] : [],
+  script: post.value ? [{ type: "application/ld+json", textContent: JSON.stringify({ "@context": "https://schema.org", "@type": "BlogPosting", "@id": `${canonicalUrl.value}#article`, headline: post.value.title, description: post.value.excerpt, image: "https://hijunaid.com/og-junaid.png", datePublished: post.value.date, dateModified: post.value.updated || post.value.date, inLanguage: "en", author: { "@type": "Person", "@id": "https://hijunaid.com/#junaid-hussnain", name: "Junaid Hussnain", url: "https://hijunaid.com/" }, publisher: { "@type": "Person", "@id": "https://hijunaid.com/#junaid-hussnain", name: "Junaid Hussnain", url: "https://hijunaid.com/" }, isPartOf: { "@type": "WebSite", "@id": "https://hijunaid.com/#website", name: "Junaid Hussnain", url: "https://hijunaid.com/" }, mainEntityOfPage: { "@type": "WebPage", "@id": canonicalUrl.value } }) }] : [],
 }));
 </script>
 
@@ -57,7 +58,7 @@ useHead(() => ({
     <article v-else-if="post">
       <header class="post-header">
         <RouterLink class="back-link" to="/blog"><span aria-hidden="true">←</span> All engineering notes</RouterLink>
-        <p class="post-meta">{{ post.category }} · {{ formatDate(post.date) }} · {{ post.readTime }}</p>
+        <p class="post-meta">{{ post.category }} · {{ post.updated ? "Updated" : "Published" }} {{ formatDate(post.updated || post.date) }} · {{ post.readTime }}</p>
         <h1>{{ post.title }}</h1><p class="post-excerpt">{{ post.excerpt }}</p>
         <div class="byline"><img src="https://avatars.githubusercontent.com/u/84363665?v=4" alt="" width="48" height="48" /><p><strong>Junaid Hussnain</strong><span>Software engineer · Lahore, Pakistan</span></p></div>
       </header>
@@ -93,6 +94,9 @@ useHead(() => ({
 .post-content :deep(blockquote) { margin: 2.5rem 0; padding: 1.5rem 1.8rem; color: var(--blueprint); background: var(--soft-blue); border-left: 4px solid var(--blueprint); font: 500 1.35rem/1.5 "Newsreader", serif; }
 .post-content :deep(code) { padding: 0.16rem 0.35rem; color: #173da5; background: var(--soft-blue); font: 400 0.88em/1.5 "IBM Plex Mono", monospace; }
 .post-content :deep(pre) { overflow-x: auto; margin: 2.2rem 0; padding: 1.4rem; color: #e8ecf5; background: var(--ink); border-left: 5px solid var(--signal); }.post-content :deep(pre code) { padding: 0; color: inherit; background: transparent; }
+.post-content :deep(table) { display: block; width: 100%; overflow-x: auto; margin: 2.2rem 0; border-collapse: collapse; font-size: 0.9rem; line-height: 1.55; }
+.post-content :deep(th), .post-content :deep(td) { min-width: 160px; padding: 0.85rem 1rem; text-align: left; vertical-align: top; border: 1px solid var(--rule); }
+.post-content :deep(th) { color: var(--ink); background: var(--soft-blue); font-weight: 700; }
 .post-footer { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 4rem; margin-top: clamp(5rem, 10vw, 9rem); padding: clamp(2.5rem, 6vw, 5rem); color: white; background: var(--ink); }
 .post-footer h2 { margin: 0; font: 600 clamp(2rem, 4vw, 3.6rem)/1 "Newsreader", serif; letter-spacing: -0.04em; }.post-footer .eyebrow { color: #94adff; }.post-footer > div:last-child { align-self: end; }
 .share-status { min-height: 1.3em; margin: 0.8rem 0 0; color: #b9c0ce; font-size: 0.75rem; }

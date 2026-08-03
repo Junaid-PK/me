@@ -1,181 +1,138 @@
 ---
-title: "Building Big Software That Stays Small (from a PHP engineer's desk)"
-excerpt: "Learn how to design PHP systems that scale without complexity by using black-box modules, stable contracts, and careful interface design. Keep your large systems maintainable and team-friendly."
+title: "Building Big Software That Stays Small"
+excerpt: "How narrow contracts, explicit ownership, and evidence-driven boundaries keep PHP systems changeable as their responsibilities grow."
 date: "2025-09-15"
-readTime: "15 min read"
+updated: "2026-08-04"
+readTime: "9 min read"
 category: "Engineering"
 author: "Junaid Hussnain"
 featured: false
 ---
 
-### Building Big Software That Stays Small (from a PHP engineer's desk)
+Large software is not difficult because it contains many lines. It is difficult when a small change requires understanding too many unrelated decisions.
 
-You ship a Composer update, a minor framework release lands, and half your app starts throwing type errors in places you didn't touch. I've had my day derailed by that too many times. The fix isn't "be more careful." It's to design your system so large work feels small - black box modules with narrow, stable contracts that one person can own, finish, and replace without a team meeting.
+The useful measure of size is **change radius**: how much of the system must be inspected, coordinated, tested, and deployed to alter one behavior safely?
 
-Here's how I do that in PHP.
+A system can grow in capability while keeping that radius small. The work is less about adding layers and more about creating boundaries that carry real responsibility.
 
-### Reframing the problem
+## Begin with behavior, not folders
 
-What if scaling teams means refusing to build a single "big thing"? Treat the system as a federation of finished packages/services, each behind a forward compatible interface. Keep the domain pure PHP, push frameworks to the edges, and make implementation replaceable under a stable contract.
+`Controllers`, `Services`, and `Repositories` describe technical roles. They do not reveal which business capability owns a rule.
 
-Big idea: it's faster to write five careful, explicit lines today than one vague line you'll "fix later." Later is always pricier.
+A stronger module boundary groups the decisions that change together. In an operations product, invoicing, workforce payments, bank movements, and access control may share infrastructure while remaining separate capabilities. Each capability should own:
 
-## The core philosophy
+- its rules and invariants;
+- its application operations;
+- the data it is allowed to change;
+- the events or results it exposes;
+- the tests that prove its public behavior.
 
-### 1) Reduce risk, not just deliver features
- -  **Wrap what you don't control**: Vendors, SDKs, cloud services change. Talk to them through your adapters, not inline calls.
- -  **Prefer boring longevity**: PHP 8.x with strict types, PSR standards, Composer, semantic versioning, automated BC checks.
- -  **Eliminate "small" speed bumps**: Guard against trivial breakages (type contracts, static analysis, CI) because a thousand pebbles stop the cart.
+Framework code can still exist at the edge. The important part is that a request handler delegates to one clear capability instead of orchestrating rules from several unrelated directories.
 
-### 2) Black boxes over shared guts
-A module is a package/service with a documented interface. everything else is implementation. Single owner. "Done" means others never need to read your code.
+## Make contracts smaller than implementations
 
- -  **Forward‑compatible APIs**: Design for two years out. ship a minimal impl today. Replace guts later without changing call sites.
- -  **Replaceability by contract**: If the interface is good, you can bin a bad impl and swap it. Staff turnover doesn't stall the system.
+An interface is valuable when it protects a decision boundary. It is not valuable merely because every class can have one.
 
-Example: future proof storage you can swap from local to S3/GCS/Azure without touching callers.
+Suppose the application needs to store generated reports. The application contract can describe that behavior without exposing an SDK:
+
 ```php
-interface BlobStorage {
-    // Returns canonical URI. metadata is extensible for future needs
-    public function put(string $path, string $bytes, array $metadata = []): Uri.
+interface ReportStore
+{
+    public function put(ReportName $name, string $contents): StoredReport;
 
-    public function get(string $path): ?Blob. // null if not found
-    public function delete(string $path): void.
+    public function find(ReportName $name): ?StoredReport;
 }
 ```
 
-### 3) Own your "platform layer"
- -  **Infrastructure adapters**: HTTP clients, queues, schedulers, filesystems, caches - hide them behind interfaces. PSR - 18/PSR - 7/PSR - 6 where helpful, but keep your domain free of vendor types.
- -  **Demo harness first**: A tiny CLI or HTTP endpoint that exercises the adapter surface. Port/replace infra by getting the harness green first.
- -  **UI is just another edge**: If you're on Symfony/Laravel, keep controllers thin. bind domain ports to framework adapters at the edge.
+The contract says nothing about S3, a local disk, signed URLs, or framework filesystem types. An adapter can use any of those. Callers depend on the application’s language, not the vendor’s language.
 
-### 4) Helper libraries > app glue
-Invest in internal Composer packages: `company/http`, `company/queue`, `company/feature - flags`, `company/telemetry`. Reuse everywhere. don't re - learn each SDK.
+The rule is not “wrap every dependency.” Wrap dependencies where vendor types or behavior would otherwise spread into business code. A direct framework call in one delivery adapter may be simpler and safer than a speculative abstraction.
 
-### 5) Keep the "domain brain" headless. make everything else a plugin
-Put the rules and invariants in a framework free core. Hang capabilities off it via plugins (packages) discovered at runtime (Composer metadata) or build time (container wiring).
+## Keep invariants close to the state they protect
 
- -  **Multiple UIs, same core**: Web app, worker, CLI, async pipeline - same domain. different adapters.
- -  **UI panels as plugins**: In modular frontends, mirror PHP's plugin shape with capability descriptors.
+Validation at an HTTP boundary protects one request. A domain invariant must survive every entry point: HTTP, CLI, queue, import, and test setup.
 
-Capability as data contracts (self describing, UI‑friendly):
+Value objects are useful when they make invalid states harder to express:
+
 ```php
-final class WasherStatus {
+final class Money
+{
     public function __construct(
-        public bool $isRunning,
-        public Mode $mode,
-        public float $temperatureC,
-        public float $loadKg,
-        public int $secondsRemaining,
-    ) {}
-}
-
-final class WasherCommand {
-    public function __construct(
-        public bool $run,
-        public Mode $requestedMode,
-        public float $requestedTemperatureC,
-    ) {}
+        public readonly int $minorUnits,
+        public readonly Currency $currency,
+    ) {
+        if ($minorUnits < 0) {
+            throw new InvalidArgumentException('Money cannot be negative.');
+        }
+    }
 }
 ```
 
-## Three systems, one approach
+Not every scalar needs a class. Promote a value when it has rules, units, formatting, comparison behavior, or enough meaning that mixing it with another scalar would be dangerous.
 
-### A. "Video editor": the primitive is a timeline
-Even if the runtime isn't PHP, the modeling is. Treat everything as clips with parameters over time. the core enforces invariants and undo. effects are plugins.
+## Test the boundary, not every private step
 
-```php
-final class Timeline {
-    /** @var list<Clip> */
-    private array $clips = [].
+Tests become expensive when they mirror implementation structure. A refactor then breaks the test suite even though the public behavior is unchanged.
 
-    public function add(Clip $clip): void { /* enforce bounds, overlap rules, etc. */ }
-    public function at(Timecode $t): Frame { /* evaluate graph */ }
-}
+For each module, prefer a small set of tests around observable contracts:
 
-interface EffectPlugin {
-    public function descriptor(): EffectDescriptor. // inputs, params, docs
-    public function apply(Frame $in, Parameters $params): Frame.
-}
-```
+- accepted commands produce the expected state or result;
+- invalid commands fail with a stable error;
+- authorization rules hold at the capability boundary;
+- external adapters satisfy a shared contract suite;
+- important persistence and serialization shapes remain compatible.
 
- -  Ship a minimal effect set. keep the API stable so higher quality implementations drop in later.
- -  Discover plugins via Composer `extra` and a registry. one owner per plugin.
+Use unit tests where a dense rule benefits from fast examples. Use integration tests where the risk lives in wiring, database behavior, framework configuration, or a third-party boundary. The test type should follow the failure mode.
 
-### B. Health system: the primitive is events, not "journals"
-Use domain events (past and future). Keep storage behind an access API. dual‑write to legacy. cut over gradually.
+## Make ownership visible
 
-```php
-interface EventStore {
-    public function append(Event $event): void.
-    /** @return iterable<Event> */
-    public function eventsFor(PatientId $id): iterable.
-    /** @return iterable<Event> */
-    public function eventsOn(LocalDate $date, ClinicId $clinic): iterable.
-}
-```
+A boundary without ownership becomes a suggestion. The repository should make it easy to answer:
 
- -  Provide bindings: raw PHP (domain), Symfony service, Laravel facade, CLI.
- -  Never expose SQL from the API. that's a lifetime coupling you don't want.
+- Who reviews changes to this capability?
+- Which public contracts must remain compatible?
+- Which data does the module own?
+- Which other modules consume its output?
+- How is it observed in production?
 
-### C. Jet fighter: the primitive is world state
-Model "now" with confidence, accuracy, source, and units. Publish/subscribe subsets to many computers at different rates.
+Ownership does not require a large team. Even a solo engineer benefits from writing these answers down because they reduce the amount of context that must be reconstructed later.
 
-```php
-interface WorldStateBus {
-    public function publish(StateUpdate $update): void.
-    public function subscribe(Subscription $sub, callable $onUpdate): SubscriptionId.
-}
-```
+## Extract only after the seam is real
 
- -  Start with one core. evolve to redundant/voting cores later - same API, drop‑in replacement.
- -  Tooling first: recorder, playback, logger, visualizer, and a Python/PHP simulator. Contractors validate in isolation. share traces, not lab time.
+Moving a module into a package or service too early creates distribution work without proving independence.
 
-## The craft underneath: format design in PHP
+A safer extraction sequence is:
 
-We're really designing formats (APIs, payloads, events). Make them small, powerful, and implementable.
+1. identify a capability with a narrow public surface;
+2. stop other code from reading its tables or internal classes directly;
+3. move calls behind explicit commands, queries, or events;
+4. add contract tests;
+5. observe its load and release needs;
+6. extract only if independent ownership, deployment, or scaling repays the cost.
 
- -  **Semantics vs structure**: JSON gives structure. your schema/events supply meaning. Version both.
- -  **Pick one good primitive per pipeline**: Don't support "everything." Every extra option is multiplied implementation cost (and bugs).
- -  **Constrain for quality**: Explicit types, units, encodings, idempotency, stable error models.
- -  **Keep implementation freedom**: Ports - and - adapters/hexagonal. Never leak persistence or transport into domain interfaces.
- -  **Plugin direction**: Prefer "plugins come to us" (your contracts, your lifecycle) over "we plug into them" (you inherit their chaos).
+This approach preserves the option to split without paying for the split on day one.
 
-## The offering: make it real
+## Watch for false modularity
 
- -  **Kickoff**
-   -  Name the primitive and its invariants.
-   -  Slice into packages/services. one owner each.
-   -  Draft forward compatible interfaces. version from day one.
-   -  Identify vendor/platform risks. wrap them.
+Several patterns look organized while keeping the change radius large:
 
- -  **API checklist**
-   -  Minimal surface, explicit errors, strong typing.
-   -  Future‑proof I/O (units, encoding, locale, time).
-   -  No backend specific escape hatches.
-   -  Contract tests and a tiny harness.
+- a shared `Common` package containing business decisions from every module;
+- interfaces that simply duplicate a concrete class method for method;
+- events used for synchronous work that must succeed in one transaction;
+- services that share a database and reach into each other’s tables;
+- a “domain” layer filled with framework and transport types;
+- generic repositories that hide the queries a capability actually needs.
 
- -  **Tooling**
-   -  Demo harness per adapter.
-   -  Structured logger + trace printer.
-   -  Recorder/playback for the core.
-   -  Simulator for critical flows.
+The test is simple: can one capability change without coordinated edits across unrelated areas? If not, the folder structure is not a boundary.
 
- -  **Team topology**
-   -  Seniors on hard modules. juniors on well‑bounded ones.
-   -  Core stays framework free. edges adapt frameworks.
+## Small is an operating property
 
- -  **Migration**
-   -  Dual‑write bridge between old/new. incremental cutover in production.
+Architecture diagrams cannot keep software small by themselves. The property comes from repeated habits:
 
-### Closing thought
+- name the capability that owns each rule;
+- expose the minimum useful contract;
+- keep units and invariants explicit;
+- test observable behavior;
+- record why a boundary exists;
+- introduce new infrastructure only when evidence justifies it.
 
-PHP is at its best when our domain is plain, strict‑typed PHP - and everything else is a replaceable adapter. If we choose clear primitives, stabilize interfaces, and invest in tooling, big systems stay small. People can rotate, vendors can change, frameworks can be swapped. The system keeps its promises.
-
- -  **Design so one person can finish any piece.**
- -  **Choose a primitive and honor it.**
- -  **Stabilize interfaces. let implementations evolve.**
- -  **Invest in tooling early.**
- -  **Relentlessly reduce risk.**
-
-That's how we keep shipping - without waking up to another surprise from `vendor/`.
+Big software stays manageable when each change has an obvious home, a limited blast radius, and a verification path. That is a more durable definition of “small” than a line count or a microservice count.

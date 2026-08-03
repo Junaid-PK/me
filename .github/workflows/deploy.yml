@@ -77,6 +77,7 @@ jobs:
           homepage="$RUNNER_TEMP/production-homepage.html"
           about="$RUNNER_TEMP/production-about.html"
           notes="$RUNNER_TEMP/production-notes.html"
+          startup_note="$RUNNER_TEMP/production-startup-note.html"
           not_found="$RUNNER_TEMP/production-404.html"
           feed="$RUNNER_TEMP/production-rss.xml"
           curl --fail --silent --show-error --retry 5 --retry-delay 2 \
@@ -104,6 +105,12 @@ jobs:
             https://hijunaid.com/blog
           grep --fixed-strings --quiet '"@type":"CollectionPage"' "$notes"
           grep --fixed-strings --quiet '"@type":"ItemList"' "$notes"
+          curl --fail --silent --show-error --retry 5 --retry-delay 2 \
+            --resolve "hijunaid.com:443:$VPS_HOST" \
+            --output "$startup_note" \
+            https://hijunaid.com/blog/blazingly-fast-tech-stack-for-million-dollar-project
+          grep --fixed-strings --quiet '<title>Choosing a Startup Stack by Constraints, Not Hype — Junaid Hussnain</title>' "$startup_note"
+          grep --fixed-strings --quiet '"dateModified":"2026-08-04"' "$startup_note"
           not_found_status="$(curl --silent --show-error --retry 5 --retry-delay 2 \
             --resolve "hijunaid.com:443:$VPS_HOST" \
             --output "$not_found" \

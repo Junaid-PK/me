@@ -88,7 +88,7 @@ useHead(() => ({
         <RouterLink v-for="(post, index) in filteredPosts" :key="post.slug" class="article-row" :to="`/blog/${post.slug}`">
           <span class="article-index">{{ String(index + 1).padStart(2, "0") }}</span>
           <div class="article-copy">
-            <p class="article-meta">{{ post.category }} · {{ formatDate(post.date) }} · {{ post.readTime }}</p>
+            <p class="article-meta">{{ post.category }} · {{ post.updated ? "Updated" : "Published" }} {{ formatDate(post.updated || post.date) }} · {{ post.readTime }}</p>
             <h2>{{ post.title }}</h2><p>{{ post.excerpt }}</p>
           </div>
           <span class="article-open" aria-hidden="true">↗</span>

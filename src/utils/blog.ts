@@ -5,6 +5,7 @@ export interface BlogPost {
   title: string
   excerpt: string
   date: string
+  updated?: string
   readTime: string
   category: string
   author: string
@@ -17,6 +18,7 @@ export interface BlogMeta {
   title: string
   excerpt: string
   date: string
+  updated?: string
   readTime: string
   category: string
   author: string
@@ -32,8 +34,14 @@ marked.setOptions({
 // Custom renderer for code blocks with syntax highlighting
 const renderer = new marked.Renderer()
 renderer.code = ({ text, lang }) => {
-  const validLanguage = lang || 'text'
-  return `<pre><code class="language-${validLanguage}">${text}</code></pre>`
+  const validLanguage = lang && /^[a-z0-9_+-]+$/i.test(lang) ? lang : 'text'
+  const escapedText = text
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#039;')
+  return `<pre><code class="language-${validLanguage}">${escapedText}</code></pre>`
 }
 
 marked.use({ renderer })
@@ -81,6 +89,7 @@ export async function parseMarkdownFile(content: string, slug: string): Promise<
     title: meta.title,
     excerpt: meta.excerpt,
     date: meta.date,
+    updated: meta.updated,
     readTime: meta.readTime,
     category: meta.category,
     author: meta.author,
