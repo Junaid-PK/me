@@ -4,7 +4,7 @@ excerpt: "Learn how to design PHP systems that scale without complexity by using
 date: "2025-09-15"
 readTime: "15 min read"
 category: "Engineering"
-author: "Junaid"
+author: "Junaid Hussnain"
 featured: false
 ---
 

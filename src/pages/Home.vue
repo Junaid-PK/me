@@ -16,6 +16,47 @@ useHead({
     },
   ],
   link: [{ rel: "canonical", href: "https://hijunaid.com/" }],
+  script: [{
+    type: "application/ld+json",
+    textContent: JSON.stringify({
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "ProfilePage",
+          "@id": "https://hijunaid.com/#profile-page",
+          url: "https://hijunaid.com/",
+          name: "Junaid Hussnain — Software Engineer",
+          mainEntity: { "@id": "https://hijunaid.com/#junaid-hussnain" },
+          isPartOf: { "@id": "https://hijunaid.com/#website" },
+        },
+        {
+          "@type": "Person",
+          "@id": "https://hijunaid.com/#junaid-hussnain",
+          name: "Junaid Hussnain",
+          alternateName: "Junaid-PK",
+          url: "https://hijunaid.com/",
+          description: "Software engineer with more than five years of experience building backend products, operational tools, and reliable delivery systems.",
+          image: "https://avatars.githubusercontent.com/u/84363665?v=4",
+          jobTitle: "Software Engineer",
+          address: { "@type": "PostalAddress", addressLocality: "Lahore", addressCountry: "PK" },
+          sameAs: [
+            "https://github.com/Junaid-PK",
+            "https://www.linkedin.com/in/junaid-hussnain-a951791bb/",
+            "https://www.freelancer.com.au/u/junaidhussnain36",
+          ],
+          knowsAbout: ["Software engineering", "Laravel", "PHP", "TypeScript", "Python", "PostgreSQL", "Docker"],
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://hijunaid.com/#website",
+          url: "https://hijunaid.com/",
+          name: "Junaid Hussnain",
+          inLanguage: "en",
+          publisher: { "@id": "https://hijunaid.com/#junaid-hussnain" },
+        },
+      ],
+    }),
+  }],
 });
 </script>
 

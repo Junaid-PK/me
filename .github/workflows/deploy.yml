@@ -73,15 +73,24 @@ jobs:
           VPS_HOST: ${{ secrets.VPS_HOST }}
         run: |
           headers="$RUNNER_TEMP/production-headers.txt"
+          homepage="$RUNNER_TEMP/production-homepage.html"
+          feed="$RUNNER_TEMP/production-rss.xml"
           curl --fail --silent --show-error --retry 5 --retry-delay 2 \
             --resolve "hijunaid.com:443:$VPS_HOST" \
             --dump-header "$headers" \
-            --output /dev/null \
+            --output "$homepage" \
             https://hijunaid.com/
           grep --ignore-case --quiet '^x-content-type-options: nosniff' "$headers"
           grep --ignore-case --quiet '^x-frame-options: DENY' "$headers"
           grep --ignore-case --quiet '^strict-transport-security: max-age=31536000; includeSubDomains' "$headers"
           grep --ignore-case --quiet '^content-security-policy:' "$headers"
+          grep --fixed-strings --quiet '"@type":"ProfilePage"' "$homepage"
+          grep --fixed-strings --quiet '"@id":"https://hijunaid.com/#junaid-hussnain"' "$homepage"
+          curl --fail --silent --show-error --retry 5 --retry-delay 2 \
+            --resolve "hijunaid.com:443:$VPS_HOST" \
+            --output "$feed" \
+            https://hijunaid.com/rss.xml
+          grep --fixed-strings --quiet '<dc:creator>Junaid Hussnain</dc:creator>' "$feed"
 
       - name: Notify IndexNow
         env:

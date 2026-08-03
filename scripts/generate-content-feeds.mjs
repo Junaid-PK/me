@@ -25,7 +25,7 @@ function parseFrontmatter(source, filename) {
     metadata[key] = value;
   }
 
-  for (const key of ["title", "excerpt", "date"]) {
+  for (const key of ["title", "excerpt", "date", "author"]) {
     if (!metadata[key]) throw new Error(`${filename} is missing ${key}`);
   }
 
@@ -36,6 +36,7 @@ function parseFrontmatter(source, filename) {
     slug: filename.replace(/\.md$/, ""),
     title: metadata.title,
     excerpt: metadata.excerpt,
+    author: metadata.author,
     date: metadata.date,
     publishedAt: date,
   };
@@ -75,6 +76,7 @@ const rssItems = posts.map((post) => {
     `    <link>${url}</link>`,
     `    <guid isPermaLink="true">${url}</guid>`,
     `    <pubDate>${post.publishedAt.toUTCString()}</pubDate>`,
+    `    <dc:creator>${escapeXml(post.author)}</dc:creator>`,
     `    <description>${escapeXml(post.excerpt)}</description>`,
     "  </item>",
   ].join("\n");
@@ -82,7 +84,7 @@ const rssItems = posts.map((post) => {
 
 const rss = [
   '<?xml version="1.0" encoding="UTF-8"?>',
-  '<rss version="2.0">',
+  '<rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/">',
   "<channel>",
   "  <title>Junaid Hussnain — Engineering Notes</title>",
   `  <link>${siteUrl}/blog</link>`,

@@ -4,7 +4,7 @@ excerpt: "Leadership can create a quiet kind of isolation. Here is how I learned
 date: "2024-01-20"
 readTime: "10 min read"
 category: "Leadership"
-author: "Junaid"
+author: "Junaid Hussnain"
 featured: false
 ---
 

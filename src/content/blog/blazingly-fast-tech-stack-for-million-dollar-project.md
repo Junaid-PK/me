@@ -4,7 +4,7 @@ excerpt: "Choosing the right tech stack can make or break your million-dollar id
 date: "2025-08-09"
 readTime: "12 min read"
 category: "Startups"
-author: "Junaid"
+author: "Junaid Hussnain"
 featured: true
 ---
 
@@ -135,4 +135,3 @@ If you're about to start your next big thing, **invest in the foundation first**
 
 💬 *What about you?*
 Would you start with a monolith and break it into microservices later, or design for microservices from day one? Let's debate.
-

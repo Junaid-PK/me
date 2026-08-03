@@ -45,7 +45,7 @@ useHead(() => ({
     { name: "twitter:description", content: post.value?.excerpt || "An engineering note by Junaid Hussnain." },
   ],
   link: [{ rel: "canonical", href: canonicalUrl.value }],
-  script: post.value ? [{ type: "application/ld+json", textContent: JSON.stringify({ "@context": "https://schema.org", "@type": "BlogPosting", headline: post.value.title, description: post.value.excerpt, image: "https://hijunaid.com/og-junaid.png", datePublished: post.value.date, dateModified: post.value.date, inLanguage: "en", author: { "@type": "Person", name: "Junaid Hussnain", url: "https://hijunaid.com/" }, publisher: { "@type": "Person", name: "Junaid Hussnain", url: "https://hijunaid.com/" }, mainEntityOfPage: canonicalUrl.value }) }] : [],
+  script: post.value ? [{ type: "application/ld+json", textContent: JSON.stringify({ "@context": "https://schema.org", "@type": "BlogPosting", "@id": `${canonicalUrl.value}#article`, headline: post.value.title, description: post.value.excerpt, image: "https://hijunaid.com/og-junaid.png", datePublished: post.value.date, dateModified: post.value.date, inLanguage: "en", author: { "@type": "Person", "@id": "https://hijunaid.com/#junaid-hussnain", name: "Junaid Hussnain", url: "https://hijunaid.com/" }, publisher: { "@type": "Person", "@id": "https://hijunaid.com/#junaid-hussnain", name: "Junaid Hussnain", url: "https://hijunaid.com/" }, isPartOf: { "@type": "WebSite", "@id": "https://hijunaid.com/#website", name: "Junaid Hussnain", url: "https://hijunaid.com/" }, mainEntityOfPage: { "@type": "WebPage", "@id": canonicalUrl.value } }) }] : [],
 }));
 </script>
 

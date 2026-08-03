@@ -4,7 +4,7 @@ excerpt: "Leadership is not volume. A reflection on listening well, creating spa
 date: "2024-01-15"
 readTime: "8 min read"
 category: "Leadership"
-author: "Junaid"
+author: "Junaid Hussnain"
 featured: true
 ---
 
