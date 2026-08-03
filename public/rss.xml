@@ -13,6 +13,13 @@
     <description>A field note on moving a modern Meilisearch PHP feature onto v1.x while preserving its public conventions, PHP 7.4 support, and a green integration suite.</description>
   </item>
   <item>
+    <title>Designing CI-Safe Evaluation Baselines for Laravel AI Agents</title>
+    <link>https://hijunaid.com/blog/designing-ci-safe-evaluation-baselines-for-laravel-ai-agents</link>
+    <guid isPermaLink="true">https://hijunaid.com/blog/designing-ci-safe-evaluation-baselines-for-laravel-ai-agents</guid>
+    <pubDate>Tue, 04 Aug 2026 00:00:00 GMT</pubDate>
+    <description>How to persist redacted security-evaluation baselines, preserve distinct failure categories, and emit safe GitHub Actions annotations from Laravel.</description>
+  </item>
+  <item>
     <title>Building Big Software That Stays Small (from a PHP engineer&apos;s desk)</title>
     <link>https://hijunaid.com/blog/building-big-software-that-stays-small</link>
     <guid isPermaLink="true">https://hijunaid.com/blog/building-big-software-that-stays-small</guid>
