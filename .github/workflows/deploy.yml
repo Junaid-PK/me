@@ -75,6 +75,7 @@ jobs:
           headers="$RUNNER_TEMP/production-headers.txt"
           www_headers="$RUNNER_TEMP/production-www-headers.txt"
           homepage="$RUNNER_TEMP/production-homepage.html"
+          about="$RUNNER_TEMP/production-about.html"
           feed="$RUNNER_TEMP/production-rss.xml"
           curl --fail --silent --show-error --retry 5 --retry-delay 2 \
             --resolve "hijunaid.com:443:$VPS_HOST" \
@@ -87,6 +88,14 @@ jobs:
           grep --ignore-case --quiet '^content-security-policy:' "$headers"
           grep --fixed-strings --quiet '"@type":"ProfilePage"' "$homepage"
           grep --fixed-strings --quiet '"@id":"https://hijunaid.com/#junaid-hussnain"' "$homepage"
+          curl --fail --silent --show-error --retry 5 --retry-delay 2 \
+            --resolve "hijunaid.com:443:$VPS_HOST" \
+            --output "$about" \
+            https://hijunaid.com/about
+          grep --fixed-strings --quiet '<title>About Junaid Hussnain — Software Engineer</title>' "$about"
+          grep --fixed-strings --quiet '<link rel="canonical" href="https://hijunaid.com/about">' "$about"
+          grep --fixed-strings --quiet '"@id":"https://hijunaid.com/about#profile-page"' "$about"
+          grep --fixed-strings --quiet 'Rector: Safe Constructor Default Inlining' "$about"
           curl --fail --silent --show-error --retry 5 --retry-delay 2 \
             --resolve "hijunaid.com:443:$VPS_HOST" \
             --output "$feed" \

@@ -4,18 +4,18 @@ Junaid Hussnain's engineering portfolio and notes. The site is built with Vue,
 TypeScript, Vite, and static generation so its primary content is available to
 people and search crawlers without client-side rendering.
 
-[Visit hijunaid.com](https://hijunaid.com) · [Read the engineering notes](https://hijunaid.com/blog) · [Subscribe via RSS](https://hijunaid.com/rss.xml)
+[Visit hijunaid.com](https://hijunaid.com) · [About Junaid](https://hijunaid.com/about) · [Read the engineering notes](https://hijunaid.com/blog) · [Subscribe via RSS](https://hijunaid.com/rss.xml)
 
 [![Deploy website](https://github.com/Junaid-PK/me/actions/workflows/deploy.yml/badge.svg)](https://github.com/Junaid-PK/me/actions/workflows/deploy.yml)
 
 ## What this repository demonstrates
 
-- Route-level static generation for the portfolio, notes index, and every Markdown article.
+- Route-level static generation for the portfolio, dedicated professional profile, notes index, and every Markdown article.
 - Canonical URLs, Open Graph metadata, `ProfilePage`, `Person`, `WebSite`, and `BlogPosting` structured data.
 - Sitemap and RSS generation from the same article frontmatter used by the application.
 - IndexNow notification for every deployed public route.
 - A least-privilege VPS deployment that synchronizes static assets, validates nginx, and reloads only the portfolio service.
-- Production assertions for security headers, author identity markup, and RSS authorship.
+- Production assertions for security headers, author identity markup, the dedicated profile route, and RSS authorship.
 
 ## Local development
 

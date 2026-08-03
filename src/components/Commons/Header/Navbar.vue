@@ -37,7 +37,7 @@ onBeforeUnmount(() => window.removeEventListener("keydown", handleEscape));
 
       <div id="primary-menu" class="nav-links" :class="{ 'nav-links--open': isOpen }">
         <a href="/#work" @click="closeMenu">Work</a>
-        <a href="/#about" @click="closeMenu">About</a>
+        <RouterLink to="/about" @click="closeMenu">About</RouterLink>
         <RouterLink to="/blog" @click="closeMenu">Notes</RouterLink>
         <a href="/#contact" @click="closeMenu">Contact</a>
         <a href="https://github.com/Junaid-PK" target="_blank" rel="noreferrer" @click="closeMenu">

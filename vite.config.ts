@@ -13,6 +13,7 @@ export default defineConfig({
   ssgOptions: {
     includedRoutes: () => [
       '/',
+      '/about',
       '/blog',
       ...blogRoutes,
     ],

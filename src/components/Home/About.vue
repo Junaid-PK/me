@@ -21,6 +21,11 @@
       <blockquote>
         “I care about reducing the cost of the next change—not just completing the current one.”
       </blockquote>
+      <RouterLink class="text-link about-link" to="/about">Read the full profile <span aria-hidden="true">→</span></RouterLink>
     </div>
   </section>
 </template>
+
+<style scoped>
+.about-link { display: inline-block; margin-top: 2rem; }
+</style>
