@@ -71,6 +71,21 @@ export const projects: Project[] = [
     status: "Upstream PR open · 2026",
   },
   {
+    name: "Verdict Provenance Ledger",
+    label: "Open-source contribution",
+    summary: "A provider-agnostic ledger for tracking labeled agent inputs without retaining prompts, documents, or tool results.",
+    problem: "Agent inputs can arrive through users, retrieval, tools, and application context, but useful provenance must not become a second store of sensitive raw content.",
+    decisions: [
+      "Explicit source, trust, classification, and channel labels",
+      "Canonical fingerprints before recorder boundaries",
+      "Correlation-scoped reads across three recorder adapters",
+      "Additive schema migration preserving existing evidence",
+    ],
+    stack: ["PHP", "Laravel", "Pest", "PHPStan", "SQLite"],
+    source: "https://github.com/fissible/verdict/pull/7",
+    status: "Upstream PR open · 2026",
+  },
+  {
     name: "Verdict Evaluation CLI",
     label: "Open-source contribution",
     summary: "An upstream Laravel package contribution adding safe evaluation baselines and CI-ready regression reporting.",
