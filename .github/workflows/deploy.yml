@@ -73,6 +73,7 @@ jobs:
           VPS_HOST: ${{ secrets.VPS_HOST }}
         run: |
           headers="$RUNNER_TEMP/production-headers.txt"
+          www_headers="$RUNNER_TEMP/production-www-headers.txt"
           homepage="$RUNNER_TEMP/production-homepage.html"
           feed="$RUNNER_TEMP/production-rss.xml"
           curl --fail --silent --show-error --retry 5 --retry-delay 2 \
@@ -91,6 +92,14 @@ jobs:
             --output "$feed" \
             https://hijunaid.com/rss.xml
           grep --fixed-strings --quiet '<dc:creator>Junaid Hussnain</dc:creator>' "$feed"
+          curl --fail --silent --show-error --retry 5 --retry-delay 2 \
+            --resolve "www.hijunaid.com:443:$VPS_HOST" \
+            --dump-header "$www_headers" \
+            --output /dev/null \
+            'https://www.hijunaid.com/blog?source=www'
+          grep --extended-regexp --quiet '^HTTP/[0-9.]+ 308' "$www_headers"
+          grep --ignore-case --fixed-strings --quiet \
+            'location: https://hijunaid.com/blog?source=www' "$www_headers"
 
       - name: Notify IndexNow
         env:
