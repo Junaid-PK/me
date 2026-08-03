@@ -194,61 +194,74 @@ useHead({
 </template>
 
 <style scoped>
-.profile-page { width: min(1180px, calc(100% - 3rem)); margin: 0 auto; }
-.profile-hero { display: grid; grid-template-columns: minmax(0, 1.55fr) minmax(300px, 0.7fr); align-items: start; gap: clamp(3rem, 8vw, 8rem); padding: clamp(4rem, 8vw, 7.5rem) 0 clamp(5rem, 10vw, 9rem); border-bottom: 1px solid var(--ink); }
+.profile-page { width: min(1320px, calc(100% - 2rem)); margin: 0 auto; }
+.profile-hero { position: relative; overflow: hidden; display: grid; grid-template-columns: minmax(0, 1.55fr) minmax(300px, 0.7fr); align-items: center; gap: clamp(3rem, 8vw, 8rem); margin-top: 0.35rem; padding: clamp(3rem, 7vw, 6rem); background: var(--paper); border: 1px solid var(--rule); border-radius: 2rem; box-shadow: 0 24px 70px rgba(16, 37, 31, 0.08); }
+.profile-hero::before { position: absolute; inset: 0; content: ""; opacity: 0.34; background-image: linear-gradient(var(--rule) 1px, transparent 1px), linear-gradient(90deg, var(--rule) 1px, transparent 1px); background-size: 44px 44px; mask-image: linear-gradient(90deg, transparent 35%, black); pointer-events: none; }
+.profile-hero > * { position: relative; z-index: 1; }
 .profile-intro { padding-top: 1.2rem; }
 .profile-intro h1 { margin: 0; font: 600 clamp(4rem, 9vw, 8.2rem)/0.84 "Newsreader", serif; letter-spacing: -0.065em; }
 .profile-thesis { max-width: 760px; margin: 1.8rem 0 0; color: var(--blueprint); font: 500 clamp(1.8rem, 4vw, 3.4rem)/1.02 "Newsreader", serif; letter-spacing: -0.04em; }
-.profile-lede { max-width: 740px; margin: 2rem 0 0; color: #3f4755; font-size: clamp(1.05rem, 1.5vw, 1.25rem); line-height: 1.7; }
+.profile-lede { max-width: 740px; margin: 2rem 0 0; color: var(--ink-soft); font-size: clamp(1.05rem, 1.5vw, 1.25rem); line-height: 1.7; }
 .profile-actions { display: flex; align-items: center; gap: 1.6rem; margin-top: 2.2rem; }
-.profile-file { background: var(--paper); border: 1px solid var(--ink); box-shadow: 10px 10px 0 var(--soft-blue); }
+.profile-file { overflow: hidden; background: var(--canvas); border: 1px solid var(--rule-strong); border-radius: 1.4rem; box-shadow: 12px 12px 0 var(--mint); }
 .profile-file__topline { display: flex; justify-content: space-between; padding: 0.85rem 1rem; border-bottom: 1px solid var(--ink); font: 500 0.68rem/1 "IBM Plex Mono", monospace; text-transform: uppercase; }
-.profile-file img { width: 100%; aspect-ratio: 1.32 / 1; object-fit: cover; object-position: 50% 30%; background: var(--signal); filter: saturate(0.82) contrast(1.04); }
+.profile-file img { width: 100%; aspect-ratio: 1.32 / 1; object-fit: cover; object-position: 50% 30%; background: var(--steel); filter: saturate(0.82) contrast(1.04); }
 .profile-file dl { margin: 0; border-top: 1px solid var(--ink); }
 .profile-file dl div { display: grid; grid-template-columns: 0.8fr 1.2fr; gap: 1rem; padding: 0.8rem 1rem; border-bottom: 1px solid var(--rule); }
 .profile-file dl div:last-child { border-bottom: 0; }
 .profile-file dt { color: var(--muted); font: 400 0.67rem/1.4 "IBM Plex Mono", monospace; text-transform: uppercase; }
 .profile-file dd { margin: 0; font-size: 0.82rem; font-weight: 700; }
-.profile-story { display: grid; grid-template-columns: 0.5fr 1.5fr; gap: clamp(3rem, 8vw, 9rem); padding: clamp(6rem, 10vw, 10rem) 0; border-bottom: 1px solid var(--rule); }
+.profile-story { display: grid; grid-template-columns: 0.5fr 1.5fr; gap: clamp(3rem, 8vw, 9rem); padding: clamp(6rem, 10vw, 10rem) clamp(0rem, 3vw, 3rem); }
 .profile-story__label > p:last-child { max-width: 190px; margin: 3rem 0 0; color: var(--muted); font: 400 0.76rem/1.7 "IBM Plex Mono", monospace; }
 .profile-story h2, .profile-section-heading h2, .profile-next h2 { margin: 0; font: 600 clamp(2.7rem, 5vw, 4.8rem)/0.98 "Newsreader", serif; letter-spacing: -0.045em; }
 .profile-story__columns { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(2rem, 5vw, 4.5rem); margin-top: 2.5rem; }
 .profile-story__columns p { margin: 0; color: var(--muted); line-height: 1.8; }
-.profile-story blockquote { margin: 3rem 0 0; padding: 1.8rem 2rem; color: var(--blueprint); background: var(--soft-blue); border-left: 5px solid var(--blueprint); font: 500 clamp(1.35rem, 2.4vw, 2rem)/1.35 "Newsreader", serif; }
-.trust-section, .public-record { padding: clamp(6rem, 10vw, 10rem) 0; border-bottom: 1px solid var(--rule); }
+.profile-story blockquote { margin: 3rem 0 0; padding: 1.8rem 2rem; color: var(--ink); background: var(--lime); border: 1px solid var(--rule-strong); border-radius: 1.35rem; font: 500 clamp(1.35rem, 2.4vw, 2rem)/1.35 "Newsreader", serif; }
+.trust-section, .public-record { padding: clamp(6rem, 10vw, 10rem) 0; border-top: 1px solid var(--rule); }
 .profile-section-heading { display: grid; grid-template-columns: 1.35fr 0.65fr; align-items: end; gap: 4rem; margin-bottom: clamp(3rem, 6vw, 5rem); }
 .profile-section-heading > p { margin: 0 0 0.3rem; color: var(--muted); line-height: 1.7; }
-.trust-grid { display: grid; grid-template-columns: repeat(2, 1fr); border-top: 1px solid var(--ink); border-left: 1px solid var(--ink); }
-.trust-grid article { min-height: 270px; padding: clamp(1.6rem, 4vw, 3rem); border-right: 1px solid var(--ink); border-bottom: 1px solid var(--ink); }
+.trust-grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 1rem; }
+.trust-grid article { grid-column: span 6; min-height: 280px; padding: clamp(1.6rem, 4vw, 3rem); background: var(--paper); border: 1px solid var(--rule-strong); border-radius: 1.4rem; }
+.trust-grid article:nth-child(1) { grid-column: span 7; background: var(--lime); }
+.trust-grid article:nth-child(2) { grid-column: span 5; background: var(--steel); }
+.trust-grid article:nth-child(3) { background: var(--mint); }
+.trust-grid article:nth-child(2) .mono-label { color: var(--ink); }
 .trust-grid h3 { margin: 3rem 0 0.85rem; font: 600 clamp(1.7rem, 3vw, 2.5rem)/1.05 "Newsreader", serif; letter-spacing: -0.035em; }
 .trust-grid article > p:last-child { max-width: 470px; margin: 0; color: var(--muted); line-height: 1.7; }
-.public-record__list { border-top: 1px solid var(--ink); }
-.public-record__list > a { display: grid; grid-template-columns: 210px minmax(0, 1fr) 30px; align-items: center; gap: 2rem; padding: 1.7rem 0; border-bottom: 1px solid var(--rule); text-decoration: none; }
-.public-record__list > a:hover strong { color: var(--blueprint); }
+.trust-grid article:nth-child(2) > p:last-child, .trust-grid article:nth-child(3) > p:last-child { color: var(--ink-soft); }
+.public-record__list { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+.public-record__list > a { display: grid; grid-template-columns: 1fr 25px; align-items: start; gap: 1.5rem; min-height: 230px; padding: 1.5rem; background: var(--paper); border: 1px solid var(--rule-strong); border-radius: 1.3rem; text-decoration: none; transition: transform 180ms ease, background 180ms ease; }
+.public-record__list > a:nth-child(2) { background: var(--steel); }
+.public-record__list > a:nth-child(3) { background: var(--mint); }
+.public-record__list > a:nth-child(4) { background: var(--lime); }
+.public-record__list > a:nth-child(2) .public-record__status, .public-record__list > a:nth-child(3) .public-record__status { color: var(--ink); }
+.public-record__list > a:nth-child(2) .public-record__copy > span, .public-record__list > a:nth-child(3) .public-record__copy > span { color: var(--ink-soft); }
+.public-record__list > a:hover { transform: translateY(-4px); background: var(--mint); }
 .public-record__status { color: var(--signal-text); font: 500 0.68rem/1.5 "IBM Plex Mono", monospace; text-transform: uppercase; }
-.public-record__copy { display: grid; grid-template-columns: minmax(240px, 0.7fr) 1fr; align-items: center; gap: 2rem; }
+.public-record__copy { grid-column: 1 / -1; display: grid; align-content: start; gap: 1rem; }
 .public-record__copy strong { font: 600 clamp(1.3rem, 2vw, 1.75rem)/1.15 "Newsreader", serif; }
 .public-record__copy > span { color: var(--muted); font-size: 0.85rem; line-height: 1.65; }
 .public-record__arrow { color: var(--blueprint); font-size: 1.1rem; }
 .public-record__note { max-width: 680px; margin: 1.4rem 0 0 auto; color: var(--muted); font-size: 0.78rem; line-height: 1.65; }
-.profile-next { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: clamp(3rem, 8vw, 8rem); margin: clamp(5rem, 9vw, 9rem) 0 0; padding: clamp(3rem, 7vw, 6rem); color: var(--paper); background: var(--ink); }
+.profile-next { position: relative; overflow: hidden; display: grid; grid-template-columns: 1.2fr 0.8fr; gap: clamp(3rem, 8vw, 8rem); margin: clamp(5rem, 9vw, 9rem) 0 0; padding: clamp(3rem, 7vw, 6rem); color: var(--ink); background: var(--steel); border: 1px solid var(--rule-strong); border-radius: 2rem; }
+.profile-next::after { position: absolute; inset: 0; content: ""; opacity: 0.28; background-image: radial-gradient(var(--ink) 1px, transparent 1px); background-size: 22px 22px; mask-image: linear-gradient(90deg, transparent, black); pointer-events: none; }
+.profile-next > * { position: relative; z-index: 1; }
 .profile-next > div:last-child { align-self: end; }
-.profile-next > div:last-child p { margin: 0 0 2rem; color: #cbd0db; line-height: 1.7; }
+.profile-next > div:last-child p { margin: 0 0 2rem; color: var(--ink-soft); line-height: 1.7; }
 @media (max-width: 900px) {
   .profile-hero, .profile-story, .profile-section-heading, .profile-next { grid-template-columns: 1fr; gap: 2.5rem; }
   .profile-file { max-width: 540px; }
-  .public-record__copy { grid-template-columns: 1fr; gap: 0.5rem; }
 }
 @media (max-width: 720px) {
-  .profile-page { width: min(100% - 2rem, 1180px); }
-  .profile-hero { padding-top: 3rem; }
+  .profile-page { width: min(100% - 1rem, 1320px); }
+  .profile-hero { padding: 3rem 1.2rem; border-radius: 1.45rem; }
   .profile-intro h1 { font-size: clamp(3.5rem, 19vw, 5.8rem); }
   .profile-actions { align-items: flex-start; flex-direction: column; }
-  .profile-story__columns, .trust-grid { grid-template-columns: 1fr; }
+  .profile-story { padding-inline: 0.5rem; }
+  .profile-story__columns { grid-template-columns: 1fr; }
   .profile-story__columns { gap: 1.5rem; }
-  .trust-grid article { min-height: 230px; }
-  .public-record__list > a { grid-template-columns: 1fr 22px; gap: 0.8rem; }
-  .public-record__status { grid-column: 1 / -1; }
-  .profile-next { padding: 2.5rem 1.4rem; }
+  .trust-grid article, .trust-grid article:nth-child(1), .trust-grid article:nth-child(2) { grid-column: 1 / -1; min-height: 230px; }
+  .public-record__list { grid-template-columns: 1fr; }
+  .profile-next { padding: 2.5rem 1.4rem; border-radius: 1.4rem; }
 }
 </style>

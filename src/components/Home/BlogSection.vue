@@ -21,13 +21,13 @@ onServerPrefetch(loadPosts);
   <section class="section notes" aria-labelledby="notes-title">
     <div class="section-heading section-heading--split">
       <div>
-        <p class="eyebrow">Engineering notes</p>
-        <h2 id="notes-title">Writing down the decisions.</h2>
+        <p class="eyebrow">Field notes</p>
+        <h2 id="notes-title">Decisions become more useful when they travel.</h2>
       </div>
       <RouterLink class="text-link" to="/blog">View all notes <span aria-hidden="true">→</span></RouterLink>
     </div>
 
-    <div class="notes-list">
+    <div class="notes-list notes-list--cards">
       <RouterLink v-for="post in selectedPosts" :key="post.slug" class="note-row" :to="`/blog/${post.slug}`">
         <span class="note-meta">{{ post.category }} · {{ formatDate(post.date) }}</span>
         <h3>{{ post.title }}</h3>

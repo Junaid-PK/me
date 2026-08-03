@@ -1,8 +1,12 @@
 <template>
   <section id="about" class="section about" aria-labelledby="about-title">
     <div class="about-aside">
-      <p class="eyebrow">About</p>
-      <p class="about-location">Based in Lahore<br />Available across time zones</p>
+      <p class="eyebrow">Working profile</p>
+      <div class="about-portrait-frame">
+        <img src="https://avatars.githubusercontent.com/u/84363665?v=4" alt="Junaid Hussnain" width="360" height="360" loading="lazy" />
+        <span>JH / UTC+5</span>
+      </div>
+      <p class="about-location">Lahore, Pakistan<br />Available across time zones</p>
     </div>
 
     <div class="about-copy">
@@ -18,9 +22,7 @@
           A lot of that experience lives in private product work. This site is my commitment to making the transferable parts public through inspectable tools, practical engineering notes, and open-source contributions.
         </p>
       </div>
-      <blockquote>
-        “I care about reducing the cost of the next change—not just completing the current one.”
-      </blockquote>
+      <blockquote>“Reduce the cost of the next change—not just the current ticket.”</blockquote>
       <RouterLink class="text-link about-link" to="/about">Read the full profile <span aria-hidden="true">→</span></RouterLink>
     </div>
   </section>

@@ -30,21 +30,28 @@ useHead({
 
 <style scoped>
 .not-found {
-  width: min(1180px, calc(100% - 3rem));
+  position: relative;
+  overflow: hidden;
+  width: min(1320px, calc(100% - 2rem));
   min-height: 68vh;
   margin: 0 auto;
-  padding: clamp(4rem, 9vw, 9rem) 0;
+  padding: clamp(4rem, 9vw, 9rem);
   display: grid;
   grid-template-columns: minmax(220px, 0.55fr) minmax(0, 1.45fr);
   align-items: start;
   gap: clamp(3rem, 9vw, 9rem);
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  border-radius: 2rem;
+  box-shadow: 0 24px 70px rgba(16, 37, 31, 0.08);
 }
 
 .error-code {
-  color: var(--signal-text);
-  border-top: 1px solid var(--ink);
-  border-bottom: 1px solid var(--ink);
-  padding: 1.2rem 0;
+  color: var(--ink);
+  background: var(--lime);
+  border: 1px solid var(--rule-strong);
+  border-radius: 1.4rem;
+  padding: 1.5rem;
   font: 500 clamp(4.5rem, 10vw, 8rem)/0.9 "IBM Plex Mono", monospace;
   letter-spacing: -0.08em;
 }
@@ -73,10 +80,11 @@ useHead({
 
 @media (max-width: 720px) {
   .not-found {
-    width: min(100% - 2rem, 1180px);
+    width: min(100% - 1rem, 1320px);
     grid-template-columns: 1fr;
     gap: 2.5rem;
-    padding-top: 3rem;
+    padding: 3rem 1.2rem;
+    border-radius: 1.45rem;
   }
 
   .error-code {

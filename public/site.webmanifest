@@ -3,8 +3,8 @@
   "short_name": "Junaid Hussnain",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#f4f6f1",
-  "theme_color": "#151923",
+  "background_color": "#ECF4E8",
+  "theme_color": "#10251F",
   "icons": [
     {
       "src": "/favicon.svg",

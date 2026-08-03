@@ -1,6 +1,6 @@
 <template>
   <footer class="site-footer">
-    <p><strong>Junaid Hussnain</strong> · Software engineer in Lahore, Pakistan</p>
-    <p>Designed to show the work, not decorate around it. <span>© {{ new Date().getFullYear() }}</span></p>
+    <div><strong>Junaid Hussnain</strong><span>Software engineer · Lahore, Pakistan</span></div>
+    <p>Public work, engineering notes, and an honest trail of decisions. <span>© {{ new Date().getFullYear() }}</span></p>
   </footer>
 </template>

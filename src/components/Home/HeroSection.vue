@@ -1,52 +1,42 @@
+<script setup lang="ts">
+import AceternityMovingBorder from "../ui/AceternityMovingBorder.vue";
+import AceternitySpotlight from "../ui/AceternitySpotlight.vue";
+import SystemMap from "./SystemMap.vue";
+</script>
+
 <template>
   <section class="hero" aria-labelledby="hero-title">
+    <AceternitySpotlight />
     <div class="hero-grid">
       <div class="hero-copy">
-        <p class="eyebrow">Software engineer · Lahore, Pakistan</p>
+        <p class="eyebrow"><span class="eyebrow-dot" aria-hidden="true"></span> Software engineer · Lahore, Pakistan</p>
         <h1 id="hero-title">
-          I make complicated systems
-          <em>easier to run.</em>
+          I build software that
+          <em>holds up after launch.</em>
         </h1>
         <p class="hero-lede">
-          I’m Junaid Hussnain, a software engineer with 5+ years of experience building backend products,
-          operational tools, and the interfaces that make them understandable.
+          I’m Junaid Hussnain. For more than five years I’ve worked across backend products,
+          operational tools, and the delivery systems that keep software useful when real work begins.
         </p>
         <div class="hero-actions">
-          <a class="button button--primary" href="#work">Explore selected work</a>
-          <RouterLink class="text-link" to="/blog">Read engineering notes <span aria-hidden="true">→</span></RouterLink>
+          <AceternityMovingBorder href="#work">Inspect verified work <span aria-hidden="true">↘</span></AceternityMovingBorder>
+          <RouterLink class="text-link" to="/about">How I work <span aria-hidden="true">→</span></RouterLink>
         </div>
+        <dl class="hero-facts" aria-label="Professional summary">
+          <div><dt>Experience</dt><dd>5+ years</dd></div>
+          <div><dt>Focus</dt><dd>Backend + product</dd></div>
+          <div><dt>Public proof</dt><dd>Code, PRs, notes</dd></div>
+        </dl>
       </div>
 
-      <aside class="hero-dossier" aria-label="Current engineering profile">
-        <div class="dossier-topline">
-          <span>Current file</span>
-          <span class="status"><i aria-hidden="true"></i> Shipping</span>
-        </div>
-        <img
-          class="portrait"
-          src="https://avatars.githubusercontent.com/u/84363665?v=4"
-          alt="Junaid Hussnain"
-          width="160"
-          height="160"
-        />
-        <div class="dossier-note">
-          <p class="mono-label">Now building</p>
-          <p><strong>Stackline</strong> — a private, browser-based ATS resume builder with inspectable scoring and export.</p>
-        </div>
-        <dl class="evidence-list">
-          <div><dt>Experience</dt><dd>5+ years</dd></div>
-          <div><dt>Public repos</dt><dd>50+</dd></div>
-          <div><dt>Primary lane</dt><dd>Backend & product</dd></div>
-          <div><dt>Timezone</dt><dd>UTC+5</dd></div>
-        </dl>
-      </aside>
+      <SystemMap />
     </div>
 
     <div class="hero-proof" aria-label="What this portfolio contains">
-      <p>Built to be inspected</p>
-      <span>Source code</span>
-      <span>Architecture decisions</span>
-      <span>Writing</span>
+      <p>Evidence, not adjectives</p>
+      <span>Public source</span>
+      <span>Engineering decisions</span>
+      <span>Open-source work</span>
       <span>Production delivery</span>
     </div>
   </section>

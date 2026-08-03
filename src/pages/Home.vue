@@ -72,11 +72,11 @@ useHead({
     <section id="work" class="section section--work" aria-labelledby="work-title">
       <div class="section-heading section-heading--split">
         <div>
-          <p class="eyebrow">Selected work</p>
-          <h2 id="work-title">Systems with evidence behind them.</h2>
+          <p class="eyebrow">Verified work</p>
+          <h2 id="work-title">Follow the decisions back to the code.</h2>
         </div>
         <p>
-          Public code, concrete decisions, and honest status. No placeholder concepts or invented outcomes.
+          Every card leads to public source or an upstream pull request. Status is stated plainly; outcomes are never invented.
         </p>
       </div>
       <ProjectCard />
@@ -85,22 +85,22 @@ useHead({
     <section class="section practice" aria-labelledby="practice-title">
       <div class="section-heading">
         <p class="eyebrow">Engineering practice</p>
-        <h2 id="practice-title">Useful software survives the demo.</h2>
+        <h2 id="practice-title">The work starts where the happy path ends.</h2>
       </div>
 
       <div class="practice-grid">
         <article>
-          <span class="practice-index">01</span>
+          <span class="practice-index">Domain</span>
           <h3>Model the real workflow</h3>
           <p>I start with users, permissions, failure states, and the decisions the system needs to preserve—not a list of framework features.</p>
         </article>
         <article>
-          <span class="practice-index">02</span>
+          <span class="practice-index">Operations</span>
           <h3>Keep operations visible</h3>
           <p>Queues, imports, reporting, observability, and deployment belong in the product conversation from the beginning.</p>
         </article>
         <article>
-          <span class="practice-index">03</span>
+          <span class="practice-index">Delivery</span>
           <h3>Leave a maintainable trail</h3>
           <p>Tests, narrow contracts, readable documentation, and boring infrastructure make the next change cheaper and safer.</p>
         </article>

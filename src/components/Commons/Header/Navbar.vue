@@ -20,7 +20,7 @@ onBeforeUnmount(() => window.removeEventListener("keydown", handleEscape));
     <nav class="nav-shell" aria-label="Primary navigation">
       <RouterLink class="wordmark" to="/" @click="closeMenu">
         <span class="wordmark-mark">JH</span>
-        <span class="wordmark-name">Junaid Hussnain</span>
+        <span class="wordmark-copy"><strong>Junaid Hussnain</strong><small>Software engineer</small></span>
         <span class="sr-only">home</span>
       </RouterLink>
 
@@ -43,6 +43,7 @@ onBeforeUnmount(() => window.removeEventListener("keydown", handleEscape));
         <a href="https://github.com/Junaid-PK" target="_blank" rel="noreferrer" @click="closeMenu">
           GitHub <span aria-hidden="true">↗</span>
         </a>
+        <span class="nav-availability"><i aria-hidden="true"></i> UTC+5</span>
       </div>
     </nav>
   </header>
