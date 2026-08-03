@@ -36,7 +36,7 @@ export const projects: Project[] = [
       "English and Spanish workflows",
       "Feature tests around visibility and financial rules",
     ],
-    stack: ["Laravel", "Livewire", "PHP", "PostgreSQL"],
+    stack: ["Laravel", "Livewire", "PHP", "SQLite"],
     source: "https://github.com/Junaid-PK/e_manager",
     status: "Active build · 2026",
   },
