@@ -61,14 +61,27 @@ jobs:
           rsync --archive --compress --delete --delay-updates \
             -e "ssh -i ~/.ssh/id_ed25519 -o IdentitiesOnly=yes" \
             dist/ "$VPS_USER@$VPS_HOST:/opt/hijunaid/dist/"
+          rsync --archive --inplace \
+            -e "ssh -i ~/.ssh/id_ed25519 -o IdentitiesOnly=yes" \
+            deploy/nginx.conf "$VPS_USER@$VPS_HOST:/opt/hijunaid/nginx.conf"
+          ssh -i ~/.ssh/id_ed25519 -o IdentitiesOnly=yes \
+            "$VPS_USER@$VPS_HOST" \
+            "docker exec hijunaid-site nginx -t && docker exec hijunaid-site nginx -s reload"
 
       - name: Verify production
         env:
           VPS_HOST: ${{ secrets.VPS_HOST }}
         run: |
+          headers="$RUNNER_TEMP/production-headers.txt"
           curl --fail --silent --show-error --retry 5 --retry-delay 2 \
             --resolve "hijunaid.com:443:$VPS_HOST" \
-            https://hijunaid.com/ > /dev/null
+            --dump-header "$headers" \
+            --output /dev/null \
+            https://hijunaid.com/
+          grep --ignore-case --quiet '^x-content-type-options: nosniff' "$headers"
+          grep --ignore-case --quiet '^x-frame-options: DENY' "$headers"
+          grep --ignore-case --quiet '^strict-transport-security: max-age=31536000; includeSubDomains' "$headers"
+          grep --ignore-case --quiet '^content-security-policy:' "$headers"
 
       - name: Notify IndexNow
         env:
