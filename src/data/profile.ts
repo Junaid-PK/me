@@ -83,7 +83,7 @@ export const projects: Project[] = [
     ],
     stack: ["PHP", "Laravel", "Pest", "PHPStan", "SQLite"],
     source: "https://github.com/fissible/verdict/pull/7",
-    status: "Upstream PR open · 2026",
+    status: "Upstream PR open · CI green · 2026",
   },
   {
     name: "Verdict Evaluation CLI",
