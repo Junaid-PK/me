@@ -65,7 +65,7 @@ useHead({
 .article-row { display: grid; grid-template-columns: 75px 1fr 35px; gap: 2rem; padding: clamp(1.8rem, 4vw, 3.2rem) 0; border-bottom: 1px solid var(--rule); text-decoration: none; }
 .article-row:hover h2 { color: var(--blueprint); }
 .article-index, .article-meta { color: var(--muted); font: 400 0.68rem/1.6 "IBM Plex Mono", monospace; text-transform: uppercase; }
-.article-index { color: var(--signal); }
+.article-index { color: var(--signal-text); }
 .article-meta { margin: 0 0 0.8rem; }
 .article-copy h2 { max-width: 850px; margin: 0; font: 600 clamp(1.8rem, 4vw, 3rem)/1.05 "Newsreader", serif; letter-spacing: -0.035em; }
 .article-copy > p:last-child { max-width: 750px; margin: 1rem 0 0; color: var(--muted); line-height: 1.65; }

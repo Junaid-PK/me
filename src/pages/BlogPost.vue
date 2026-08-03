@@ -76,7 +76,7 @@ useHead(() => ({
 .article-page { width: min(1180px, calc(100% - 3rem)); min-height: 75vh; margin: 0 auto; padding: clamp(3rem, 7vw, 7rem) 0; }
 .post-header { width: min(900px, 100%); margin: 0 auto; text-align: center; }
 .back-link { display: inline-flex; gap: 0.55rem; margin-bottom: 4rem; color: var(--blueprint); font: 500 0.72rem/1 "IBM Plex Mono", monospace; text-transform: uppercase; text-underline-offset: 0.35em; }
-.post-meta { color: var(--signal); font: 500 0.72rem/1.5 "IBM Plex Mono", monospace; letter-spacing: 0.06em; text-transform: uppercase; }
+.post-meta { color: var(--signal-text); font: 500 0.72rem/1.5 "IBM Plex Mono", monospace; letter-spacing: 0.06em; text-transform: uppercase; }
 .post-header h1 { margin: 1.2rem 0 1.5rem; font: 600 clamp(3rem, 7vw, 6.4rem)/0.95 "Newsreader", serif; letter-spacing: -0.055em; }
 .post-excerpt { max-width: 760px; margin: 0 auto; color: var(--muted); font-size: clamp(1.05rem, 2vw, 1.25rem); line-height: 1.7; }
 .byline { display: inline-flex; align-items: center; gap: 0.9rem; margin-top: 2.2rem; text-align: left; }

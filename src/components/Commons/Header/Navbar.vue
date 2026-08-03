@@ -18,9 +18,10 @@ onBeforeUnmount(() => window.removeEventListener("keydown", handleEscape));
 <template>
   <header class="site-header">
     <nav class="nav-shell" aria-label="Primary navigation">
-      <RouterLink class="wordmark" to="/" aria-label="Junaid Hussnain, home" @click="closeMenu">
+      <RouterLink class="wordmark" to="/" @click="closeMenu">
         <span class="wordmark-mark">JH</span>
         <span class="wordmark-name">Junaid Hussnain</span>
+        <span class="sr-only">home</span>
       </RouterLink>
 
       <button

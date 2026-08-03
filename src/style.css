@@ -40,6 +40,7 @@
   --ink: #151923;
   --blueprint: #2357d8;
   --signal: #f0642b;
+  --signal-text: #bd4518;
   --rule: #d6dae2;
   --muted: #667085;
   --soft-blue: #e9efff;
@@ -202,7 +203,7 @@ button, a { -webkit-tap-highlight-color: transparent; }
 .status i { width: 0.48rem; height: 0.48rem; background: #16845b; border-radius: 50%; }
 .portrait { width: 100%; aspect-ratio: 1.7/1; object-fit: cover; object-position: 50% 36%; filter: saturate(0.8) contrast(1.05); }
 .dossier-note { padding: 1.25rem; border-top: 1px solid var(--ink); border-bottom: 1px solid var(--ink); }
-.dossier-note .mono-label { margin-bottom: 0.45rem; color: var(--signal); }
+.dossier-note .mono-label { margin-bottom: 0.45rem; color: var(--signal-text); }
 .dossier-note p:last-child { margin: 0; font-size: 0.9rem; line-height: 1.55; }
 .evidence-list { margin: 0; }
 .evidence-list div { display: grid; grid-template-columns: 1fr 1.25fr; gap: 1rem; padding: 0.78rem 1.2rem; border-bottom: 1px solid var(--rule); }
@@ -227,7 +228,7 @@ button, a { -webkit-tap-highlight-color: transparent; }
 .case-list { border-top: 1px solid var(--ink); }
 .case-study { display: grid; grid-template-columns: 180px 1fr; border-bottom: 1px solid var(--ink); }
 .case-rail { display: flex; flex-direction: column; justify-content: space-between; gap: 2rem; padding: 2rem 1.5rem 2rem 0; border-right: 1px solid var(--ink); color: var(--muted); font: 500 0.69rem/1.5 "IBM Plex Mono", monospace; text-transform: uppercase; }
-.case-number { color: var(--signal); font-size: 1rem; }
+.case-number { color: var(--signal-text); font-size: 1rem; }
 .case-main { padding: clamp(2rem, 4vw, 3.5rem); }
 .case-title-row { display: flex; align-items: start; justify-content: space-between; gap: 2rem; }
 .case-title-row h3 { margin: 0; font: 600 clamp(2rem, 4vw, 3.5rem)/1 "Newsreader", serif; letter-spacing: -0.04em; }
@@ -245,7 +246,7 @@ button, a { -webkit-tap-highlight-color: transparent; }
 .practice-grid { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--ink); border-bottom: 1px solid var(--ink); }
 .practice-grid article { min-height: 285px; padding: 1.7rem; border-right: 1px solid var(--ink); }
 .practice-grid article:last-child { border-right: 0; }
-.practice-index { color: var(--signal); font: 500 0.72rem/1 "IBM Plex Mono", monospace; }
+.practice-index { color: var(--signal-text); font: 500 0.72rem/1 "IBM Plex Mono", monospace; }
 .practice-grid h3 { margin: 4.5rem 0 0.8rem; font: 600 1.55rem/1.1 "Newsreader", serif; }
 .practice-grid p { margin: 0; color: var(--muted); font-size: 0.9rem; line-height: 1.65; }
 .capability-line { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 2rem; }

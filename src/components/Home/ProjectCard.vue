@@ -16,8 +16,8 @@ import { projects } from "../../data/profile";
             <p class="mono-label">{{ project.status }}</p>
             <h3>{{ project.name }}</h3>
           </div>
-          <a :href="project.source" target="_blank" rel="noreferrer" :aria-label="`View ${project.name} source on GitHub`">
-            View source <span aria-hidden="true">↗</span>
+          <a :href="project.source" target="_blank" rel="noreferrer">
+            View source <span class="sr-only">for {{ project.name }} on GitHub</span><span aria-hidden="true">↗</span>
           </a>
         </div>
         <p class="case-summary">{{ project.summary }}</p>
