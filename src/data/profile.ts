@@ -83,6 +83,6 @@ export const projects: Project[] = [
     ],
     stack: ["PHP", "Laravel", "Pest", "PHPStan", "GitHub Actions"],
     source: "https://github.com/fissible/verdict/pull/6",
-    status: "Upstream PR open · 2026",
+    status: "Merged upstream · 2026",
   },
 ];
