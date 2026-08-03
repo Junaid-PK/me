@@ -66,7 +66,7 @@ jobs:
             deploy/nginx.conf "$VPS_USER@$VPS_HOST:/opt/hijunaid/nginx.conf"
           ssh -i ~/.ssh/id_ed25519 -o IdentitiesOnly=yes \
             "$VPS_USER@$VPS_HOST" \
-            "docker exec hijunaid-site nginx -t && docker exec hijunaid-site nginx -s reload"
+            "sudo -n /usr/local/sbin/reload-hijunaid-nginx"
 
       - name: Verify production
         env:
