@@ -1,7 +1,7 @@
 ---
 title: "When Leading Feels Lonely"
-excerpt: " The one people expect things from. Suddenly, you're protecting others from stress you can’t share - and making decisions no one else fully sees."
-date: "2024 - 01 - 20"
+excerpt: "Leadership can create a quiet kind of isolation. Here is how I learned to build support, boundaries, and honest peer connection on purpose."
+date: "2024-01-20"
 readTime: "10 min read"
 category: "Leadership"
 author: "Junaid"

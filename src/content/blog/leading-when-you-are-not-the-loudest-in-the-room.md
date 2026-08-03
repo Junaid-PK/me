@@ -1,6 +1,6 @@
 ---
 title: "Leading When You’re Not the Loudest in the Room"
-excerpt: "I wasn’t the person who always had a hot take ready. I didn’t have that natural gravitas you see in Hollywood portrayals of “strong leaders."
+excerpt: "Leadership is not volume. A reflection on listening well, creating space, and building trust through steady, intentional presence."
 date: "2024-01-15"
 readTime: "8 min read"
 category: "Leadership"

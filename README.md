@@ -1,8 +1,8 @@
-# Vue 3 + TypeScript + Vite
+# hijunaid.com
 
-This template should help get you started developing with Vue 3 and TypeScript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
-
-Learn more about the recommended Project Setup and IDE Support in the [Vue Docs TypeScript Guide](https://vuejs.org/guide/typescript/overview.html#project-setup).
+Junaid Hussnain's engineering portfolio and notes. The site is built with Vue,
+TypeScript, Vite, and static generation so its primary content is available to
+people and search crawlers without client-side rendering.
 
 ## Local development
 
@@ -12,6 +12,9 @@ Use Node.js 20, then install dependencies and start Vite:
 npm ci
 npm run dev
 ```
+
+Create the production output with `npm run build`. The generated pages are
+written to `dist/`.
 
 ## Deployment
 

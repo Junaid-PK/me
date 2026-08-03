@@ -1,108 +1,53 @@
-<script setup lang="ts">
-import { ref, onMounted } from "vue";
-import quotesData from "../../data/quotes.json";
-defineProps<{
-  isVisible: boolean;
-}>();
-
-const quote = ref("");
-
-onMounted(() => {
-  try {
-    const randomIndex = Math.floor(Math.random() * quotesData.quotes.length);
-    const randomQuote = quotesData.quotes[randomIndex];
-    quote.value = `"${randomQuote.quote}" - <strong>${randomQuote.source}</strong>`;
-  } catch (error) {
-    console.error("Error selecting quote:", error);
-    quote.value = "Failed to load quote.";
-  }
-});
-</script>
-
 <template>
-  <section
-    class="text-center transition-all duration-1000 transform relative border border-dashed border-neutral-900 p-8 rounded-sm"
-    :class="
-      isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-    "
-  >
-    <div class="flex-col">
-      <div class="flex">
-        <img
-          :src="'https://avatars.githubusercontent.com/u/84363665?v=4'"
-          class="w-24 h-24 rounded-full border border-gray-400"
-          alt="Avatar"
-        />
-
-        <div class="text-start px-2">
-          <h1
-            class="text-3xl font-bold tracking-tighter text-neutral-800 capitalize"
-          >
-            JUNAID HUSSNAIN
-          </h1>
-          <div class="flex items-center gap-2">
-            <a
-              href="https://www.linkedin.com/in/junaid-hussnain-a951791bb/"
-              target="_blank"
-            >
-              <img
-                src="https://img.shields.io/badge/linkedin-%23007ACC.svg?style=flat&logo=linkedin&logoColor=white"
-                alt="LinkedIn"
-              />
-            </a>
-            <a href="https://github.com/Junaid-PK" target="_blank">
-              <img
-                src="https://img.shields.io/badge/github-black.svg?style=flat&logo=github&logoColor=white"
-                alt="Github"
-              />
-            </a>
-            <a href="mailto:junaidhussnain369@gmail.com" target="_blank">
-              <img
-                src="https://img.shields.io/badge/mail-%234ea94b.svg?style=flat&logo=gmail&logoColor=white"
-                alt="Gmail"
-              />
-            </a>
-            <a
-              href="https://www.google.com/maps/search/Lahore,+Pakistan"
-              target="_blank"
-            >
-              <img
-                src="https://img.shields.io/badge/Lahore, Pakistan-black.svg?style=flat&logo=google-maps&logoColor=white"
-                alt="Location"
-              />
-            </a>
-          </div>
-          <p class="text-muted-foreground font-light pt-2">
-            Senior Software Engineer
-          </p>
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="hero-grid">
+      <div class="hero-copy">
+        <p class="eyebrow">Software engineer · Lahore, Pakistan</p>
+        <h1 id="hero-title">
+          I make complicated systems
+          <em>easier to run.</em>
+        </h1>
+        <p class="hero-lede">
+          I’m Junaid Hussnain, a software engineer with 5+ years of experience building backend products,
+          operational tools, and the interfaces that make them understandable.
+        </p>
+        <div class="hero-actions">
+          <a class="button button--primary" href="#work">Explore selected work</a>
+          <RouterLink class="text-link" to="/blog">Read engineering notes <span aria-hidden="true">→</span></RouterLink>
         </div>
       </div>
-      <p
-        class="text-muted-foreground text-sm max-w-2xl mx-auto leading-relaxed mt-4"
-      >
-        I believe in my skills 💪 and I am Not Afraid of AI 🤖 taking over my
-        job.
-      </p>
 
-      <div class="mt-8 flex justify-center gap-4">
-        <a
-          href="#projects"
-          class="px-2 py-1 bg-primary text-sm text-primary-foreground rounded-lg font-light hover:opacity-90 transition-opacity"
-        >
-          View Projects
-        </a>
-        <a
-          href="#contact"
-          class="px-2 py-1 border text-sm border-neutral-900 text-secondary-foreground rounded-lg font-light hover:bg-secondary/80 transition-colors"
-        >
-          Contact Me
-        </a>
-      </div>
+      <aside class="hero-dossier" aria-label="Current engineering profile">
+        <div class="dossier-topline">
+          <span>Current file</span>
+          <span class="status"><i aria-hidden="true"></i> Shipping</span>
+        </div>
+        <img
+          class="portrait"
+          src="https://avatars.githubusercontent.com/u/84363665?v=4"
+          alt="Junaid Hussnain"
+          width="160"
+          height="160"
+        />
+        <div class="dossier-note">
+          <p class="mono-label">Now building</p>
+          <p><strong>Stackline</strong> — a private, browser-based ATS resume builder with inspectable scoring and export.</p>
+        </div>
+        <dl class="evidence-list">
+          <div><dt>Experience</dt><dd>5+ years</dd></div>
+          <div><dt>Public repos</dt><dd>56</dd></div>
+          <div><dt>Primary lane</dt><dd>Backend & product</dd></div>
+          <div><dt>Timezone</dt><dd>UTC+5</dd></div>
+        </dl>
+      </aside>
     </div>
-  </section>
-  <section class="mb-32">
-    <div class="text-center mt-8 text-muted-foreground text-sm italic">
-      <blockquote v-html="quote"></blockquote>
+
+    <div class="hero-proof" aria-label="What this portfolio contains">
+      <p>Built to be inspected</p>
+      <span>Source code</span>
+      <span>Architecture decisions</span>
+      <span>Writing</span>
+      <span>Production delivery</span>
     </div>
   </section>
 </template>

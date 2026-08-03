@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"><channel>
+  <title>Junaid Hussnain — Engineering Notes</title>
+  <link>https://hijunaid.com/blog</link>
+  <description>Practical notes on backend systems, architecture, delivery, and engineering leadership.</description>
+  <language>en</language>
+  <item><title>Building Big Software That Stays Small</title><link>https://hijunaid.com/blog/building-big-software-that-stays-small</link><guid>https://hijunaid.com/blog/building-big-software-that-stays-small</guid><pubDate>Mon, 15 Sep 2025 00:00:00 GMT</pubDate><description>Design PHP systems that scale without complexity through stable contracts and replaceable modules.</description></item>
+  <item><title>The Blazingly Fast Tech Stack to Power Your Next Million-Dollar Project</title><link>https://hijunaid.com/blog/blazingly-fast-tech-stack-for-million-dollar-project</link><guid>https://hijunaid.com/blog/blazingly-fast-tech-stack-for-million-dollar-project</guid><pubDate>Sat, 09 Aug 2025 00:00:00 GMT</pubDate><description>A practical stack for balancing time to market, developer velocity, runtime performance, and scale.</description></item>
+  <item><title>When Leading Feels Lonely</title><link>https://hijunaid.com/blog/when-leading-feels-lonely</link><guid>https://hijunaid.com/blog/when-leading-feels-lonely</guid><pubDate>Sat, 20 Jan 2024 00:00:00 GMT</pubDate><description>Building support, boundaries, and honest peer connection as an engineering leader.</description></item>
+  <item><title>Leading When You’re Not the Loudest in the Room</title><link>https://hijunaid.com/blog/leading-when-you-are-not-the-loudest-in-the-room</link><guid>https://hijunaid.com/blog/leading-when-you-are-not-the-loudest-in-the-room</guid><pubDate>Mon, 15 Jan 2024 00:00:00 GMT</pubDate><description>Leadership through listening, creating space, and steady intentional presence.</description></item>
+</channel></rss>

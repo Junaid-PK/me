@@ -3,7 +3,10 @@ import type { BlogPost } from '../utils/blog'
 import { parseMarkdownFile, sortBlogPosts, getBlogPostsByCategory, getFeaturedPosts, getRecentPosts } from '../utils/blog'
 
 // Import all markdown files
-const blogModules = import.meta.glob('../content/blog/*.md', { as: 'raw' })
+const blogModules = import.meta.glob('../content/blog/*.md', {
+  query: '?raw',
+  import: 'default',
+})
 
 export function useBlog() {
   const posts = ref<BlogPost[]>([])
@@ -64,4 +67,4 @@ export function useBlog() {
     recentPosts,
     categories
   }
-} 
+}

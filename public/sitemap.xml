@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://hijunaid.com/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://hijunaid.com/blog</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://hijunaid.com/blog/building-big-software-that-stays-small</loc><lastmod>2025-09-15</lastmod><priority>0.7</priority></url>
+  <url><loc>https://hijunaid.com/blog/blazingly-fast-tech-stack-for-million-dollar-project</loc><lastmod>2025-08-09</lastmod><priority>0.6</priority></url>
+  <url><loc>https://hijunaid.com/blog/when-leading-feels-lonely</loc><lastmod>2024-01-20</lastmod><priority>0.6</priority></url>
+  <url><loc>https://hijunaid.com/blog/leading-when-you-are-not-the-loudest-in-the-room</loc><lastmod>2024-01-15</lastmod><priority>0.6</priority></url>
+</urlset>

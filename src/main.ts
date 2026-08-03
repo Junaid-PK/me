@@ -1,10 +1,16 @@
-import { createApp } from "vue";
-import "./style.css";
+import { ViteSSG } from "vite-ssg";
 import App from "./App.vue";
-import router from "./router";
+import { routes } from "./router";
+import "./style.css";
 
-// Polyfill for Buffer (needed for gray-matter)
-import { Buffer } from 'buffer'
-window.Buffer = Buffer
-
-createApp(App).use(router).mount("#app");
+export const createApp = ViteSSG(
+  App,
+  {
+    routes,
+    scrollBehavior(to, _from, savedPosition) {
+      if (savedPosition) return savedPosition;
+      if (to.hash) return { el: to.hash, behavior: "smooth" };
+      return { top: 0 };
+    },
+  },
+);

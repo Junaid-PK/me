@@ -1,17 +1,10 @@
-import { createRouter, createWebHistory } from "vue-router";
-import Home from "../pages/Home.vue";
-import Blogs from "../pages/Blogs.vue";
+import type { RouteRecordRaw } from "vue-router";
 import BlogPost from "../pages/BlogPost.vue";
+import Blogs from "../pages/Blogs.vue";
+import Home from "../pages/Home.vue";
 
-const routes = [
-  { path: "/", component: Home },
-  { path: "/blog", component: Blogs },
-  { path: "/blog/:slug", component: BlogPost },
+export const routes: RouteRecordRaw[] = [
+  { path: "/", name: "home", component: Home },
+  { path: "/blog", name: "blog", component: Blogs },
+  { path: "/blog/:slug", name: "blog-post", component: BlogPost },
 ];
-
-const router = createRouter({
-  history: createWebHistory(),
-  routes,
-});
-
-export default router;
