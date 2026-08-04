@@ -46,6 +46,7 @@ useHead({
     textContent: JSON.stringify({
       "@context": "https://schema.org",
       "@type": "ProfilePage",
+      "@id": "https://hijunaid.com/about#profile-page",
       url: "https://hijunaid.com/about",
       name: "About Junaid Hussnain",
       mainEntity: {
