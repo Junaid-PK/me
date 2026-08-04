@@ -38,12 +38,11 @@ onBeforeUnmount(() => window.removeEventListener("keydown", handleEscape));
       <div id="primary-menu" class="nav-links" :class="{ 'nav-links--open': isOpen }">
         <a href="/#work" @click="closeMenu">Work</a>
         <RouterLink to="/about" @click="closeMenu">About</RouterLink>
-        <RouterLink to="/blog" @click="closeMenu">Notes</RouterLink>
+        <RouterLink to="/blog" @click="closeMenu">Writing</RouterLink>
         <a href="/#contact" @click="closeMenu">Contact</a>
         <a href="https://github.com/Junaid-PK" target="_blank" rel="noreferrer" @click="closeMenu">
           GitHub <span aria-hidden="true">↗</span>
         </a>
-        <span class="nav-availability"><i aria-hidden="true"></i> UTC+5</span>
       </div>
     </nav>
   </header>

@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import AceternityMovingBorder from "../ui/AceternityMovingBorder.vue";
 import AceternitySpotlight from "../ui/AceternitySpotlight.vue";
-import SystemMap from "./SystemMap.vue";
 </script>
 
 <template>
@@ -10,34 +9,26 @@ import SystemMap from "./SystemMap.vue";
     <div class="hero-grid">
       <div class="hero-copy">
         <p class="eyebrow"><span class="eyebrow-dot" aria-hidden="true"></span> Software engineer · Lahore, Pakistan</p>
-        <h1 id="hero-title">
-          I build software that
-          <em>holds up after launch.</em>
-        </h1>
+        <h1 id="hero-title">I build useful software for <em>real businesses.</em></h1>
         <p class="hero-lede">
-          I’m Junaid Hussnain. For more than five years I’ve worked across backend products,
-          operational tools, and the delivery systems that keep software useful when real work begins.
+          I’m Junaid Hussnain, a software engineer with 5+ years of experience building web applications,
+          backend systems, and developer tools.
         </p>
         <div class="hero-actions">
-          <AceternityMovingBorder href="#work">Inspect verified work <span aria-hidden="true">↘</span></AceternityMovingBorder>
-          <RouterLink class="text-link" to="/about">How I work <span aria-hidden="true">→</span></RouterLink>
+          <AceternityMovingBorder href="#work">View my work <span aria-hidden="true">↓</span></AceternityMovingBorder>
+          <a class="text-link" href="https://github.com/Junaid-PK" target="_blank" rel="me noreferrer">GitHub <span aria-hidden="true">↗</span></a>
         </div>
-        <dl class="hero-facts" aria-label="Professional summary">
-          <div><dt>Experience</dt><dd>5+ years</dd></div>
-          <div><dt>Focus</dt><dd>Backend + product</dd></div>
-          <div><dt>Public proof</dt><dd>Code, PRs, notes</dd></div>
-        </dl>
+        <p class="hero-stack">Laravel &amp; PHP <span>·</span> TypeScript <span>·</span> Python <span>·</span> PostgreSQL <span>·</span> Docker</p>
       </div>
 
-      <SystemMap />
-    </div>
-
-    <div class="hero-proof" aria-label="What this portfolio contains">
-      <p>Evidence, not adjectives</p>
-      <span>Public source</span>
-      <span>Engineering decisions</span>
-      <span>Open-source work</span>
-      <span>Production delivery</span>
+      <aside class="hero-profile" aria-label="Junaid Hussnain profile">
+        <img src="https://avatars.githubusercontent.com/u/84363665?v=4" alt="Junaid Hussnain" width="560" height="560" />
+        <div>
+          <span>Junaid Hussnain</span>
+          <strong>Software engineer</strong>
+          <small>5+ years of experience</small>
+        </div>
+      </aside>
     </div>
   </section>
 </template>
