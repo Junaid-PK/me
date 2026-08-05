@@ -118,39 +118,38 @@ useHead({
 </template>
 
 <style scoped>
-.profile-page { width: min(1320px, calc(100% - 2rem)); margin: 0 auto; }
-.profile-hero { display: grid; grid-template-columns: 1.35fr 0.65fr; align-items: center; gap: clamp(3rem, 8vw, 8rem); margin-top: 0.35rem; padding: clamp(3rem, 7vw, 6rem); background: var(--paper); border: 1px solid var(--rule); border-radius: 2rem; box-shadow: 0 24px 70px rgba(16, 37, 31, 0.08); }
-.profile-hero h1 { margin: 0; font: 600 clamp(4rem, 8vw, 7.2rem)/0.9 "Newsreader", serif; letter-spacing: -0.06em; }
-.profile-lede { max-width: 700px; margin: 1.5rem 0 0; color: var(--blueprint); font: 500 clamp(1.5rem, 3vw, 2.6rem)/1.12 "Newsreader", serif; letter-spacing: -0.035em; }
+.profile-page { width: min(1180px, calc(100% - 3rem)); margin: 0 auto; }
+.profile-hero { display: grid; grid-template-columns: 1.45fr 0.55fr; align-items: end; gap: clamp(3rem, 8vw, 8rem); padding: clamp(3.5rem, 7vw, 6.5rem) 0 clamp(3rem, 6vw, 5rem); border-bottom: 3px solid var(--ink); }
+.profile-hero h1 { margin: 0; font-size: clamp(4rem, 9vw, 8rem); font-weight: 720; line-height: 0.88; letter-spacing: -0.075em; }
+.profile-lede { max-width: 700px; margin: 1.5rem 0 0; color: var(--blueprint); font-size: clamp(1.4rem, 3vw, 2.5rem); font-weight: 650; line-height: 1.1; letter-spacing: -0.045em; }
 .profile-actions { display: flex; align-items: center; gap: 1.5rem; margin-top: 2rem; }
-.profile-hero > img { width: 100%; aspect-ratio: 1; object-fit: cover; object-position: 50% 30%; background: var(--steel); border: 1px solid var(--rule-strong); border-radius: 1.5rem; box-shadow: 12px 12px 0 var(--mint); }
+.profile-hero > img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: 50% 30%; background: var(--steel); border-top: 3px solid var(--ink); border-bottom: 1px solid var(--ink); filter: saturate(0.7) contrast(1.04); }
 .profile-summary, .profile-section-heading, .profile-next { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(3rem, 8vw, 8rem); }
 .profile-summary, .profile-tools, .public-record { padding: clamp(5rem, 9vw, 8rem) 0; border-bottom: 1px solid var(--rule); }
-.profile-summary h2, .profile-tools h2, .profile-section-heading h2, .profile-next h2 { margin: 0; font: 600 clamp(2.5rem, 5vw, 4.6rem)/0.98 "Newsreader", serif; letter-spacing: -0.045em; }
+.profile-summary h2, .profile-tools h2, .profile-section-heading h2, .profile-next h2 { margin: 0; font-size: clamp(2.5rem, 5vw, 4.6rem); font-weight: 720; line-height: 0.98; letter-spacing: -0.06em; }
 .profile-summary p, .profile-section-heading > p, .profile-next p { margin: 0 0 1rem; color: var(--muted); line-height: 1.75; }
-.profile-tool-list { display: flex; flex-wrap: wrap; gap: 0.65rem; margin-top: 2rem; }
-.profile-tool-list span { padding: 0.65rem 0.85rem; background: var(--paper); border: 1px solid var(--rule-strong); border-radius: 999px; font: 500 0.72rem/1 "IBM Plex Mono", monospace; }
+.profile-tool-list { display: grid; grid-template-columns: repeat(5, 1fr); margin-top: 2rem; border-top: 3px solid var(--ink); }
+.profile-tool-list span { padding: 0.9rem 0.3rem 0.9rem 0; border-bottom: 1px solid var(--rule-strong); font-size: 0.72rem; font-weight: 700; }
 .profile-section-heading { align-items: end; margin-bottom: 2.5rem; }
-.public-record__list { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
-.public-record__list > a { display: flex; min-height: 250px; flex-direction: column; padding: 1.5rem; color: var(--ink); background: var(--paper); border: 1px solid var(--rule-strong); border-radius: 1.3rem; text-decoration: none; transition: transform 180ms ease, background 180ms ease; }
-.public-record__list > a:nth-child(2) { background: var(--steel); }
-.public-record__list > a:nth-child(3) { background: var(--mint); }
-.public-record__list > a:hover { transform: translateY(-4px); background: var(--lime); }
-.public-record__status { color: var(--blueprint); font: 500 0.65rem/1.4 "IBM Plex Mono", monospace; text-transform: uppercase; }
-.public-record__copy { display: grid; gap: 0.8rem; margin-top: auto; }
-.public-record__copy strong { font: 600 1.45rem/1.1 "Newsreader", serif; }
-.public-record__copy > span { color: var(--muted); font-size: 0.82rem; line-height: 1.6; }
-.public-record__arrow { margin-top: 1rem; color: var(--blueprint); }
-.profile-next { align-items: end; margin-top: clamp(4rem, 8vw, 7rem); padding: clamp(3rem, 6vw, 5rem); background: var(--steel); border: 1px solid var(--rule-strong); border-radius: 2rem; }
+.public-record__list { border-top: 3px solid var(--ink); }
+.public-record__list > a { display: grid; grid-template-columns: 120px minmax(0, 1fr) 24px; gap: 2rem; align-items: start; padding: 1.6rem 0; color: var(--ink); border-bottom: 1px solid var(--rule-strong); text-decoration: none; }
+.public-record__list > a:hover strong { color: var(--blueprint); }
+.public-record__status { color: var(--blueprint); font-size: 0.65rem; font-weight: 700; line-height: 1.4; letter-spacing: 0.06em; text-transform: uppercase; }
+.public-record__copy { display: grid; gap: 0.6rem; }
+.public-record__copy strong { font-size: 1.35rem; line-height: 1.1; letter-spacing: -0.03em; }
+.public-record__copy > span { max-width: 720px; color: var(--muted); font-size: 0.82rem; line-height: 1.6; }
+.public-record__arrow { justify-self: end; color: var(--blueprint); }
+.profile-next { align-items: end; margin-top: clamp(4rem, 8vw, 7rem); padding: clamp(2.5rem, 5vw, 4rem); background: var(--steel); border-top: 4px solid var(--ink); border-bottom: 1px solid var(--ink); }
 @media (max-width: 800px) {
   .profile-hero, .profile-summary, .profile-section-heading, .profile-next { grid-template-columns: 1fr; gap: 2.5rem; }
-  .profile-hero > img { max-width: 420px; }
-  .public-record__list { grid-template-columns: 1fr; }
+  .profile-hero > img { max-width: 340px; }
+  .profile-tool-list { grid-template-columns: repeat(2, 1fr); }
 }
 @media (max-width: 560px) {
-  .profile-page { width: min(100% - 1rem, 1320px); }
-  .profile-hero, .profile-next { padding: 3rem 1.25rem; border-radius: 1.4rem; }
+  .profile-page { width: min(100% - 2rem, 1180px); }
   .profile-actions { align-items: flex-start; flex-direction: column; }
-  .public-record__list > a { min-height: 210px; }
+  .public-record__list > a { grid-template-columns: 1fr 20px; gap: 0.8rem; }
+  .public-record__status { grid-column: 1 / -1; }
+  .profile-next { padding-inline: 1.2rem; }
 }
 </style>

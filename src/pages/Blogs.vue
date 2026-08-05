@@ -101,37 +101,32 @@ useHead(() => ({
 </template>
 
 <style scoped>
-.notes-index { width: min(1320px, calc(100% - 2rem)); min-height: 70vh; margin: 0 auto; padding: 0.35rem 0 clamp(4rem, 8vw, 8rem); }
-.notes-header { position: relative; overflow: hidden; display: grid; grid-template-columns: 1.4fr 0.6fr; align-items: end; gap: 5rem; padding: clamp(3rem, 7vw, 6rem); background: var(--paper); border: 1px solid var(--rule); border-radius: 2rem; box-shadow: 0 24px 70px rgba(16, 37, 31, 0.08); }
-.notes-header::after { position: absolute; inset: 0; content: ""; opacity: 0.32; background-image: linear-gradient(var(--rule) 1px, transparent 1px), linear-gradient(90deg, var(--rule) 1px, transparent 1px); background-size: 44px 44px; mask-image: linear-gradient(90deg, transparent 35%, black); pointer-events: none; }
-.notes-header > * { position: relative; z-index: 1; }
-.notes-header h1 { max-width: 850px; margin: 0; font: 600 clamp(3.2rem, 7vw, 6.8rem)/0.92 "Newsreader", serif; letter-spacing: -0.06em; }
-.notes-header > p { margin: 0 0 0.5rem; color: var(--muted); line-height: 1.7; }
-.filter-bar { display: flex; flex-wrap: wrap; gap: 0.6rem; padding: 1.4rem 0; }
-.filter-bar button { min-height: 2.65rem; padding: 0.55rem 0.85rem; color: var(--muted); background: var(--paper); border: 1px solid var(--rule); border-radius: 999px; cursor: pointer; font: 500 0.65rem/1 "IBM Plex Mono", monospace; text-transform: uppercase; }
-.filter-bar button span { margin-left: 0.35rem; color: var(--blueprint); }
-.filter-bar button[aria-pressed="true"] { color: var(--canvas); background: var(--ink); border-color: var(--ink); }
-.filter-bar button[aria-pressed="true"] span { color: var(--mint); }
-.article-list { display: grid; gap: 0.8rem; }
-.article-row { display: grid; grid-template-columns: 75px 1fr 35px; gap: 2rem; padding: clamp(1.8rem, 4vw, 3.2rem); background: var(--paper); border: 1px solid var(--rule); border-radius: 1.35rem; text-decoration: none; transition: transform 180ms ease, background 180ms ease; }
-.article-row:nth-child(3n + 2) { background: color-mix(in srgb, var(--lime) 72%, var(--paper)); }
-.article-row:nth-child(3n) { background: color-mix(in srgb, var(--steel) 68%, var(--paper)); }
-.article-row:hover { transform: translateX(5px); background: var(--mint); }
-.article-index, .article-meta { color: var(--muted); font: 400 0.68rem/1.6 "IBM Plex Mono", monospace; text-transform: uppercase; }
+.notes-index { width: min(1180px, calc(100% - 3rem)); min-height: 70vh; margin: 0 auto; padding: clamp(3.5rem, 7vw, 6.5rem) 0 clamp(4rem, 8vw, 8rem); }
+.notes-header { display: grid; grid-template-columns: 1.5fr 0.5fr; align-items: end; gap: 5rem; padding-bottom: clamp(2.5rem, 5vw, 4rem); border-bottom: 3px solid var(--ink); }
+.notes-header h1 { max-width: 900px; margin: 0; font-size: clamp(3.5rem, 7.5vw, 7rem); font-weight: 720; line-height: 0.92; letter-spacing: -0.07em; }
+.notes-header > p { max-width: 360px; margin: 0 0 0.25rem; color: var(--muted); font-size: 0.9rem; line-height: 1.65; }
+.filter-bar { display: flex; flex-wrap: wrap; gap: 0 1.2rem; padding: 1rem 0; border-bottom: 1px solid var(--rule-strong); }
+.filter-bar button { min-height: 2.3rem; padding: 0; color: var(--muted); background: transparent; border: 0; border-bottom: 2px solid transparent; cursor: pointer; font-size: 0.66rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; }
+.filter-bar button span { margin-left: 0.25rem; color: var(--blueprint); }
+.filter-bar button[aria-pressed="true"] { color: var(--ink); border-bottom-color: var(--ink); }
+.article-list { border-top: 1px solid var(--ink); }
+.article-row { display: grid; grid-template-columns: 54px 1fr 24px; gap: 2rem; padding: clamp(1.6rem, 3vw, 2.6rem) 0; border-bottom: 1px solid var(--rule-strong); text-decoration: none; }
+.article-row:hover h2 { color: var(--blueprint); }
+.article-index, .article-meta { color: var(--muted); font-size: 0.65rem; font-weight: 700; line-height: 1.6; letter-spacing: 0.05em; text-transform: uppercase; }
 .article-index { color: var(--signal-text); }
 .article-meta { margin: 0 0 0.8rem; }
-.article-copy h2 { max-width: 850px; margin: 0; font: 600 clamp(1.8rem, 4vw, 3rem)/1.05 "Newsreader", serif; letter-spacing: -0.035em; }
-.article-copy > p:last-child { max-width: 750px; margin: 1rem 0 0; color: var(--muted); line-height: 1.65; }
-.article-open { color: var(--blueprint); font-size: 1.2rem; }
+.article-copy h2 { max-width: 850px; margin: 0; font-size: clamp(1.75rem, 3.7vw, 3rem); font-weight: 700; line-height: 1.03; letter-spacing: -0.05em; }
+.article-copy > p:last-child { max-width: 750px; margin: 0.9rem 0 0; color: var(--muted); font-size: 0.88rem; line-height: 1.65; }
+.article-open { justify-self: end; color: var(--blueprint); }
 .page-state { padding: 5rem 0; color: var(--muted); }
-.page-state h2 { color: var(--ink); font: 600 2rem/1.1 "Newsreader", serif; }
+.page-state h2 { color: var(--ink); font-size: 2rem; line-height: 1.1; letter-spacing: -0.04em; }
 .page-state button { padding: 0; color: var(--blueprint); background: none; border: 0; text-decoration: underline; cursor: pointer; }
 .page-state--error { color: #9d2f1e; }
 @media (max-width: 760px) {
-  .notes-index { width: min(100% - 1rem, 1320px); }
-  .notes-header { grid-template-columns: 1fr; gap: 1.5rem; padding: 3rem 1.2rem; border-radius: 1.45rem; }
-  .notes-header h1 { font-size: clamp(3rem, 15vw, 5rem); }
-  .article-row { grid-template-columns: 32px 1fr 20px; gap: 0.7rem; padding: 1.4rem 1rem; }
-  .article-copy > p:last-child { display: none; }
+  .notes-index { width: min(100% - 2rem, 1180px); }
+  .notes-header { grid-template-columns: 1fr; gap: 1.5rem; }
+  .notes-header h1 { font-size: clamp(3.2rem, 16vw, 5.4rem); }
+  .article-row { grid-template-columns: 28px 1fr 16px; gap: 0.8rem; }
+  .article-copy > p:last-child { font-size: 0.82rem; }
 }
 </style>
