@@ -6,6 +6,14 @@
   <description>Practical notes on backend systems, open source, architecture, delivery, and engineering leadership.</description>
   <language>en</language>
   <item>
+    <title>Migrating to TypeScript 7 Without Breaking Your Toolchain</title>
+    <link>https://hijunaid.com/blog/migrating-to-typescript-7-without-breaking-your-toolchain</link>
+    <guid isPermaLink="true">https://hijunaid.com/blog/migrating-to-typescript-7-without-breaking-your-toolchain</guid>
+    <pubDate>Tue, 04 Aug 2026 19:00:00 GMT</pubDate>
+    <dc:creator>Junaid Hussnain</dc:creator>
+    <description>A staged plan for adopting TypeScript’s native compiler while keeping configuration changes, framework compatibility, CI capacity, and rollback risk visible.</description>
+  </item>
+  <item>
     <title>Designing a Redacted Provenance Ledger for Laravel AI Agents</title>
     <link>https://hijunaid.com/blog/designing-a-redacted-provenance-ledger-for-laravel-ai-agents</link>
     <guid isPermaLink="true">https://hijunaid.com/blog/designing-a-redacted-provenance-ledger-for-laravel-ai-agents</guid>
