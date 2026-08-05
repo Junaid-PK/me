@@ -1,28 +1,37 @@
 <template>
   <section class="hero" aria-labelledby="hero-title">
     <div class="hero-grid">
-      <div class="hero-copy">
-        <p class="eyebrow"><span class="eyebrow-dot" aria-hidden="true"></span> Software engineer · Lahore, Pakistan</p>
-        <h1 id="hero-title">Useful software for <em>the real world.</em></h1>
+      <header class="hero-copy">
+        <p class="eyebrow">Junaid Hussnain · Lahore, Pakistan</p>
+        <h1 id="hero-title">Software engineer building practical web products and backend systems.</h1>
         <p class="hero-lede">
-          I’m Junaid Hussnain, a software engineer with 5+ years of experience building web applications,
-          backend systems, and developer tools.
+          For more than five years, I’ve worked across the stack—from databases and APIs to the interfaces
+          people use every day. I focus on software that is clear, reliable, and straightforward to maintain.
         </p>
         <div class="hero-actions">
           <a class="button button--primary" href="#work">View selected work <span aria-hidden="true">↓</span></a>
-          <a class="text-link" href="https://github.com/Junaid-PK" target="_blank" rel="me noreferrer">GitHub <span aria-hidden="true">↗</span></a>
+          <RouterLink class="text-link" to="/about">More about me <span aria-hidden="true">→</span></RouterLink>
         </div>
-        <p class="hero-stack">Laravel &amp; PHP <span>·</span> TypeScript <span>·</span> Python <span>·</span> PostgreSQL <span>·</span> Docker</p>
-      </div>
+      </header>
 
-      <aside class="hero-profile" aria-label="Junaid Hussnain profile">
-        <img src="https://avatars.githubusercontent.com/u/84363665?v=4" alt="Junaid Hussnain" width="560" height="560" />
+      <dl class="hero-overview" aria-label="Professional overview">
         <div>
-          <span>Junaid Hussnain</span>
-          <strong>Software engineer</strong>
-          <small>5+ years of experience</small>
+          <dt>Experience</dt>
+          <dd>5+ years in software engineering</dd>
         </div>
-      </aside>
+        <div>
+          <dt>Focus</dt>
+          <dd>Web applications, backend systems, and developer tools</dd>
+        </div>
+        <div>
+          <dt>Work</dt>
+          <dd>Business platforms, APIs, automation, and reporting</dd>
+        </div>
+        <div>
+          <dt>Core stack</dt>
+          <dd>Laravel, PHP, TypeScript, Python, PostgreSQL, and Docker</dd>
+        </div>
+      </dl>
     </div>
   </section>
 </template>
