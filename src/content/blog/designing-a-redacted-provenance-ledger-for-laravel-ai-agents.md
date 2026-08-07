@@ -12,7 +12,7 @@ An agent invocation rarely contains only a user's message. It may also include r
 
 When something goes wrong, “this prompt produced that result” is not enough evidence. We need to know which labeled inputs entered the invocation and where they came from. The obvious answer—log the rendered prompt—creates a different problem: the observability system becomes another database of prompts, documents, API results, filenames, URLs, and personal information.
 
-I worked through that boundary while contributing a redacted provenance ledger to [Fissible Verdict](https://github.com/fissible/verdict), a Laravel package for policy-bound agent actions and security evidence. The implementation is open in [Verdict pull request #7](https://github.com/fissible/verdict/pull/7). Its complete PHP 8.3–8.5, Laravel 12/13, Ubuntu, and Windows matrix is green, together with a clean Laravel consumer installation.
+I worked through that boundary while contributing a redacted provenance ledger to [Fissible Verdict](https://github.com/fissible/verdict), a Laravel package for policy-bound agent actions and security evidence. The implementation was merged in [Verdict pull request #7](https://github.com/fissible/verdict/pull/7) after its PHP 8.3–8.5, Laravel 12/13, Ubuntu, and Windows matrix passed, together with a clean Laravel consumer installation.
 
 This note explains the core model, where the redaction boundary sits, and what deterministic fingerprints can—and cannot—prove.
 
@@ -200,4 +200,4 @@ For a redacted provenance system:
 7. Document what the integration cannot observe.
 8. Test serialization and persisted rows for the exact values that must never survive.
 
-The implementation, tests, migration, and review history are available in [Verdict pull request #7](https://github.com/fissible/verdict/pull/7). The pull request is open and fully green; this note describes the submitted implementation rather than a released package feature.
+The implementation, tests, migration, and review history are available in the merged [Verdict pull request #7](https://github.com/fissible/verdict/pull/7).

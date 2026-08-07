@@ -15,7 +15,7 @@ const publicWork = [
     href: "https://github.com/rectorphp/rector-src/pull/8281",
   },
   {
-    status: "Open PR",
+    status: "Merged",
     name: "Meilisearch PHP: Dynamic Search Rules",
     detail: "Backported a search rules API with tests and PHP 7.4 compatibility.",
     href: "https://github.com/meilisearch/meilisearch-php/pull/942",

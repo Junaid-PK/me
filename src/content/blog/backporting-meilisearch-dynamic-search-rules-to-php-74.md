@@ -14,7 +14,7 @@ That approach works only when the source and target branches still speak the sam
 
 I ran into exactly that while working on [Meilisearch PHP issue #911](https://github.com/meilisearch/meilisearch-php/issues/911). The task was to bring Dynamic Search Rules from the mainline client to `v1.x`, including the Meilisearch 1.50 behavior, without breaking the branch's PHP 7.4 support.
 
-The implementation is available in [pull request #942](https://github.com/meilisearch/meilisearch-php/pull/942). The pull request is still open, so this note describes the engineering and verification behind the proposed change rather than presenting it as a released feature.
+The implementation was merged in [pull request #942](https://github.com/meilisearch/meilisearch-php/pull/942) after the v1.x compatibility and integration checks passed. This note describes the engineering and verification behind the backport.
 
 ## Start with the target branch, not the source patch
 
@@ -138,4 +138,4 @@ Four decisions kept the work bounded:
 
 The result is more than a cherry-pick. It is a translation between two versions of the same codebase, with the target branch's promises kept intact.
 
-You can follow the review and see the full diff in [Meilisearch PHP pull request #942](https://github.com/meilisearch/meilisearch-php/pull/942).
+The merged diff and review history are available in [Meilisearch PHP pull request #942](https://github.com/meilisearch/meilisearch-php/pull/942).
