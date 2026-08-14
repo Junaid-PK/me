@@ -98,7 +98,7 @@ jobs:
           grep --fixed-strings --quiet '<title>About Junaid Hussnain — Software Engineer</title>' "$about"
           grep --fixed-strings --quiet '<link rel="canonical" href="https://hijunaid.com/about">' "$about"
           grep --fixed-strings --quiet '"@id":"https://hijunaid.com/about#profile-page"' "$about"
-          grep --fixed-strings --quiet 'Rector: Safe Constructor Default Inlining' "$about"
+          grep --fixed-strings --quiet 'Moon Mining Manager: Miner Search' "$about"
           curl --fail --silent --show-error --retry 5 --retry-delay 2 \
             --resolve "hijunaid.com:443:$VPS_HOST" \
             --output "$notes" \
