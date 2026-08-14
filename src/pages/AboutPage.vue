@@ -9,10 +9,10 @@ const publicWork = [
     href: "https://github.com/fissible/verdict/pull/6",
   },
   {
-    status: "Open PR",
-    name: "Rector: Safe Constructor Default Inlining",
-    detail: "Fixed a property initialization edge case in Rector's PHP refactoring engine.",
-    href: "https://github.com/rectorphp/rector-src/pull/8281",
+    status: "Open",
+    name: "Moon Mining Manager: Miner Search",
+    detail: "Added tested server-side search with pagination and accessible empty states.",
+    href: "https://github.com/bravecollective/moon-mining-manager/pull/67",
   },
   {
     status: "Merged",
