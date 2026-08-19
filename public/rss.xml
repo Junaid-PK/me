@@ -6,6 +6,14 @@
   <description>Practical notes on backend systems, open source, architecture, delivery, and engineering leadership.</description>
   <language>en</language>
   <item>
+    <title>Adopting Free-Threaded Python Without Guessing About Performance</title>
+    <link>https://hijunaid.com/blog/adopting-free-threaded-python-without-guessing</link>
+    <guid isPermaLink="true">https://hijunaid.com/blog/adopting-free-threaded-python-without-guessing</guid>
+    <pubDate>Tue, 18 Aug 2026 19:00:00 GMT</pubDate>
+    <dc:creator>Junaid Hussnain</dc:creator>
+    <description>A practical way to evaluate Python 3.14 free threading across dependency compatibility, shared-state correctness, throughput, memory, and production rollback.</description>
+  </item>
+  <item>
     <title>Migrating to TypeScript 7 Without Breaking Your Toolchain</title>
     <link>https://hijunaid.com/blog/migrating-to-typescript-7-without-breaking-your-toolchain</link>
     <guid isPermaLink="true">https://hijunaid.com/blog/migrating-to-typescript-7-without-breaking-your-toolchain</guid>
