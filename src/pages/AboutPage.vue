@@ -9,7 +9,7 @@ const publicWork = [
     href: "https://github.com/fissible/verdict/pull/6",
   },
   {
-    status: "Open",
+    status: "Merged",
     name: "Moon Mining Manager: Miner Search",
     detail: "Added tested server-side search with pagination and accessible empty states.",
     href: "https://github.com/bravecollective/moon-mining-manager/pull/67",
