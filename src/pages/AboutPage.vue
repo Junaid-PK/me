@@ -4,9 +4,9 @@ import { useHead } from "@unhead/vue";
 const publicWork = [
   {
     status: "Merged",
-    name: "Verdict Evaluation CLI",
-    detail: "Added safer CI comparisons and regression reporting to a Laravel security package.",
-    href: "https://github.com/fissible/verdict/pull/6",
+    name: "Config File Validator: YAML Formatting",
+    detail: "Preserved nested sequence structure in Boeing's Go-based YAML formatter, with regression coverage.",
+    href: "https://github.com/Boeing/config-file-validator/pull/663",
   },
   {
     status: "Merged",
