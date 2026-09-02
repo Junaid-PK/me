@@ -6,6 +6,14 @@
   <description>Practical notes on backend systems, open source, architecture, delivery, and engineering leadership.</description>
   <language>en</language>
   <item>
+    <title>Migrating Remote MCP Servers Without Sticky Sessions</title>
+    <link>https://hijunaid.com/blog/migrating-remote-mcp-servers-without-sticky-sessions</link>
+    <guid isPermaLink="true">https://hijunaid.com/blog/migrating-remote-mcp-servers-without-sticky-sessions</guid>
+    <pubDate>Tue, 01 Sep 2026 19:00:00 GMT</pubDate>
+    <dc:creator>Junaid Hussnain</dc:creator>
+    <description>A practical migration plan for MCP 2026-07-28 across stateless HTTP, explicit workflow state, gateway routing, caching, multi-step tools, and OAuth validation.</description>
+  </item>
+  <item>
     <title>Adopting Free-Threaded Python Without Guessing About Performance</title>
     <link>https://hijunaid.com/blog/adopting-free-threaded-python-without-guessing</link>
     <guid isPermaLink="true">https://hijunaid.com/blog/adopting-free-threaded-python-without-guessing</guid>
