@@ -13,6 +13,7 @@ people and search crawlers without client-side rendering.
 - Route-level static generation for the portfolio, dedicated professional profile, notes index, and every Markdown article.
 - Canonical URLs, social metadata, and route-specific `ProfilePage`, `CollectionPage`, `ItemList`, `Person`, `WebSite`, and `BlogPosting` structured data.
 - Sitemap and RSS generation from the same article frontmatter used by the application.
+- Build-time GitHub API evidence for independently merged open-source pull requests, with a visible fallback if the API is unavailable.
 - Real `404` responses with a useful, crawl-safe fallback page instead of a soft homepage duplicate.
 - IndexNow notification for every deployed public route.
 - A least-privilege VPS deployment that synchronizes static assets, validates nginx, and reloads only the portfolio service.

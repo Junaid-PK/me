@@ -34,6 +34,8 @@ jobs:
         run: npm ci
 
       - name: Build production site
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
         run: npm run build
 
       - name: Add IndexNow ownership key
@@ -98,6 +100,10 @@ jobs:
           grep --fixed-strings --quiet '<title>About Junaid Hussnain — Software Engineer</title>' "$about"
           grep --fixed-strings --quiet '<link rel="canonical" href="https://hijunaid.com/about">' "$about"
           grep --fixed-strings --quiet '"@id":"https://hijunaid.com/about#profile-page"' "$about"
+          grep --fixed-strings --quiet 'Verified public record' "$about"
+          grep --extended-regexp --quiet \
+            'merged pull requests in repositories I|Live contribution total temporarily unavailable' \
+            "$about"
           grep --fixed-strings --quiet 'Moon Mining Manager: Miner Search' "$about"
           curl --fail --silent --show-error --retry 5 --retry-delay 2 \
             --resolve "hijunaid.com:443:$VPS_HOST" \

@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { useHead } from "@unhead/vue";
+import githubEvidence from "virtual:github-evidence";
 
 const publicWork = [
   {
@@ -23,6 +24,14 @@ const publicWork = [
 ];
 
 const tools = ["Laravel", "PHP", "TypeScript", "Vue", "React", "Python", "PostgreSQL", "Redis", "Docker", "GitHub Actions"];
+
+const mergedContributionCount = githubEvidence.totalMerged === null
+  ? null
+  : new Intl.NumberFormat("en").format(githubEvidence.totalMerged);
+
+const evidenceDate = githubEvidence.generatedAt
+  ? new Intl.DateTimeFormat("en", { dateStyle: "medium", timeZone: "UTC" }).format(new Date(githubEvidence.generatedAt))
+  : null;
 
 useHead({
   title: "About Junaid Hussnain — Software Engineer",
@@ -101,6 +110,27 @@ useHead({
         <div><p class="eyebrow">Open source</p><h2 id="public-record-title">Recent contributions.</h2></div>
         <p>Work submitted to projects maintained by other teams.</p>
       </div>
+      <div class="public-record__evidence">
+        <div>
+          <span class="public-record__status">Verified public record</span>
+          <p v-if="mergedContributionCount" class="public-record__metric">
+            <strong>{{ mergedContributionCount }}</strong>
+            <span>{{ githubEvidence.status === "partial" ? "or more " : "" }}merged pull requests in repositories I don’t own</span>
+          </p>
+          <p v-else class="public-record__metric public-record__metric--unavailable">
+            <strong aria-hidden="true">—</strong>
+            <span>Live contribution total temporarily unavailable</span>
+          </p>
+        </div>
+        <p v-if="evidenceDate">
+          Counted from GitHub’s public API on {{ evidenceDate }}.
+          <a :href="githubEvidence.sourceUrl" target="_blank" rel="noreferrer">View the source query <span aria-hidden="true">↗</span></a>
+        </p>
+        <p v-else>
+          The linked contributions below remain independently verifiable.
+          <a :href="githubEvidence.sourceUrl" target="_blank" rel="noreferrer">View the source query <span aria-hidden="true">↗</span></a>
+        </p>
+      </div>
       <div class="public-record__list">
         <a v-for="item in publicWork" :key="item.href" :href="item.href" target="_blank" rel="noreferrer">
           <span class="public-record__status">{{ item.status }}</span>
@@ -131,6 +161,14 @@ useHead({
 .profile-tool-list { display: grid; grid-template-columns: repeat(5, 1fr); margin-top: 2rem; border-top: 3px solid var(--ink); }
 .profile-tool-list span { padding: 0.9rem 0.3rem 0.9rem 0; border-bottom: 1px solid var(--rule-strong); font-size: 0.72rem; font-weight: 700; }
 .profile-section-heading { align-items: end; margin-bottom: 2.5rem; }
+.public-record__evidence { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(260px, 0.85fr); gap: clamp(2rem, 6vw, 6rem); align-items: end; padding: 1.5rem 0 2rem; border-top: 3px solid var(--ink); }
+.public-record__evidence > p { max-width: 440px; margin: 0 0 0.2rem; color: var(--muted); font-size: 0.78rem; line-height: 1.65; }
+.public-record__evidence a { color: var(--ink); font-weight: 700; text-underline-offset: 0.25em; }
+.public-record__evidence a:hover { color: var(--blueprint); }
+.public-record__metric { display: flex; max-width: 620px; align-items: baseline; gap: 1rem; margin: 0.65rem 0 0; }
+.public-record__metric strong { font-size: clamp(3rem, 7vw, 6rem); line-height: 0.9; letter-spacing: -0.07em; }
+.public-record__metric span { max-width: 260px; color: var(--ink-soft); font-size: 0.9rem; font-weight: 650; line-height: 1.35; }
+.public-record__metric--unavailable strong { color: var(--muted); }
 .public-record__list { border-top: 3px solid var(--ink); }
 .public-record__list > a { display: grid; grid-template-columns: 120px minmax(0, 1fr) 24px; gap: 2rem; align-items: start; padding: 1.6rem 0; color: var(--ink); border-bottom: 1px solid var(--rule-strong); text-decoration: none; }
 .public-record__list > a:hover strong { color: var(--blueprint); }
@@ -141,7 +179,7 @@ useHead({
 .public-record__arrow { justify-self: end; color: var(--blueprint); }
 .profile-next { align-items: end; margin-top: clamp(4rem, 8vw, 7rem); padding: clamp(2.5rem, 5vw, 4rem); background: var(--steel); border-top: 4px solid var(--ink); border-bottom: 1px solid var(--ink); }
 @media (max-width: 800px) {
-  .profile-hero, .profile-summary, .profile-section-heading, .profile-next { grid-template-columns: 1fr; gap: 2.5rem; }
+  .profile-hero, .profile-summary, .profile-section-heading, .public-record__evidence, .profile-next { grid-template-columns: 1fr; gap: 2.5rem; }
   .profile-hero > img { max-width: 340px; }
   .profile-tool-list { grid-template-columns: repeat(2, 1fr); }
 }
