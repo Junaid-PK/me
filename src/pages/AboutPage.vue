@@ -5,6 +5,12 @@ import githubEvidence from "virtual:github-evidence";
 const publicWork = [
   {
     status: "Merged",
+    name: "OpenSandbox: C# Readiness Timeout",
+    detail: "Kept C# readiness checks within their configured timeout by bounding retry delays, with regression coverage.",
+    href: "https://github.com/opensandbox-group/OpenSandbox/pull/1748",
+  },
+  {
+    status: "Merged",
     name: "PR-Agent: Gerrit Setup Cleanup",
     detail: "Removed temporary repositories when Gerrit setup fails, while preserving the original error and covering each setup stage with regression tests.",
     href: "https://github.com/The-PR-Agent/pr-agent/pull/2926",
@@ -14,12 +20,6 @@ const publicWork = [
     name: "Config File Validator: YAML Formatting",
     detail: "Preserved nested sequence structure in Boeing's Go-based YAML formatter, with regression coverage.",
     href: "https://github.com/Boeing/config-file-validator/pull/663",
-  },
-  {
-    status: "Merged",
-    name: "Moon Mining Manager: Miner Search",
-    detail: "Added tested server-side search with pagination and accessible empty states.",
-    href: "https://github.com/bravecollective/moon-mining-manager/pull/67",
   },
 ];
 
