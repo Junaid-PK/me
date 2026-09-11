@@ -104,7 +104,7 @@ jobs:
           grep --extended-regexp --quiet \
             'merged pull requests in repositories I|Live contribution total temporarily unavailable' \
             "$about"
-          grep --fixed-strings --quiet 'Moon Mining Manager: Miner Search' "$about"
+          grep --fixed-strings --quiet 'OpenSandbox: C# Readiness Timeout' "$about"
           curl --fail --silent --show-error --retry 5 --retry-delay 2 \
             --resolve "hijunaid.com:443:$VPS_HOST" \
             --output "$notes" \
